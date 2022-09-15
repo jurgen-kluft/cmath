@@ -1,4 +1,5 @@
-
+#ifndef cglm_persp_h
+#define cglm_persp_h
 
 /*
  Functions:
@@ -7,9 +8,6 @@
    CGLM_INLINE float glm_persp_aspect(mat4 proj)
    CGLM_INLINE void  glm_persp_sizes(mat4 proj, float fovy, vec4 dest)
  */
-
-#ifndef cglm_persp_h
-#define cglm_persp_h
 
 #include "cmath/common.h"
 #include "cmath/plane.h"
@@ -24,10 +22,7 @@
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float
-glm_persp_fovy(mat4 proj) {
-  return 2.0f * atanf(1.0f / proj[1][1]);
-}
+float glm_persp_fovy(mat4 proj) { return 2.0f * atanf(1.0f / proj[1][1]); }
 
 /*!
  * @brief returns aspect ratio of perspective projection
@@ -35,9 +30,6 @@ glm_persp_fovy(mat4 proj) {
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float
-glm_persp_aspect(mat4 proj) {
-  return proj[1][1] / proj[0][0];
-}
+float glm_persp_aspect(mat4 proj) { return proj[1][1] / proj[0][0]; }
 
 #endif /* cglm_persp_h */

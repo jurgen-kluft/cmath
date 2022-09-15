@@ -1,77 +1,3 @@
-
-
-/*
- Macros:
-   GLMS_VEC3_ONE_INIT
-   GLMS_VEC3_ZERO_INIT
-   GLMS_VEC3_ONE
-   GLMS_VEC3_ZERO
-   GLMS_YUP
-   GLMS_ZUP
-   GLMS_XUP
-
- Functions:
-   CGLM_INLINE vec3s glms_vec3(vec4s v4);
-   CGLM_INLINE void  glms_vec3_pack(vec3s dst[], vec3 src[], size_t len);
-   CGLM_INLINE void  glms_vec3_unpack(vec3 dst[], vec3s src[], size_t len);
-   CGLM_INLINE vec3s glms_vec3_zero(void);
-   CGLM_INLINE vec3s glms_vec3_one(void);
-   CGLM_INLINE float glms_vec3_dot(vec3s a, vec3s b);
-   CGLM_INLINE float glms_vec3_norm2(vec3s v);
-   CGLM_INLINE float glms_vec3_norm(vec3s v);
-   CGLM_INLINE float glms_vec3_norm_one(vec3s v);
-   CGLM_INLINE float glms_vec3_norm_inf(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_add(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_adds(vec3s a, float s);
-   CGLM_INLINE vec3s glms_vec3_sub(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_subs(vec3s a, float s);
-   CGLM_INLINE vec3s glms_vec3_mul(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_scale(vec3s v, float s);
-   CGLM_INLINE vec3s glms_vec3_scale_as(vec3s v, float s);
-   CGLM_INLINE vec3s glms_vec3_div(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_divs(vec3s a, float s);
-   CGLM_INLINE vec3s glms_vec3_addadd(vec3s a, vec3s b, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_subadd(vec3s a, vec3s b, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_muladd(vec3s a, vec3s b, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_muladds(vec3s a, float s, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_maxadd(vec3s a, vec3s b, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_minadd(vec3s a, vec3s b, vec3s dest);
-   CGLM_INLINE vec3s glms_vec3_flipsign(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_negate(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_inv(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_normalize(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_cross(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_crossn(vec3s a, vec3s b);
-   CGLM_INLINE float glms_vec3_angle(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_rotate(vec3s v, float angle, vec3s axis);
-   CGLM_INLINE vec3s glms_vec3_rotate_m4(mat4s m, vec3s v);
-   CGLM_INLINE vec3s glms_vec3_rotate_m3(mat3s m, vec3s v);
-   CGLM_INLINE vec3s glms_vec3_proj(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_center(vec3s a, vec3s b);
-   CGLM_INLINE float glms_vec3_distance(vec3s a, vec3s b);
-   CGLM_INLINE float glms_vec3_distance2(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_maxv(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_minv(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_vec3_ortho(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_clamp(vec3s v, float minVal, float maxVal);
-   CGLM_INLINE vec3s glms_vec3_lerp(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_lerpc(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_mix(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_mixc(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_step_uni(float edge, vec3s x);
-   CGLM_INLINE vec3s glms_vec3_step(vec3s edge, vec3s x);
-   CGLM_INLINE vec3s glms_vec3_smoothstep_uni(float edge0, float edge1, vec3s x);
-   CGLM_INLINE vec3s glms_vec3_smoothstep(vec3s edge0, vec3s edge1, vec3s x);
-   CGLM_INLINE vec3s glms_vec3_smoothinterp(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_smoothinterpc(vec3s from, vec3s to, float t);
-   CGLM_INLINE vec3s glms_vec3_swizzle(vec3s v, int mask);
-
- Convenient:
-   CGLM_INLINE vec3s glms_cross(vec3s a, vec3s b);
-   CGLM_INLINE float glms_dot(vec3s a, vec3s b);
-   CGLM_INLINE vec3s glms_normalize(vec3s v);
- */
-
 #ifndef cglms_vec3s_h
 #define cglms_vec3s_h
 
@@ -81,15 +7,21 @@
 #include "cmath/vec3.h"
 #include "cmath/struct/vec3-ext.h"
 
-#define GLMS_VEC3_ONE_INIT   {GLM_VEC3_ONE_INIT}
-#define GLMS_VEC3_ZERO_INIT  {GLM_VEC3_ZERO_INIT}
+#define GLMS_VEC3_ONE_INIT \
+    {                      \
+        GLM_VEC3_ONE_INIT  \
+    }
+#define GLMS_VEC3_ZERO_INIT \
+    {                       \
+        GLM_VEC3_ZERO_INIT  \
+    }
 
 #define GLMS_VEC3_ONE  ((vec3s)GLMS_VEC3_ONE_INIT)
 #define GLMS_VEC3_ZERO ((vec3s)GLMS_VEC3_ZERO_INIT)
 
-#define GLMS_YUP  ((vec3s){{0.0f, 1.0f, 0.0f}})
-#define GLMS_ZUP  ((vec3s){{0.0f, 0.0f, 1.0f}})
-#define GLMS_XUP  ((vec3s){{1.0f, 0.0f, 0.0f}})
+#define GLMS_YUP ((vec3s){{0.0f, 1.0f, 0.0f}})
+#define GLMS_ZUP ((vec3s){{0.0f, 0.0f, 1.0f}})
+#define GLMS_XUP ((vec3s){{1.0f, 0.0f, 0.0f}})
 
 /*!
  * @brief init vec3 using vec4
@@ -98,11 +30,11 @@
  * @returns         destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3(vec4s v4) {
-  vec3s r;
-  glm_vec3(v4.raw, r.raw);
-  return r;
+vec3s glms_vec3(vec4s v4)
+{
+    vec3s r;
+    glm_vec3(v4.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -113,13 +45,14 @@ glms_vec3(vec4s v4) {
  * @param[in]  len number of elements
  */
 CGLM_INLINE
-void
-glms_vec3_pack(vec3s dst[], vec3 src[], size_t len) {
-  size_t i;
+void glms_vec3_pack(vec3s dst[], vec3 src[], size_t len)
+{
+    size_t i;
 
-  for (i = 0; i < len; i++) {
-    glm_vec3_copy(src[i], dst[i].raw);
-  }
+    for (i = 0; i < len; i++)
+    {
+        glm_vec3_copy(src[i], dst[i].raw);
+    }
 }
 
 /*!
@@ -130,13 +63,14 @@ glms_vec3_pack(vec3s dst[], vec3 src[], size_t len) {
  * @param[in]  len number of elements
  */
 CGLM_INLINE
-void
-glms_vec3_unpack(vec3 dst[], vec3s src[], size_t len) {
-  size_t i;
+void glms_vec3_unpack(vec3 dst[], vec3s src[], size_t len)
+{
+    size_t i;
 
-  for (i = 0; i < len; i++) {
-    glm_vec3_copy(src[i].raw, dst[i]);
-  }
+    for (i = 0; i < len; i++)
+    {
+        glm_vec3_copy(src[i].raw, dst[i]);
+    }
 }
 
 /*!
@@ -145,11 +79,11 @@ glms_vec3_unpack(vec3 dst[], vec3s src[], size_t len) {
  * @returns       zero vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_zero(void) {
-  vec3s r;
-  glm_vec3_zero(r.raw);
-  return r;
+vec3s glms_vec3_zero(void)
+{
+    vec3s r;
+    glm_vec3_zero(r.raw);
+    return r;
 }
 
 /*!
@@ -158,11 +92,11 @@ glms_vec3_zero(void) {
  * @returns       one vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_one(void) {
-  vec3s r;
-  glm_vec3_one(r.raw);
-  return r;
+vec3s glms_vec3_one(void)
+{
+    vec3s r;
+    glm_vec3_one(r.raw);
+    return r;
 }
 
 /*!
@@ -174,10 +108,7 @@ glms_vec3_one(void) {
  * @return dot product
  */
 CGLM_INLINE
-float
-glms_vec3_dot(vec3s a, vec3s b) {
-  return glm_vec3_dot(a.raw, b.raw);
-}
+float glms_vec3_dot(vec3s a, vec3s b) { return glm_vec3_dot(a.raw, b.raw); }
 
 /*!
  * @brief norm * norm (magnitude) of vec
@@ -191,10 +122,7 @@ glms_vec3_dot(vec3s a, vec3s b) {
  * @return norm * norm
  */
 CGLM_INLINE
-float
-glms_vec3_norm2(vec3s v) {
-  return glm_vec3_norm2(v.raw);
-}
+float glms_vec3_norm2(vec3s v) { return glm_vec3_norm2(v.raw); }
 
 /*!
  * @brief norm (magnitude) of vec3
@@ -204,10 +132,7 @@ glms_vec3_norm2(vec3s v) {
  * @return norm
  */
 CGLM_INLINE
-float
-glms_vec3_norm(vec3s v) {
-  return glm_vec3_norm(v.raw);
-}
+float glms_vec3_norm(vec3s v) { return glm_vec3_norm(v.raw); }
 
 /*!
  * @brief L1 norm of vec3
@@ -224,10 +149,7 @@ glms_vec3_norm(vec3s v) {
  * @return L1 norm
  */
 CGLM_INLINE
-float
-glms_vec3_norm_one(vec3s v) {
-  return glm_vec3_norm_one(v.raw);
-}
+float glms_vec3_norm_one(vec3s v) { return glm_vec3_norm_one(v.raw); }
 
 /*!
  * @brief Infinity norm of vec3
@@ -243,10 +165,7 @@ glms_vec3_norm_one(vec3s v) {
  * @return Infinity norm
  */
 CGLM_INLINE
-float
-glms_vec3_norm_inf(vec3s v) {
-  return glm_vec3_norm_inf(v.raw);
-}
+float glms_vec3_norm_inf(vec3s v) { return glm_vec3_norm_inf(v.raw); }
 
 /*!
  * @brief add a vector to b vector store result in dest
@@ -256,11 +175,11 @@ glms_vec3_norm_inf(vec3s v) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_add(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_add(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_add(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_add(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -271,11 +190,11 @@ glms_vec3_add(vec3s a, vec3s b) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_adds(vec3s a, float s) {
-  vec3s r;
-  glm_vec3_adds(a.raw, s, r.raw);
-  return r;
+vec3s glms_vec3_adds(vec3s a, float s)
+{
+    vec3s r;
+    glm_vec3_adds(a.raw, s, r.raw);
+    return r;
 }
 
 /*!
@@ -286,11 +205,11 @@ glms_vec3_adds(vec3s a, float s) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_sub(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_sub(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_sub(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_sub(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -301,11 +220,11 @@ glms_vec3_sub(vec3s a, vec3s b) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_subs(vec3s a, float s) {
-  vec3s r;
-  glm_vec3_subs(a.raw, s, r.raw);
-  return r;
+vec3s glms_vec3_subs(vec3s a, float s)
+{
+    vec3s r;
+    glm_vec3_subs(a.raw, s, r.raw);
+    return r;
 }
 
 /*!
@@ -316,11 +235,11 @@ glms_vec3_subs(vec3s a, float s) {
  * @returns         v3 = (a[0] * b[0], a[1] * b[1], a[2] * b[2])
  */
 CGLM_INLINE
-vec3s
-glms_vec3_mul(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_mul(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_mul(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_mul(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -331,11 +250,11 @@ glms_vec3_mul(vec3s a, vec3s b) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_scale(vec3s v, float s) {
-  vec3s r;
-  glm_vec3_scale(v.raw, s, r.raw);
-  return r;
+vec3s glms_vec3_scale(vec3s v, float s)
+{
+    vec3s r;
+    glm_vec3_scale(v.raw, s, r.raw);
+    return r;
 }
 
 /*!
@@ -346,11 +265,11 @@ glms_vec3_scale(vec3s v, float s) {
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_scale_as(vec3s v, float s) {
-  vec3s r;
-  glm_vec3_scale_as(v.raw, s, r.raw);
-  return r;
+vec3s glms_vec3_scale_as(vec3s v, float s)
+{
+    vec3s r;
+    glm_vec3_scale_as(v.raw, s, r.raw);
+    return r;
 }
 
 /*!
@@ -361,11 +280,11 @@ glms_vec3_scale_as(vec3s v, float s) {
  * @returns         result = (a[0]/b[0], a[1]/b[1], a[2]/b[2])
  */
 CGLM_INLINE
-vec3s
-glms_vec3_div(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_div(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_div(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_div(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -376,11 +295,11 @@ glms_vec3_div(vec3s a, vec3s b) {
  * @returns         result = (a[0]/s, a[1]/s, a[2]/s)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_divs(vec3s a, float s) {
-  vec3s r;
-  glm_vec3_divs(a.raw, s, r.raw);
-  return r;
+vec3s glms_vec3_divs(vec3s a, float s)
+{
+    vec3s r;
+    glm_vec3_divs(a.raw, s, r.raw);
+    return r;
 }
 
 /*!
@@ -393,10 +312,10 @@ glms_vec3_divs(vec3s a, float s) {
  * @returns         dest += (a + b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_addadd(vec3s a, vec3s b, vec3s dest) {
-  glm_vec3_addadd(a.raw, b.raw, dest.raw);
-  return dest;
+vec3s glms_vec3_addadd(vec3s a, vec3s b, vec3s dest)
+{
+    glm_vec3_addadd(a.raw, b.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -409,10 +328,10 @@ glms_vec3_addadd(vec3s a, vec3s b, vec3s dest) {
  * @returns         dest += (a + b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_subadd(vec3s a, vec3s b, vec3s dest) {
-  glm_vec3_subadd(a.raw, b.raw, dest.raw);
-  return dest;
+vec3s glms_vec3_subadd(vec3s a, vec3s b, vec3s dest)
+{
+    glm_vec3_subadd(a.raw, b.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -425,10 +344,10 @@ glms_vec3_subadd(vec3s a, vec3s b, vec3s dest) {
  * @returns         dest += (a * b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_muladd(vec3s a, vec3s b, vec3s dest) {
-  glm_vec3_muladd(a.raw, b.raw, dest.raw);
-  return dest;
+vec3s glms_vec3_muladd(vec3s a, vec3s b, vec3s dest)
+{
+    glm_vec3_muladd(a.raw, b.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -441,10 +360,10 @@ glms_vec3_muladd(vec3s a, vec3s b, vec3s dest) {
  * @returns         dest += (a * b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_muladds(vec3s a, float s, vec3s dest) {
-  glm_vec3_muladds(a.raw, s, dest.raw);
-  return dest;
+vec3s glms_vec3_muladds(vec3s a, float s, vec3s dest)
+{
+    glm_vec3_muladds(a.raw, s, dest.raw);
+    return dest;
 }
 
 /*!
@@ -457,10 +376,10 @@ glms_vec3_muladds(vec3s a, float s, vec3s dest) {
  * @returns         dest += max(a, b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_maxadd(vec3s a, vec3s b, vec3s dest) {
-  glm_vec3_maxadd(a.raw, b.raw, dest.raw);
-  return dest;
+vec3s glms_vec3_maxadd(vec3s a, vec3s b, vec3s dest)
+{
+    glm_vec3_maxadd(a.raw, b.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -473,10 +392,10 @@ glms_vec3_maxadd(vec3s a, vec3s b, vec3s dest) {
  * @returns         dest += min(a, b)
  */
 CGLM_INLINE
-vec3s
-glms_vec3_minadd(vec3s a, vec3s b, vec3s dest) {
-  glm_vec3_minadd(a.raw, b.raw, dest.raw);
-  return dest;
+vec3s glms_vec3_minadd(vec3s a, vec3s b, vec3s dest)
+{
+    glm_vec3_minadd(a.raw, b.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -486,10 +405,10 @@ glms_vec3_minadd(vec3s a, vec3s b, vec3s dest) {
  * @returns           result vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_flipsign(vec3s v) {
-  glm_vec3_flipsign(v.raw);
-  return v;
+vec3s glms_vec3_flipsign(vec3s v)
+{
+    glm_vec3_flipsign(v.raw);
+    return v;
 }
 
 /*!
@@ -499,10 +418,10 @@ glms_vec3_flipsign(vec3s v) {
  * @returns       negated vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_negate(vec3s v) {
-  glm_vec3_negate(v.raw);
-  return v;
+vec3s glms_vec3_negate(vec3s v)
+{
+    glm_vec3_negate(v.raw);
+    return v;
 }
 
 /*!
@@ -512,10 +431,10 @@ glms_vec3_negate(vec3s v) {
  * @returns     normalized vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_normalize(vec3s v) {
-  glm_vec3_normalize(v.raw);
-  return v;
+vec3s glms_vec3_normalize(vec3s v)
+{
+    glm_vec3_normalize(v.raw);
+    return v;
 }
 
 /*!
@@ -526,11 +445,11 @@ glms_vec3_normalize(vec3s v) {
  * @returns         destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_cross(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_cross(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_cross(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_cross(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -541,11 +460,11 @@ glms_vec3_cross(vec3s a, vec3s b) {
  * @returns         destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_crossn(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_crossn(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_crossn(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_crossn(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -557,10 +476,7 @@ glms_vec3_crossn(vec3s a, vec3s b) {
  * @return angle as radians
  */
 CGLM_INLINE
-float
-glms_vec3_angle(vec3s a, vec3s b) {
-  return glm_vec3_angle(a.raw, b.raw);
-}
+float glms_vec3_angle(vec3s a, vec3s b) { return glm_vec3_angle(a.raw, b.raw); }
 
 /*!
  * @brief rotate vec3 around axis by angle using Rodrigues' rotation formula
@@ -571,10 +487,10 @@ glms_vec3_angle(vec3s a, vec3s b) {
  * @returns             rotated vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_rotate(vec3s v, float angle, vec3s axis) {
-  glm_vec3_rotate(v.raw, angle, axis.raw);
-  return v;
+vec3s glms_vec3_rotate(vec3s v, float angle, vec3s axis)
+{
+    glm_vec3_rotate(v.raw, angle, axis.raw);
+    return v;
 }
 
 /*!
@@ -591,11 +507,11 @@ glms_vec3_rotate(vec3s v, float angle, vec3s axis) {
  * @returns         rotated vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_rotate_m4(mat4s m, vec3s v) {
-  vec3s r;
-  glm_vec3_rotate_m4(m.raw, v.raw, r.raw);
-  return r;
+vec3s glms_vec3_rotate_m4(mat4s m, vec3s v)
+{
+    vec3s r;
+    glm_vec3_rotate_m4(m.raw, v.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -606,11 +522,11 @@ glms_vec3_rotate_m4(mat4s m, vec3s v) {
  * @returns         rotated vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_rotate_m3(mat3s m, vec3s v) {
-  vec3s r;
-  glm_vec3_rotate_m3(m.raw, v.raw, r.raw);
-  return r;
+vec3s glms_vec3_rotate_m3(mat3s m, vec3s v)
+{
+    vec3s r;
+    glm_vec3_rotate_m3(m.raw, v.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -621,11 +537,11 @@ glms_vec3_rotate_m3(mat3s m, vec3s v) {
  * @returns         projected vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_proj(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_proj(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_proj(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_proj(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /**
@@ -636,11 +552,11 @@ glms_vec3_proj(vec3s a, vec3s b) {
  * @returns         center point
  */
 CGLM_INLINE
-vec3s
-glms_vec3_center(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_center(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_center(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_center(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /**
@@ -651,10 +567,7 @@ glms_vec3_center(vec3s a, vec3s b) {
  * @return      distance
  */
 CGLM_INLINE
-float
-glms_vec3_distance(vec3s a, vec3s b) {
-  return glm_vec3_distance(a.raw, b.raw);
-}
+float glms_vec3_distance(vec3s a, vec3s b) { return glm_vec3_distance(a.raw, b.raw); }
 
 /**
  * @brief squared distance between two vectors
@@ -664,10 +577,7 @@ glms_vec3_distance(vec3s a, vec3s b) {
  * @return      squared distance (distance * distance)
  */
 CGLM_INLINE
-float
-glms_vec3_distance2(vec3s a, vec3s b) {
-  return glm_vec3_distance2(a.raw, b.raw);
-}
+float glms_vec3_distance2(vec3s a, vec3s b) { return glm_vec3_distance2(a.raw, b.raw); }
 
 /*!
  * @brief max values of vectors
@@ -677,11 +587,11 @@ glms_vec3_distance2(vec3s a, vec3s b) {
  * @returns         destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_maxv(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_maxv(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_maxv(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_maxv(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -692,11 +602,11 @@ glms_vec3_maxv(vec3s a, vec3s b) {
  * @returns         destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_minv(vec3s a, vec3s b) {
-  vec3s r;
-  glm_vec3_minv(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_vec3_minv(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_vec3_minv(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -706,11 +616,11 @@ glms_vec3_minv(vec3s a, vec3s b) {
  * @returns         orthogonal/perpendicular vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_ortho(vec3s v) {
-  vec3s r;
-  glm_vec3_ortho(v.raw, r.raw);
-  return r;
+vec3s glms_vec3_ortho(vec3s v)
+{
+    vec3s r;
+    glm_vec3_ortho(v.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -722,10 +632,10 @@ glms_vec3_ortho(vec3s v) {
  * @returns                 clamped vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_clamp(vec3s v, float minVal, float maxVal) {
-  glm_vec3_clamp(v.raw, minVal, maxVal);
-  return v;
+vec3s glms_vec3_clamp(vec3s v, float minVal, float maxVal)
+{
+    glm_vec3_clamp(v.raw, minVal, maxVal);
+    return v;
 }
 
 /*!
@@ -739,11 +649,11 @@ glms_vec3_clamp(vec3s v, float minVal, float maxVal) {
  * @returns           destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_lerp(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_lerp(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_lerp(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_lerp(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -757,11 +667,11 @@ glms_vec3_lerp(vec3s from, vec3s to, float t) {
  * @returns           destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_lerpc(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_lerpc(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_lerpc(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_lerpc(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -775,11 +685,11 @@ glms_vec3_lerpc(vec3s from, vec3s to, float t) {
  * @returns           destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_mix(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_mix(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_mix(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_mix(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -793,11 +703,11 @@ glms_vec3_mix(vec3s from, vec3s to, float t) {
  * @returns           destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_mixc(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_mixc(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_mixc(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_mixc(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -808,11 +718,11 @@ glms_vec3_mixc(vec3s from, vec3s to, float t) {
  * @returns             0.0 if x < edge, else 1.0
  */
 CGLM_INLINE
-vec3s
-glms_vec3_step_uni(float edge, vec3s x) {
-  vec3s r;
-  glm_vec3_step_uni(edge, x.raw, r.raw);
-  return r;
+vec3s glms_vec3_step_uni(float edge, vec3s x)
+{
+    vec3s r;
+    glm_vec3_step_uni(edge, x.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -823,11 +733,11 @@ glms_vec3_step_uni(float edge, vec3s x) {
  * @returns             0.0 if x < edge, else 1.0
  */
 CGLM_INLINE
-vec3s
-glms_vec3_step(vec3s edge, vec3s x) {
-  vec3s r;
-  glm_vec3_step(edge.raw, x.raw, r.raw);
-  return r;
+vec3s glms_vec3_step(vec3s edge, vec3s x)
+{
+    vec3s r;
+    glm_vec3_step(edge.raw, x.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -839,11 +749,11 @@ glms_vec3_step(vec3s edge, vec3s x) {
  * @returns             destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_smoothstep_uni(float edge0, float edge1, vec3s x) {
-  vec3s r;
-  glm_vec3_smoothstep_uni(edge0, edge1, x.raw, r.raw);
-  return r;
+vec3s glms_vec3_smoothstep_uni(float edge0, float edge1, vec3s x)
+{
+    vec3s r;
+    glm_vec3_smoothstep_uni(edge0, edge1, x.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -855,11 +765,11 @@ glms_vec3_smoothstep_uni(float edge0, float edge1, vec3s x) {
  * @returns             destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_smoothstep(vec3s edge0, vec3s edge1, vec3s x) {
-  vec3s r;
-  glm_vec3_smoothstep(edge0.raw, edge1.raw, x.raw, r.raw);
-  return r;
+vec3s glms_vec3_smoothstep(vec3s edge0, vec3s edge1, vec3s x)
+{
+    vec3s r;
+    glm_vec3_smoothstep(edge0.raw, edge1.raw, x.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -873,11 +783,11 @@ glms_vec3_smoothstep(vec3s edge0, vec3s edge1, vec3s x) {
  * @returns             destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_smoothinterp(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_smoothinterp(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_smoothinterp(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_smoothinterp(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -891,11 +801,11 @@ glms_vec3_smoothinterp(vec3s from, vec3s to, float t) {
  * @returns             destination
  */
 CGLM_INLINE
-vec3s
-glms_vec3_smoothinterpc(vec3s from, vec3s to, float t) {
-  vec3s r;
-  glm_vec3_smoothinterpc(from.raw, to.raw, t, r.raw);
-  return r;
+vec3s glms_vec3_smoothinterpc(vec3s from, vec3s to, float t)
+{
+    vec3s r;
+    glm_vec3_smoothinterpc(from.raw, to.raw, t, r.raw);
+    return r;
 }
 
 /*!
@@ -908,11 +818,11 @@ glms_vec3_smoothinterpc(vec3s from, vec3s to, float t) {
  * @returns       destination
  */
 CGLM_INLINE
-vec3s
-glms_cross(vec3s a, vec3s b) {
-  vec3s r;
-  glm_cross(a.raw, b.raw, r.raw);
-  return r;
+vec3s glms_cross(vec3s a, vec3s b)
+{
+    vec3s r;
+    glm_cross(a.raw, b.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -925,10 +835,7 @@ glms_cross(vec3s a, vec3s b) {
  * @return      dot product
  */
 CGLM_INLINE
-float
-glms_dot(vec3s a, vec3s b) {
-  return glm_dot(a.raw, b.raw);
-}
+float glms_dot(vec3s a, vec3s b) { return glm_dot(a.raw, b.raw); }
 
 /*!
  * @brief normalize vec3 and store result in same vec
@@ -939,10 +846,10 @@ glms_dot(vec3s a, vec3s b) {
  * @returns         normalized vector
  */
 CGLM_INLINE
-vec3s
-glms_normalize(vec3s v) {
-  glm_normalize(v.raw);
-  return v;
+vec3s glms_normalize(vec3s v)
+{
+    glm_normalize(v.raw);
+    return v;
 }
 
 /*!
@@ -955,11 +862,11 @@ glms_normalize(vec3s v) {
  * @returns swizzled vector
  */
 CGLM_INLINE
-vec3s
-glms_vec3_swizzle(vec3s v, int mask) {
-  vec3s dest;
-  glm_vec3_swizzle(v.raw, mask, dest.raw);
-  return dest;
+vec3s glms_vec3_swizzle(vec3s v, int mask)
+{
+    vec3s dest;
+    glm_vec3_swizzle(v.raw, mask, dest.raw);
+    return dest;
 }
 
 #endif /* cglms_vec3s_h */

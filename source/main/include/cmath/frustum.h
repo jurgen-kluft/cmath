@@ -30,16 +30,40 @@
 #ifndef GLM_CUSTOM_CLIPSPACE
 
 /* near */
-#define GLM_CSCOORD_LBN {-1.0f, -1.0f, -1.0f, 1.0f}
-#define GLM_CSCOORD_LTN {-1.0f,  1.0f, -1.0f, 1.0f}
-#define GLM_CSCOORD_RTN { 1.0f,  1.0f, -1.0f, 1.0f}
-#define GLM_CSCOORD_RBN { 1.0f, -1.0f, -1.0f, 1.0f}
+#    define GLM_CSCOORD_LBN           \
+        {                             \
+            -1.0f, -1.0f, -1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_LTN          \
+        {                            \
+            -1.0f, 1.0f, -1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_RTN         \
+        {                           \
+            1.0f, 1.0f, -1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_RBN          \
+        {                            \
+            1.0f, -1.0f, -1.0f, 1.0f \
+        }
 
 /* far */
-#define GLM_CSCOORD_LBF {-1.0f, -1.0f,  1.0f, 1.0f}
-#define GLM_CSCOORD_LTF {-1.0f,  1.0f,  1.0f, 1.0f}
-#define GLM_CSCOORD_RTF { 1.0f,  1.0f,  1.0f, 1.0f}
-#define GLM_CSCOORD_RBF { 1.0f, -1.0f,  1.0f, 1.0f}
+#    define GLM_CSCOORD_LBF          \
+        {                            \
+            -1.0f, -1.0f, 1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_LTF         \
+        {                           \
+            -1.0f, 1.0f, 1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_RTF        \
+        {                          \
+            1.0f, 1.0f, 1.0f, 1.0f \
+        }
+#    define GLM_CSCOORD_RBF         \
+        {                           \
+            1.0f, -1.0f, 1.0f, 1.0f \
+        }
 
 #endif
 
@@ -61,25 +85,25 @@
  * @param[out] dest extracted view frustum planes (see brief)
  */
 CGLM_INLINE
-void
-glm_frustum_planes(mat4 m, vec4 dest[6]) {
-  mat4 t;
+void glm_frustum_planes(mat4 m, vec4 dest[6])
+{
+    mat4 t;
 
-  glm_mat4_transpose_to(m, t);
+    glm_mat4_transpose_to(m, t);
 
-  glm_vec4_add(t[3], t[0], dest[0]); /* left   */
-  glm_vec4_sub(t[3], t[0], dest[1]); /* right  */
-  glm_vec4_add(t[3], t[1], dest[2]); /* bottom */
-  glm_vec4_sub(t[3], t[1], dest[3]); /* top    */
-  glm_vec4_add(t[3], t[2], dest[4]); /* near   */
-  glm_vec4_sub(t[3], t[2], dest[5]); /* far    */
+    glm_vec4_add(t[3], t[0], dest[0]); /* left   */
+    glm_vec4_sub(t[3], t[0], dest[1]); /* right  */
+    glm_vec4_add(t[3], t[1], dest[2]); /* bottom */
+    glm_vec4_sub(t[3], t[1], dest[3]); /* top    */
+    glm_vec4_add(t[3], t[2], dest[4]); /* near   */
+    glm_vec4_sub(t[3], t[2], dest[5]); /* far    */
 
-  glm_plane_normalize(dest[0]);
-  glm_plane_normalize(dest[1]);
-  glm_plane_normalize(dest[2]);
-  glm_plane_normalize(dest[3]);
-  glm_plane_normalize(dest[4]);
-  glm_plane_normalize(dest[5]);
+    glm_plane_normalize(dest[0]);
+    glm_plane_normalize(dest[1]);
+    glm_plane_normalize(dest[2]);
+    glm_plane_normalize(dest[3]);
+    glm_plane_normalize(dest[4]);
+    glm_plane_normalize(dest[5]);
 }
 
 /*!
@@ -106,40 +130,32 @@ glm_frustum_planes(mat4 m, vec4 dest[6]) {
  * @param[out] dest   exracted view frustum corners (see brief)
  */
 CGLM_INLINE
-void
-glm_frustum_corners(mat4 invMat, vec4 dest[8]) {
-  vec4 c[8];
+void glm_frustum_corners(mat4 invMat, vec4 dest[8])
+{
+    vec4 c[8];
 
-  /* indexOf(nearCoord) = indexOf(farCoord) + 4 */
-  vec4 csCoords[8] = {
-    GLM_CSCOORD_LBN,
-    GLM_CSCOORD_LTN,
-    GLM_CSCOORD_RTN,
-    GLM_CSCOORD_RBN,
+    /* indexOf(nearCoord) = indexOf(farCoord) + 4 */
+    vec4 csCoords[8] = {GLM_CSCOORD_LBN, GLM_CSCOORD_LTN, GLM_CSCOORD_RTN, GLM_CSCOORD_RBN,
 
-    GLM_CSCOORD_LBF,
-    GLM_CSCOORD_LTF,
-    GLM_CSCOORD_RTF,
-    GLM_CSCOORD_RBF
-  };
+                        GLM_CSCOORD_LBF, GLM_CSCOORD_LTF, GLM_CSCOORD_RTF, GLM_CSCOORD_RBF};
 
-  glm_mat4_mulv(invMat, csCoords[0], c[0]);
-  glm_mat4_mulv(invMat, csCoords[1], c[1]);
-  glm_mat4_mulv(invMat, csCoords[2], c[2]);
-  glm_mat4_mulv(invMat, csCoords[3], c[3]);
-  glm_mat4_mulv(invMat, csCoords[4], c[4]);
-  glm_mat4_mulv(invMat, csCoords[5], c[5]);
-  glm_mat4_mulv(invMat, csCoords[6], c[6]);
-  glm_mat4_mulv(invMat, csCoords[7], c[7]);
+    glm_mat4_mulv(invMat, csCoords[0], c[0]);
+    glm_mat4_mulv(invMat, csCoords[1], c[1]);
+    glm_mat4_mulv(invMat, csCoords[2], c[2]);
+    glm_mat4_mulv(invMat, csCoords[3], c[3]);
+    glm_mat4_mulv(invMat, csCoords[4], c[4]);
+    glm_mat4_mulv(invMat, csCoords[5], c[5]);
+    glm_mat4_mulv(invMat, csCoords[6], c[6]);
+    glm_mat4_mulv(invMat, csCoords[7], c[7]);
 
-  glm_vec4_scale(c[0], 1.0f / c[0][3], dest[0]);
-  glm_vec4_scale(c[1], 1.0f / c[1][3], dest[1]);
-  glm_vec4_scale(c[2], 1.0f / c[2][3], dest[2]);
-  glm_vec4_scale(c[3], 1.0f / c[3][3], dest[3]);
-  glm_vec4_scale(c[4], 1.0f / c[4][3], dest[4]);
-  glm_vec4_scale(c[5], 1.0f / c[5][3], dest[5]);
-  glm_vec4_scale(c[6], 1.0f / c[6][3], dest[6]);
-  glm_vec4_scale(c[7], 1.0f / c[7][3], dest[7]);
+    glm_vec4_scale(c[0], 1.0f / c[0][3], dest[0]);
+    glm_vec4_scale(c[1], 1.0f / c[1][3], dest[1]);
+    glm_vec4_scale(c[2], 1.0f / c[2][3], dest[2]);
+    glm_vec4_scale(c[3], 1.0f / c[3][3], dest[3]);
+    glm_vec4_scale(c[4], 1.0f / c[4][3], dest[4]);
+    glm_vec4_scale(c[5], 1.0f / c[5][3], dest[5]);
+    glm_vec4_scale(c[6], 1.0f / c[6][3], dest[6]);
+    glm_vec4_scale(c[7], 1.0f / c[7][3], dest[7]);
 }
 
 /*!
@@ -149,21 +165,21 @@ glm_frustum_corners(mat4 invMat, vec4 dest[8]) {
  * @param[out] dest    view frustum center
  */
 CGLM_INLINE
-void
-glm_frustum_center(vec4 corners[8], vec4 dest) {
-  vec4 center;
+void glm_frustum_center(vec4 corners[8], vec4 dest)
+{
+    vec4 center;
 
-  glm_vec4_copy(corners[0], center);
+    glm_vec4_copy(corners[0], center);
 
-  glm_vec4_add(corners[1], center, center);
-  glm_vec4_add(corners[2], center, center);
-  glm_vec4_add(corners[3], center, center);
-  glm_vec4_add(corners[4], center, center);
-  glm_vec4_add(corners[5], center, center);
-  glm_vec4_add(corners[6], center, center);
-  glm_vec4_add(corners[7], center, center);
+    glm_vec4_add(corners[1], center, center);
+    glm_vec4_add(corners[2], center, center);
+    glm_vec4_add(corners[3], center, center);
+    glm_vec4_add(corners[4], center, center);
+    glm_vec4_add(corners[5], center, center);
+    glm_vec4_add(corners[6], center, center);
+    glm_vec4_add(corners[7], center, center);
 
-  glm_vec4_scale(center, 0.125f, dest);
+    glm_vec4_scale(center, 0.125f, dest);
 }
 
 /*!
@@ -174,29 +190,30 @@ glm_frustum_center(vec4 corners[8], vec4 dest) {
  * @param[out] box     bounding box as array [min, max]
  */
 CGLM_INLINE
-void
-glm_frustum_box(vec4 corners[8], mat4 m, vec3 box[2]) {
-  vec4 v;
-  vec3 min, max;
-  int  i;
+void glm_frustum_box(vec4 corners[8], mat4 m, vec3 box[2])
+{
+    vec4 v;
+    vec3 min, max;
+    int  i;
 
-  glm_vec3_broadcast(FLT_MAX, min);
-  glm_vec3_broadcast(-FLT_MAX, max);
+    glm_vec3_broadcast(FLT_MAX, min);
+    glm_vec3_broadcast(-FLT_MAX, max);
 
-  for (i = 0; i < 8; i++) {
-    glm_mat4_mulv(m, corners[i], v);
+    for (i = 0; i < 8; i++)
+    {
+        glm_mat4_mulv(m, corners[i], v);
 
-    min[0] = glm_min(min[0], v[0]);
-    min[1] = glm_min(min[1], v[1]);
-    min[2] = glm_min(min[2], v[2]);
+        min[0] = glm_min(min[0], v[0]);
+        min[1] = glm_min(min[1], v[1]);
+        min[2] = glm_min(min[2], v[2]);
 
-    max[0] = glm_max(max[0], v[0]);
-    max[1] = glm_max(max[1], v[1]);
-    max[2] = glm_max(max[2], v[2]);
-  }
+        max[0] = glm_max(max[0], v[0]);
+        max[1] = glm_max(max[1], v[1]);
+        max[2] = glm_max(max[2], v[2]);
+    }
 
-  glm_vec3_copy(min, box[0]);
-  glm_vec3_copy(max, box[1]);
+    glm_vec3_copy(min, box[0]);
+    glm_vec3_copy(max, box[1]);
 }
 
 /*!
@@ -212,37 +229,34 @@ glm_frustum_box(vec4 corners[8], mat4 m, vec3 box[2]) {
  * @param[out] planeCorners  plane corners [LB, LT, RT, RB]
  */
 CGLM_INLINE
-void
-glm_frustum_corners_at(vec4  corners[8],
-                       float splitDist,
-                       float farDist,
-                       vec4  planeCorners[4]) {
-  vec4  corner;
-  float dist, sc;
+void glm_frustum_corners_at(vec4 corners[8], float splitDist, float farDist, vec4 planeCorners[4])
+{
+    vec4  corner;
+    float dist, sc;
 
-  /* because distance and scale is same for all */
-  dist = glm_vec3_distance(corners[GLM_RTF], corners[GLM_RTN]);
-  sc   = dist * (splitDist / farDist);
+    /* because distance and scale is same for all */
+    dist = glm_vec3_distance(corners[GLM_RTF], corners[GLM_RTN]);
+    sc   = dist * (splitDist / farDist);
 
-  /* left bottom */
-  glm_vec4_sub(corners[GLM_LBF], corners[GLM_LBN], corner);
-  glm_vec4_scale_as(corner, sc, corner);
-  glm_vec4_add(corners[GLM_LBN], corner, planeCorners[0]);
+    /* left bottom */
+    glm_vec4_sub(corners[GLM_LBF], corners[GLM_LBN], corner);
+    glm_vec4_scale_as(corner, sc, corner);
+    glm_vec4_add(corners[GLM_LBN], corner, planeCorners[0]);
 
-  /* left top */
-  glm_vec4_sub(corners[GLM_LTF], corners[GLM_LTN], corner);
-  glm_vec4_scale_as(corner, sc, corner);
-  glm_vec4_add(corners[GLM_LTN], corner, planeCorners[1]);
+    /* left top */
+    glm_vec4_sub(corners[GLM_LTF], corners[GLM_LTN], corner);
+    glm_vec4_scale_as(corner, sc, corner);
+    glm_vec4_add(corners[GLM_LTN], corner, planeCorners[1]);
 
-  /* right top */
-  glm_vec4_sub(corners[GLM_RTF], corners[GLM_RTN], corner);
-  glm_vec4_scale_as(corner, sc, corner);
-  glm_vec4_add(corners[GLM_RTN], corner, planeCorners[2]);
+    /* right top */
+    glm_vec4_sub(corners[GLM_RTF], corners[GLM_RTN], corner);
+    glm_vec4_scale_as(corner, sc, corner);
+    glm_vec4_add(corners[GLM_RTN], corner, planeCorners[2]);
 
-  /* right bottom */
-  glm_vec4_sub(corners[GLM_RBF], corners[GLM_RBN], corner);
-  glm_vec4_scale_as(corner, sc, corner);
-  glm_vec4_add(corners[GLM_RBN], corner, planeCorners[3]);
+    /* right bottom */
+    glm_vec4_sub(corners[GLM_RBF], corners[GLM_RBN], corner);
+    glm_vec4_scale_as(corner, sc, corner);
+    glm_vec4_add(corners[GLM_RBN], corner, planeCorners[3]);
 }
 
 #endif /* cglm_frustum_h */

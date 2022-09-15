@@ -1,14 +1,12 @@
 #ifndef cglm_view_rh_no_h
 #define cglm_view_rh_no_h
 
-
 /*
  Functions:
    CGLM_INLINE void glm_lookat_rh_no(vec3 eye, vec3 center, vec3 up, mat4 dest)
    CGLM_INLINE void glm_look_rh_no(vec3 eye, vec3 dir, vec3 up, mat4 dest)
    CGLM_INLINE void glm_look_anyup_rh_no(vec3 eye, vec3 dir, mat4 dest)
  */
-
 
 #include "cmath/common.h"
 #include "cmath/clipspace/view_rh.h"
@@ -25,10 +23,7 @@
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_lookat_rh_no(vec3 eye, vec3 center, vec3 up, mat4 dest) {
-  glm_lookat_rh(eye, center, up, dest);
-}
+void glm_lookat_rh_no(vec3 eye, vec3 center, vec3 up, mat4 dest) { glm_lookat_rh(eye, center, up, dest); }
 
 /*!
  * @brief set up view matrix with right handed coordinate system.
@@ -45,10 +40,7 @@ glm_lookat_rh_no(vec3 eye, vec3 center, vec3 up, mat4 dest) {
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_look_rh_no(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
-  glm_look_rh(eye, dir, up, dest);
-}
+void glm_look_rh_no(vec3 eye, vec3 dir, vec3 up, mat4 dest) { glm_look_rh(eye, dir, up, dest); }
 
 /*!
  * @brief set up view matrix with right handed coordinate system.
@@ -61,9 +53,6 @@ glm_look_rh_no(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_look_anyup_rh_no(vec3 eye, vec3 dir, mat4 dest) {
-  glm_look_anyup_rh(eye, dir, dest);
-}
+void glm_look_anyup_rh_no(vec3 eye, vec3 dir, mat4 dest) { glm_look_anyup_rh(eye, dir, dest); }
 
 #endif /*cglm_view_rh_no_h*/

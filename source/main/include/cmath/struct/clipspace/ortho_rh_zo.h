@@ -1,17 +1,3 @@
-
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_ortho_rh_zo(float left,    float right,
-                                      float bottom,  float top,
-                                      float nearZ,   float farZ)
-   CGLM_INLINE mat4s glms_ortho_aabb_rh_zo(vec3s box[2]);
-   CGLM_INLINE mat4s glms_ortho_aabb_p_rh_zo(vec3s box[2],  float padding);
-   CGLM_INLINE mat4s glms_ortho_aabb_pz_rh_zo(vec3s box[2], float padding);
-   CGLM_INLINE mat4s glms_ortho_default_rh_zo(float aspect)
-   CGLM_INLINE mat4s glms_ortho_default_s_rh_zo(float aspect, float size)
- */
-
 #ifndef cglms_ortho_rh_zo_h
 #define cglms_ortho_rh_zo_h
 
@@ -34,13 +20,11 @@
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_rh_zo(float left,   float right,
-                 float bottom, float top,
-                 float nearZ,  float farZ) {
-  mat4s dest;
-  glm_ortho_rh_zo(left, right, bottom, top, nearZ, farZ, dest.raw);
-  return dest;
+mat4s glms_ortho_rh_zo(float left, float right, float bottom, float top, float nearZ, float farZ)
+{
+    mat4s dest;
+    glm_ortho_rh_zo(left, right, bottom, top, nearZ, farZ, dest.raw);
+    return dest;
 }
 
 /*!
@@ -54,15 +38,15 @@ glms_ortho_rh_zo(float left,   float right,
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_aabb_rh_zo(vec3s box[2]) {
-  mat4s dest;
-  vec3  rawBox[2];
+mat4s glms_ortho_aabb_rh_zo(vec3s box[2])
+{
+    mat4s dest;
+    vec3  rawBox[2];
 
-  glms_vec3_unpack(rawBox, box, 2);
-  glm_ortho_aabb_rh_zo(rawBox, dest.raw);
+    glms_vec3_unpack(rawBox, box, 2);
+    glm_ortho_aabb_rh_zo(rawBox, dest.raw);
 
-  return dest;
+    return dest;
 }
 
 /*!
@@ -77,15 +61,15 @@ glms_ortho_aabb_rh_zo(vec3s box[2]) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_aabb_p_rh_zo(vec3s box[2], float padding) {
-  mat4s dest;
-  vec3  rawBox[2];
+mat4s glms_ortho_aabb_p_rh_zo(vec3s box[2], float padding)
+{
+    mat4s dest;
+    vec3  rawBox[2];
 
-  glms_vec3_unpack(rawBox, box, 2);
-  glm_ortho_aabb_p_rh_zo(rawBox, padding, dest.raw);
+    glms_vec3_unpack(rawBox, box, 2);
+    glm_ortho_aabb_p_rh_zo(rawBox, padding, dest.raw);
 
-  return dest;
+    return dest;
 }
 
 /*!
@@ -100,15 +84,15 @@ glms_ortho_aabb_p_rh_zo(vec3s box[2], float padding) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_aabb_pz_rh_zo(vec3s box[2], float padding) {
-  mat4s dest;
-  vec3  rawBox[2];
+mat4s glms_ortho_aabb_pz_rh_zo(vec3s box[2], float padding)
+{
+    mat4s dest;
+    vec3  rawBox[2];
 
-  glms_vec3_unpack(rawBox, box, 2);
-  glm_ortho_aabb_pz_rh_zo(rawBox, padding, dest.raw);
+    glms_vec3_unpack(rawBox, box, 2);
+    glm_ortho_aabb_pz_rh_zo(rawBox, padding, dest.raw);
 
-  return dest;
+    return dest;
 }
 
 /*!
@@ -120,11 +104,11 @@ glms_ortho_aabb_pz_rh_zo(vec3s box[2], float padding) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_default_rh_zo(float aspect) {
-  mat4s dest;
-  glm_ortho_default_rh_zo(aspect, dest.raw);
-  return dest;
+mat4s glms_ortho_default_rh_zo(float aspect)
+{
+    mat4s dest;
+    glm_ortho_default_rh_zo(aspect, dest.raw);
+    return dest;
 }
 
 /*!
@@ -137,11 +121,11 @@ glms_ortho_default_rh_zo(float aspect) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_ortho_default_s_rh_zo(float aspect, float size) {
-  mat4s dest;
-  glm_ortho_default_s_rh_zo(aspect, size, dest.raw);
-  return dest;
+mat4s glms_ortho_default_s_rh_zo(float aspect, float size)
+{
+    mat4s dest;
+    glm_ortho_default_s_rh_zo(aspect, size, dest.raw);
+    return dest;
 }
 
 #endif /* cglms_ortho_rh_zo_h */

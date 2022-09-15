@@ -1,11 +1,3 @@
-
-
-/*
- Functions:
-   CGLM_INLINE vec3s glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp, vec3 dest)
-   CGLM_INLINE vec3s glms_project_no(vec3s pos, mat4s m, vec4s vp, vec3s dest)
- */
-
 #ifndef cglms_project_no_h
 #define cglms_project_no_h
 
@@ -41,11 +33,11 @@
  * @returns unprojected coordinates
  */
 CGLM_INLINE
-vec3s
-glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp, vec3 dest) {
-  vec3s dest;
-  glm_unprojecti_no(pos.raw, invMat.raw, vp.raw, dest.raw);
-  return dest;
+vec3s glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp, vec3 dest)
+{
+    vec3s dest;
+    glm_unprojecti_no(pos.raw, invMat.raw, vp.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -61,11 +53,11 @@ glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp, vec3 dest) {
  * @returns projected coordinates
  */
 CGLM_INLINE
-vec3s
-glms_project_no(vec3s pos, mat4s m, vec4s vp, vec3s dest) {
-  vec3s dest;
-  glm_project_no(pos.raw, m.raw, vp.raw, dest.raw);
-  return dest;
+vec3s glms_project_no(vec3s pos, mat4s m, vec4s vp, vec3s dest)
+{
+    vec3s dest;
+    glm_project_no(pos.raw, m.raw, vp.raw, dest.raw);
+    return dest;
 }
 
 #endif /* cglms_project_rh_no_h */

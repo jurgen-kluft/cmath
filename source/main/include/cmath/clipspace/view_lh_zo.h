@@ -1,4 +1,5 @@
-
+#ifndef cglm_view_lh_zo_h
+#define cglm_view_lh_zo_h
 
 /*
  Functions:
@@ -6,9 +7,6 @@
    CGLM_INLINE void glm_look_lh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest)
    CGLM_INLINE void glm_look_anyup_lh_zo(vec3 eye, vec3 dir, mat4 dest)
  */
-
-#ifndef cglm_view_lh_zo_h
-#define cglm_view_lh_zo_h
 
 #include "cmath/common.h"
 #include "cmath/clipspace/view_lh.h"
@@ -25,10 +23,7 @@
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_lookat_lh_zo(vec3 eye, vec3 center, vec3 up, mat4 dest) {
-  glm_lookat_lh(eye, center, up, dest);
-}
+void glm_lookat_lh_zo(vec3 eye, vec3 center, vec3 up, mat4 dest) { glm_lookat_lh(eye, center, up, dest); }
 
 /*!
  * @brief set up view matrix with left handed coordinate system.
@@ -45,10 +40,7 @@ glm_lookat_lh_zo(vec3 eye, vec3 center, vec3 up, mat4 dest) {
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_look_lh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
-  glm_look_lh(eye, dir, up, dest);
-}
+void glm_look_lh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest) { glm_look_lh(eye, dir, up, dest); }
 
 /*!
  * @brief set up view matrix with left handed coordinate system.
@@ -61,9 +53,6 @@ glm_look_lh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest) {
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void
-glm_look_anyup_lh_zo(vec3 eye, vec3 dir, mat4 dest) {
-  glm_look_anyup_lh(eye, dir, dest);
-}
+void glm_look_anyup_lh_zo(vec3 eye, vec3 dir, mat4 dest) { glm_look_anyup_lh(eye, dir, dest); }
 
 #endif /*cglm_view_lh_zo_h*/

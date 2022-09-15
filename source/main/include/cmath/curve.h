@@ -23,11 +23,11 @@
  * @return B(s)
  */
 CGLM_INLINE
-float
-glm_smc(float s, mat4 m, vec4 c) {
-  vec4 vs;
-  glm_vec4_cubic(s, vs);
-  return glm_mat4_rmc(vs, m, c);
+float glm_smc(float s, mat4 m, vec4 c)
+{
+    vec4 vs;
+    glm_vec4_cubic(s, vs);
+    return glm_mat4_rmc(vs, m, c);
 }
 
 #endif /* cglm_curve_h */

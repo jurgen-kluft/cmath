@@ -1,7 +1,8 @@
 #ifndef __CMATH_CALL_H__
 #define __CMATH_CALL_H__
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include "cmath/cglm.h"

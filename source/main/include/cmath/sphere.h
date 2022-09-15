@@ -19,10 +19,7 @@
  * @return returns radii
  */
 CGLM_INLINE
-float
-glm_sphere_radii(vec4 s) {
-  return s[3];
-}
+float glm_sphere_radii(vec4 s) { return s[3]; }
 
 /*!
  * @brief apply transform to sphere, it is just wrapper for glm_mat4_mulv3
@@ -32,10 +29,10 @@ glm_sphere_radii(vec4 s) {
  * @param[out] dest transformed sphere
  */
 CGLM_INLINE
-void
-glm_sphere_transform(vec4 s, mat4 m, vec4 dest) {
-  glm_mat4_mulv3(m, s, 1.0f, dest);
-  dest[3] = s[3];
+void glm_sphere_transform(vec4 s, mat4 m, vec4 dest)
+{
+    glm_mat4_mulv3(m, s, 1.0f, dest);
+    dest[3] = s[3];
 }
 
 /*!
@@ -49,18 +46,18 @@ glm_sphere_transform(vec4 s, mat4 m, vec4 dest) {
  * @param[out] dest merged/extended sphere
  */
 CGLM_INLINE
-void
-glm_sphere_merge(vec4 s1, vec4 s2, vec4 dest) {
-  float dist, radii;
+void glm_sphere_merge(vec4 s1, vec4 s2, vec4 dest)
+{
+    float dist, radii;
 
-  dist  = glm_vec3_distance(s1, s2);
-  radii = dist + s1[3] + s2[3];
+    dist  = glm_vec3_distance(s1, s2);
+    radii = dist + s1[3] + s2[3];
 
-  radii = glm_max(radii, s1[3]);
-  radii = glm_max(radii, s2[3]);
+    radii = glm_max(radii, s1[3]);
+    radii = glm_max(radii, s2[3]);
 
-  glm_vec3_center(s1, s2, dest);
-  dest[3] = radii;
+    glm_vec3_center(s1, s2, dest);
+    dest[3] = radii;
 }
 
 /*!
@@ -70,10 +67,7 @@ glm_sphere_merge(vec4 s1, vec4 s2, vec4 dest) {
  * @param[in]   s2  other sphere
  */
 CGLM_INLINE
-bool
-glm_sphere_sphere(vec4 s1, vec4 s2) {
-  return glm_vec3_distance2(s1, s2) <= glm_pow2(s1[3] + s2[3]);
-}
+bool glm_sphere_sphere(vec4 s1, vec4 s2) { return glm_vec3_distance2(s1, s2) <= glm_pow2(s1[3] + s2[3]); }
 
 /*!
  * @brief check if sphere intersects with point
@@ -82,11 +76,11 @@ glm_sphere_sphere(vec4 s1, vec4 s2) {
  * @param[in]   point  point
  */
 CGLM_INLINE
-bool
-glm_sphere_point(vec4 s, vec3 point) {
-  float rr;
-  rr = s[3] * s[3];
-  return glm_vec3_distance2(point, s) <= rr;
+bool glm_sphere_point(vec4 s, vec3 point)
+{
+    float rr;
+    rr = s[3] * s[3];
+    return glm_vec3_distance2(point, s) <= rr;
 }
 
 #endif /* cglm_sphere_h */

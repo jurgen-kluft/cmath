@@ -35,11 +35,11 @@
  * @returns             unprojected coordinates
  */
 CGLM_INLINE
-vec3s
-glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp) {
-  vec3s r;
-  glm_unprojecti(pos.raw, invMat.raw, vp.raw, r.raw);
-  return r;
+vec3s glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp)
+{
+    vec3s r;
+    glm_unprojecti(pos.raw, invMat.raw, vp.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -67,11 +67,11 @@ glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp) {
  * @returns             unprojected coordinates
  */
 CGLM_INLINE
-vec3s
-glms_unproject(vec3s pos, mat4s m, vec4s vp) {
-  vec3s r;
-  glm_unproject(pos.raw, m.raw, vp.raw, r.raw);
-  return r;
+vec3s glms_unproject(vec3s pos, mat4s m, vec4s vp)
+{
+    vec3s r;
+    glm_unproject(pos.raw, m.raw, vp.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -87,11 +87,11 @@ glms_unproject(vec3s pos, mat4s m, vec4s vp) {
  * @returns projected coordinates
  */
 CGLM_INLINE
-vec3s
-glms_project(vec3s pos, mat4s m, vec4s vp) {
-  vec3s r;
-  glm_project(pos.raw, m.raw, vp.raw, r.raw);
-  return r;
+vec3s glms_project(vec3s pos, mat4s m, vec4s vp)
+{
+    vec3s r;
+    glm_project(pos.raw, m.raw, vp.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -103,11 +103,11 @@ glms_project(vec3s pos, mat4s m, vec4s vp) {
  * @returns projected coordinates
  */
 CGLM_INLINE
-mat4s
-glms_pickmatrix(vec2s center, vec2s size, vec4s vp) {
-  mat4s res;
-  glm_pickmatrix(center.raw, size.raw, vp.raw, res.raw);
-  return res;
+mat4s glms_pickmatrix(vec2s center, vec2s size, vec4s vp)
+{
+    mat4s res;
+    glm_pickmatrix(center.raw, size.raw, vp.raw, res.raw);
+    return res;
 }
 
 #endif /* cglms_projects_h */

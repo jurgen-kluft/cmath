@@ -1,4 +1,5 @@
-
+#ifndef cglms_affine2ds_h
+#define cglms_affine2ds_h
 
 /*
  Functions:
@@ -13,9 +14,6 @@
    CGLM_INLINE mat3s glms_rotate2d(mat3s m, float angle)
    CGLM_INLINE mat3s glms_rotate2d_to(mat3s m, float angle)
  */
-
-#ifndef cglms_affine2ds_h
-#define cglms_affine2ds_h
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"
@@ -32,10 +30,10 @@
  * @returns      affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_translate2d(mat3s m, vec2s v) {
-  glm_translate2d(m.raw, v.raw);
-  return m;
+mat3s glms_translate2d(mat3s m, vec2s v)
+{
+    glm_translate2d(m.raw, v.raw);
+    return m;
 }
 
 /*!
@@ -46,10 +44,10 @@ glms_translate2d(mat3s m, vec2s v) {
  * @returns      affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_translate2d_x(mat3s m, float x) {
-  glm_translate2d_x(m.raw, x);
-  return m;
+mat3s glms_translate2d_x(mat3s m, float x)
+{
+    glm_translate2d_x(m.raw, x);
+    return m;
 }
 
 /*!
@@ -60,10 +58,10 @@ glms_translate2d_x(mat3s m, float x) {
  * @returns      affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_translate2d_y(mat3s m, float y) {
-  glm_translate2d_y(m.raw, y);
-  return m;
+mat3s glms_translate2d_y(mat3s m, float y)
+{
+    glm_translate2d_y(m.raw, y);
+    return m;
 }
 
 /*!
@@ -73,11 +71,11 @@ glms_translate2d_y(mat3s m, float y) {
  * @returns      affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_translate2d_make(vec2s v) {
-  mat3s m;
-  glm_translate2d_make(m.raw, v.raw);
-  return m;
+mat3s glms_translate2d_make(vec2s v)
+{
+    mat3s m;
+    glm_translate2d_make(m.raw, v.raw);
+    return m;
 }
 
 /*!
@@ -87,11 +85,11 @@ glms_translate2d_make(vec2s v) {
  * @returns affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_scale2d_make(vec2s v) {
-  mat3s m;
-  glm_scale2d_make(m.raw, v.raw);
-  return m;
+mat3s glms_scale2d_make(vec2s v)
+{
+    mat3s m;
+    glm_scale2d_make(m.raw, v.raw);
+    return m;
 }
 
 /*!
@@ -103,11 +101,11 @@ glms_scale2d_make(vec2s v) {
  * @returns       affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_scale2d(mat3s m, vec2s v) {
-  mat3s r;
-  glm_scale2d_to(m.raw, v.raw, r.raw);
-  return r;
+mat3s glms_scale2d(mat3s m, vec2s v)
+{
+    mat3s r;
+    glm_scale2d_to(m.raw, v.raw, r.raw);
+    return r;
 }
 
 /*!
@@ -119,10 +117,10 @@ glms_scale2d(mat3s m, vec2s v) {
  * @returns      affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_scale2d_uni(mat3s m, float s) {
-  glm_scale2d_uni(m.raw, s);
-  return m;
+mat3s glms_scale2d_uni(mat3s m, float s)
+{
+    glm_scale2d_uni(m.raw, s);
+    return m;
 }
 
 /*!
@@ -134,11 +132,11 @@ glms_scale2d_uni(mat3s m, float s) {
  * @returns           affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_rotate2d_make(float angle) {
-  mat3s m;
-  glm_rotate2d_make(m.raw, angle);
-  return m;
+mat3s glms_rotate2d_make(float angle)
+{
+    mat3s m;
+    glm_rotate2d_make(m.raw, angle);
+    return m;
 }
 
 /*!
@@ -149,10 +147,10 @@ glms_rotate2d_make(float angle) {
  * @returns          affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_rotate2d(mat3s m, float angle) {
-  glm_rotate2d(m.raw, angle);
-  return m;
+mat3s glms_rotate2d(mat3s m, float angle)
+{
+    glm_rotate2d(m.raw, angle);
+    return m;
 }
 
 /*!
@@ -163,10 +161,10 @@ glms_rotate2d(mat3s m, float angle) {
  * @returns          affine transfrom
  */
 CGLM_INLINE
-mat3s
-glms_rotate2d_to(mat3s m, float angle) {
-  glm_rotate2d(m.raw, angle);
-  return m;
+mat3s glms_rotate2d_to(mat3s m, float angle)
+{
+    glm_rotate2d(m.raw, angle);
+    return m;
 }
 
 #endif /* cglms_affine2ds_h */

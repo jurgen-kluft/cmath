@@ -1,49 +1,49 @@
 #ifndef __CMATH_QUAT_H__
 #define __CMATH_QUAT_H__
+
 #if defined(__ARM_NEON_FP)
 
-#include "cmath/common.h"
-#include "cmath/simd/intrin.h"
+#    include "cmath/common.h"
+#    include "cmath/simd/intrin.h"
 
 CGLM_INLINE
-void
-glm_quat_mul_neon(versor p, versor q, versor dest) {
-  /*
-   + (a1 b2 + b1 a2 + c1 d2 − d1 c2)i
-   + (a1 c2 − b1 d2 + c1 a2 + d1 b2)j
-   + (a1 d2 + b1 c2 − c1 b2 + d1 a2)k
-     a1 a2 − b1 b2 − c1 c2 − d1 d2
-   */
+void glm_quat_mul_neon(versor p, versor q, versor dest)
+{
+    /*
+     + (a1 b2 + b1 a2 + c1 d2 − d1 c2)i
+     + (a1 c2 − b1 d2 + c1 a2 + d1 b2)j
+     + (a1 d2 + b1 c2 − c1 b2 + d1 a2)k
+       a1 a2 − b1 b2 − c1 c2 − d1 d2
+     */
 
-  glmm_128 xp, xq, xqr, r, x, y, z, s2, s3;
-  glmm_128 s1 = {-0.f, 0.f, 0.f, -0.f};
-  float32x2_t   qh, ql;
-  
-  xp  = glmm_load(p); /* 3 2 1 0 */
-  xq  = glmm_load(q);
+    glmm_128    xp, xq, xqr, r, x, y, z, s2, s3;
+    glmm_128    s1 = {-0.f, 0.f, 0.f, -0.f};
+    float32x2_t qh, ql;
 
-  r   = vmulq_f32(glmm_splat_w(xp), xq);
-  x   = glmm_splat_x(xp);
-  y   = glmm_splat_y(xp);
-  z   = glmm_splat_z(xp);
+    xp = glmm_load(p); /* 3 2 1 0 */
+    xq = glmm_load(q);
 
-  ql  = vget_high_f32(s1);
-  s3  = vcombine_f32(ql, ql);
-  s2  = vzipq_f32(s3, s3).val[0];
+    r = vmulq_f32(glmm_splat_w(xp), xq);
+    x = glmm_splat_x(xp);
+    y = glmm_splat_y(xp);
+    z = glmm_splat_z(xp);
 
-  xqr = vrev64q_f32(xq);
-  qh  = vget_high_f32(xqr);
-  ql  = vget_low_f32(xqr);
+    ql = vget_high_f32(s1);
+    s3 = vcombine_f32(ql, ql);
+    s2 = vzipq_f32(s3, s3).val[0];
 
-  r = glmm_fmadd(glmm_xor(x, s3), vcombine_f32(qh, ql), r);
-  
-  r = glmm_fmadd(glmm_xor(y, s2), vcombine_f32(vget_high_f32(xq),
-                                               vget_low_f32(xq)), r);
-  
-  r = glmm_fmadd(glmm_xor(z, s1), vcombine_f32(ql, qh), r);
+    xqr = vrev64q_f32(xq);
+    qh  = vget_high_f32(xqr);
+    ql  = vget_low_f32(xqr);
 
-  glmm_store(dest, r);
+    r = glmm_fmadd(glmm_xor(x, s3), vcombine_f32(qh, ql), r);
+
+    r = glmm_fmadd(glmm_xor(y, s2), vcombine_f32(vget_high_f32(xq), vget_low_f32(xq)), r);
+
+    r = glmm_fmadd(glmm_xor(z, s1), vcombine_f32(ql, qh), r);
+
+    glmm_store(dest, r);
 }
 
 #endif
-#endif /* cglm_quat_neon_h */
+#endif /* __CMATH_QUAT_H__ */

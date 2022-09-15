@@ -7,14 +7,14 @@
 #include "cmath/mat4.h"
 
 #ifndef CGLM_CLIPSPACE_INCLUDE_ALL
-#  if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-#    include "cmath/clipspace/project_zo.h"
-#  elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-#    include "cmath/clipspace/project_no.h"
-#  endif
+#    if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
+#        include "cmath/clipspace/project_zo.h"
+#    elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
+#        include "cmath/clipspace/project_no.h"
+#    endif
 #else
-#  include "cmath/clipspace/project_zo.h"
-#  include "cmath/clipspace/project_no.h"
+#    include "cmath/clipspace/project_zo.h"
+#    include "cmath/clipspace/project_no.h"
 #endif
 
 /*!
@@ -44,12 +44,12 @@
  * @param[out] dest     unprojected coordinates
  */
 CGLM_INLINE
-void
-glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest) {
+void glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest)
+{
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-  glm_unprojecti_zo(pos, invMat, vp, dest);
+    glm_unprojecti_zo(pos, invMat, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-  glm_unprojecti_no(pos, invMat, vp, dest);
+    glm_unprojecti_no(pos, invMat, vp, dest);
 #endif
 }
 
@@ -78,11 +78,11 @@ glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest) {
  * @param[out] dest     unprojected coordinates
  */
 CGLM_INLINE
-void
-glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
-  mat4 inv;
-  glm_mat4_inv(m, inv);
-  glm_unprojecti(pos, inv, vp, dest);
+void glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest)
+{
+    mat4 inv;
+    glm_mat4_inv(m, inv);
+    glm_unprojecti(pos, inv, vp, dest);
 }
 
 /*!
@@ -98,12 +98,12 @@ glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
  * @param[out] dest     projected coordinates
  */
 CGLM_INLINE
-void
-glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
+void glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest)
+{
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-  glm_project_zo(pos, m, vp, dest);
+    glm_project_zo(pos, m, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-  glm_project_no(pos, m, vp, dest);
+    glm_project_no(pos, m, vp, dest);
 #endif
 }
 
@@ -116,28 +116,28 @@ glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
  * @param[out] dest     projected coordinates
  */
 CGLM_INLINE
-void
-glm_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest) {
-  mat4 res;
-  vec3 v;
+void glm_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest)
+{
+    mat4 res;
+    vec3 v;
 
-  if (size[0] <= 0.0f || size[1] <= 0.0f)
-    return;
-  
-  /* Translate and scale the picked region to the entire window */
-  v[0] = (vp[2] - 2.0f * (center[0] - vp[0])) / size[0];
-  v[1] = (vp[3] - 2.0f * (center[1] - vp[1])) / size[1];
-  v[2] = 0.0f;
+    if (size[0] <= 0.0f || size[1] <= 0.0f)
+        return;
 
-  glm_translate_make(res, v);
-  
-  v[0] = vp[2] / size[0];
-  v[1] = vp[3] / size[1];
-  v[2] = 1.0f;
+    /* Translate and scale the picked region to the entire window */
+    v[0] = (vp[2] - 2.0f * (center[0] - vp[0])) / size[0];
+    v[1] = (vp[3] - 2.0f * (center[1] - vp[1])) / size[1];
+    v[2] = 0.0f;
 
-  glm_scale(res, v);
+    glm_translate_make(res, v);
 
-  glm_mat4_copy(res, dest);
+    v[0] = vp[2] / size[0];
+    v[1] = vp[3] / size[1];
+    v[2] = 1.0f;
+
+    glm_scale(res, v);
+
+    glm_mat4_copy(res, dest);
 }
 
 #endif /* cglm_project_h */

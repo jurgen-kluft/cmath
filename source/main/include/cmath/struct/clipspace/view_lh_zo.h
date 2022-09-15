@@ -1,12 +1,3 @@
-
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_lookat_lh_zo(vec3s eye, vec3s center, vec3s up)
-   CGLM_INLINE mat4s glms_look_lh_zo(vec3s eye, vec3s dir, vec3s up)
-   CGLM_INLINE mat4s glms_look_anyup_lh_zo(vec3s eye, vec3s dir)
- */
-
 #ifndef cglms_view_lh_zo_h
 #define cglms_view_lh_zo_h
 
@@ -29,11 +20,11 @@
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_lookat_lh_zo(vec3s eye, vec3s center, vec3s up) {
-  mat4s dest;
-  glm_lookat_lh_zo(eye.raw, center.raw, up.raw, dest.raw);
-  return dest;
+mat4s glms_lookat_lh_zo(vec3s eye, vec3s center, vec3s up)
+{
+    mat4s dest;
+    glm_lookat_lh_zo(eye.raw, center.raw, up.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -53,11 +44,11 @@ glms_lookat_lh_zo(vec3s eye, vec3s center, vec3s up) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_look_lh_zo(vec3s eye, vec3s dir, vec3s up) {
-  mat4s dest;
-  glm_look_lh_zo(eye.raw, dir.raw, up.raw, dest.raw);
-  return dest;
+mat4s glms_look_lh_zo(vec3s eye, vec3s dir, vec3s up)
+{
+    mat4s dest;
+    glm_look_lh_zo(eye.raw, dir.raw, up.raw, dest.raw);
+    return dest;
 }
 
 /*!
@@ -73,11 +64,11 @@ glms_look_lh_zo(vec3s eye, vec3s dir, vec3s up) {
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s
-glms_look_anyup_lh_zo(vec3s eye, vec3s dir) {
-  mat4s dest;
-  glm_look_anyup_lh_zo(eye.raw, dir.raw, dest.raw);
-  return dest;
+mat4s glms_look_anyup_lh_zo(vec3s eye, vec3s dir)
+{
+    mat4s dest;
+    glm_look_anyup_lh_zo(eye.raw, dir.raw, dest.raw);
+    return dest;
 }
 
 #endif /* cglms_view_lh_zo_h */
