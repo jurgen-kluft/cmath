@@ -1,0 +1,32 @@
+#ifndef __CMATH_CGLM_H__
+#define __CMATH_CGLM_H__
+
+#include "cmath/common.h"
+#include "cmath/vec2.h"
+#include "cmath/vec3.h"
+#include "cmath/vec4.h"
+#include "cmath/ivec2.h"
+#include "cmath/ivec3.h"
+#include "cmath/ivec4.h"
+#include "cmath/mat4.h"
+#include "cmath/mat3.h"
+#include "cmath/mat2.h"
+#include "cmath/affine.h"
+#include "cmath/cam.h"
+#include "cmath/frustum.h"
+#include "cmath/quat.h"
+#include "cmath/euler.h"
+#include "cmath/plane.h"
+#include "cmath/box.h"
+#include "cmath/color.h"
+#include "cmath/util.h"
+#include "cmath/io.h"
+#include "cmath/project.h"
+#include "cmath/sphere.h"
+#include "cmath/ease.h"
+#include "cmath/curve.h"
+#include "cmath/bezier.h"
+#include "cmath/ray.h"
+#include "cmath/affine2d.h"
+
+#endif /* cglm_h */
