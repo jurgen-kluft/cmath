@@ -10,7 +10,7 @@
 
 UNITTEST_SUITE_BEGIN(cmath)
 {
-    UNITTEST_FIXTURE(parse)
+    UNITTEST_FIXTURE(tests)
     {
         UNITTEST_FIXTURE_SETUP() {}
         UNITTEST_FIXTURE_TEARDOWN() {}
@@ -45,29 +45,31 @@ UNITTEST_SUITE_BEGIN(cmath)
                 elapsed = (end - start) / CLOCKS_PER_SEC;
                 total += elapsed;
 
+                CHECK_TRUE(st.status);
+
                 if (!st.status)
                 {
-                    // fprintf(stderr, BOLDRED "  " FAIL_TEXT BOLDWHITE " %s " RESET, entry->name);
-                    // if (st.msg)
-                    // {
-                    //     fprintf(stderr, YELLOW "- %s" RESET, st.msg);
-                    // }
+                    fprintf(stderr, BOLDRED "  " FAIL_TEXT BOLDWHITE " %s " RESET, entry->name);
+                    if (st.msg)
+                    {
+                        fprintf(stderr, YELLOW "- %s" RESET, st.msg);
+                    }
 
-                    // fprintf(stderr, "\n");
+                    fprintf(stderr, "\n");
 
-                    // failed++;
+                    failed++;
                 }
                 else
                 {
-                    // fprintf(stderr, GREEN "  " OK_TEXT RESET " %-*s  ", maxlen, entry->name);
+                    fprintf(stderr, GREEN "  " OK_TEXT RESET " %-*s  ", maxlen, entry->name);
 
-                    // if (elapsed > 0.01)
-                    //     fprintf(stderr, YELLOW "%.2fs", elapsed);
-                    // else
-                    //     fprintf(stderr, "0");
+                    if (elapsed > 0.01)
+                        fprintf(stderr, YELLOW "%.2fs", elapsed);
+                    else
+                        fprintf(stderr, "0");
 
-                    // fprintf(stderr, "\n" RESET);
-                    // passed++;
+                    fprintf(stderr, "\n" RESET);
+                    passed++;
                 }
             }
         }
