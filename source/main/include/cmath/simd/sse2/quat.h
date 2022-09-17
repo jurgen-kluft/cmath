@@ -1,5 +1,5 @@
-#ifndef __CMATH_QUAT_H__
-#define __CMATH_QUAT_H__
+#ifndef __CMATH_SIMD_SSE2_QUAT_H__
+#define __CMATH_SIMD_SSE2_QUAT_H__
 
 #if defined(__SSE__) || defined(__SSE2__)
 

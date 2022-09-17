@@ -1,9 +1,5 @@
-#ifndef __CMATH_VEC4_H__
-#define __CMATH_VEC4_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__VEC4_H__
+#define __CMATH_CALL__VEC4_H__
 
 #include "cmath/cglm.h"
 
@@ -88,7 +84,5 @@ extern "C"
     float glmc_vec4_hadd(vec4 v);
     void  glmc_vec4_sqrt(vec4 v, vec4 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_vec4_h */

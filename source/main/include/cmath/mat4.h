@@ -1,5 +1,5 @@
-#ifndef cglm_mat_h
-#define cglm_mat_h
+#ifndef cglm_mat4_h
+#define cglm_mat4_h
 
 /*!
  * Most of functions in this header are optimized manually with SIMD

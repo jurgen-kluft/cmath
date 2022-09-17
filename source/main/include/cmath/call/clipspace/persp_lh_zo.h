@@ -1,9 +1,5 @@
-#ifndef __CMATH_PERSP_LH_ZO_H__
-#define __CMATH_PERSP_LH_ZO_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL_CLIPSPACE__PERSP_LH_ZO_H__
+#define __CMATH_CALL_CLIPSPACE__PERSP_LH_ZO_H__
 
 #include "cmath/cglm.h"
 
@@ -21,7 +17,5 @@ extern "C"
     float glmc_persp_fovy_lh_zo(mat4 proj);
     float glmc_persp_aspect_lh_zo(mat4 proj);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_persp_lh_zo_h */

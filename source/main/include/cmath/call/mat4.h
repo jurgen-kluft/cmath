@@ -1,9 +1,5 @@
-#ifndef __CMATH_MAT4_H__
-#define __CMATH_MAT4_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__MAT4_H__
+#define __CMATH_CALL__MAT4_H__
 
 #include "cmath/cglm.h"
 
@@ -38,7 +34,5 @@ extern "C"
     void  glmc_mat4_swap_row(mat4 mat, int row1, int row2);
     float glmc_mat4_rmc(vec4 r, mat4 m, vec4 c);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_mat_h */

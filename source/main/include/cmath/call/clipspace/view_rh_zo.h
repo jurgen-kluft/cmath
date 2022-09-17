@@ -1,10 +1,6 @@
-#ifndef __CMATH_VIEW_RH_ZO_H__
-#define __CMATH_VIEW_RH_ZO_H__
+#ifndef __CMATH_CALL_CLIPSPACE__VIEW_RH_ZO_H__
+#define __CMATH_CALL_CLIPSPACE__VIEW_RH_ZO_H__
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 #include "cmath/cglm.h"
 
@@ -12,8 +8,6 @@ extern "C"
     void glmc_look_rh_zo(vec3 eye, vec3 dir, vec3 up, mat4 dest);
     void glmc_look_anyup_rh_zo(vec3 eye, vec3 dir, mat4 dest);
 
-#ifdef __cplusplus
-}
-#endif
 
-#endif /* __CMATH_VIEW_RH_ZO_H__ */
+
+#endif /* __CMATH_CALL_CLIPSPACE__VIEW_RH_ZO_H__ */

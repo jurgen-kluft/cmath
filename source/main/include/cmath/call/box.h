@@ -1,9 +1,5 @@
-#ifndef __CMATH_BOX_H__
-#define __CMATH_BOX_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__BOX_H__
+#define __CMATH_CALL__BOX_H__
 
 #include "cmath/cglm.h"
 
@@ -22,7 +18,5 @@ extern "C"
     bool  glmc_aabb_contains(vec3 box[2], vec3 other[2]);
     bool  glmc_aabb_sphere(vec3 box[2], vec4 s);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_box_h */

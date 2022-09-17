@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT3_H__
-#define __CMATH_MAT3_H__
+#ifndef __CMATH_SIMD_SSE2_MAT3_H__
+#define __CMATH_SIMD_SSE2_MAT3_H__
 
 #if defined(__SSE__) || defined(__SSE2__)
 

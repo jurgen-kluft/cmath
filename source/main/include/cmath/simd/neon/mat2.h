@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT2_H__
-#define __CMATH_MAT2_H__
+#ifndef __CMATH_SIMD_NEON_MAT2_H__
+#define __CMATH_SIMD_NEON_MAT2_H__
 
 #if defined(__ARM_NEON_FP)
 
@@ -34,4 +34,4 @@ void glm_mat2_mul_neon(mat2 m1, mat2 m2, mat2 dest)
 }
 
 #endif
-#endif /* __CMATH_MAT2_H__ */
+#endif /* __CMATH_SIMD_NEON_MAT2_H__ */

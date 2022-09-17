@@ -1,9 +1,5 @@
-#ifndef __CMATH_AFFINE2D_H__
-#define __CMATH_AFFINE2D_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__AFFINE2D_H__
+#define __CMATH_CALL__AFFINE2D_H__
 
 #include "cmath/cglm.h"
 
@@ -20,7 +16,5 @@ extern "C"
     void glmc_rotate2d(mat3 m, float angle);
     void glmc_rotate2d_to(mat3 m, float angle, mat3 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_affine2d_h */

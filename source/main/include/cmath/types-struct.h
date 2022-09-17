@@ -1,5 +1,5 @@
-#ifndef __CMATH_TYPES - STRUCT_H__
-#define __CMATH_TYPES -STRUCT_H__
+#ifndef __CMATH_TYPES_STRUCT_H__
+#define __CMATH_TYPES_STRUCT_H__
 
 #include "cmath/types.h"
 
@@ -239,4 +239,4 @@ typedef union CGLM_ALIGN_MAT mat4s
 #endif
 } mat4s;
 
-#endif /* cglm_types_struct_h */
+#endif // __CMATH_TYPES_STRUCT_H__

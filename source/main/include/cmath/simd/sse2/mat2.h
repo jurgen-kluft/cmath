@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT2_H__
-#define __CMATH_MAT2_H__
+#ifndef __CMATH_SIMD_SSE2_MAT2_H__
+#define __CMATH_SIMD_SSE2_MAT2_H__
 
 #if defined(__SSE__) || defined(__SSE2__)
 
@@ -40,4 +40,4 @@ void glm_mat2_transp_sse2(mat2 m, mat2 dest)
 
 #endif
 
-#endif /* __CMATH_MAT2_H__ */
+#endif /* __CMATH_SIMD_SSE2_MAT2_H__ */

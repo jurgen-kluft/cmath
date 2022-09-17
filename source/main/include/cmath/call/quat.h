@@ -1,9 +1,5 @@
-#ifndef __CMATH_QUAT_H__
-#define __CMATH_QUAT_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__QUAT_H__
+#define __CMATH_CALL__QUAT_H__
 
 #include "cmath/cglm.h"
 
@@ -45,7 +41,5 @@ extern "C"
     void  glmc_quat_rotate_at(mat4 model, versor q, vec3 pivot);
     void  glmc_quat_rotate_atm(mat4 m, versor q, vec3 pivot);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_quat_h */

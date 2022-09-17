@@ -1,9 +1,5 @@
 #ifndef __CMATH_STRUCT_H__
 #define __CMATH_STRUCT_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 #include "cmath/cglm.h"
 #include "cmath/types-struct.h"
@@ -27,7 +23,5 @@ extern "C"
 #include "cmath/struct/curve.h"
 #include "cmath/struct/affine2d.h"
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglm_structs_h */

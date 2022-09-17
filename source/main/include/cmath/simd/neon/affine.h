@@ -1,5 +1,5 @@
-#ifndef __CMATH_AFFINE_H__
-#define __CMATH_AFFINE_H__
+#ifndef __CMATH_SIMD_NEON_AFFINE_H__
+#define __CMATH_SIMD_NEON_AFFINE_H__
 
 #if defined(__ARM_NEON_FP)
 
@@ -110,4 +110,4 @@ void glm_inv_tr_neon(mat4 mat)
 }
 
 #endif
-#endif /* __CMATH_AFFINE_H__ */
+#endif /* __CMATH_SIMD_NEON_AFFINE_H__ */

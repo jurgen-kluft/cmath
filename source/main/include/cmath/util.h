@@ -3,6 +3,7 @@
 
 /*
  Functions:
+   CGLM_INLINE float glm_rand48();
    CGLM_INLINE int   glm_sign(int val);
    CGLM_INLINE float glm_signf(float val);
    CGLM_INLINE float glm_rad(float deg);
@@ -30,6 +31,13 @@
 
 #define GLM_MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 #define GLM_MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+
+/*!
+ * @brief get random float +1 <-> -1
+ *
+ */
+CGLM_INLINE
+float glm_rand48(void) { return drand48(); }
 
 /*!
  * @brief get sign of 32 bit integer as +1, -1, 0

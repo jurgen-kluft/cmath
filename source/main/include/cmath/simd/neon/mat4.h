@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT4_H__
-#define __CMATH_MAT4_H__
+#ifndef __CMATH_SIMD_NEON_MAT4_H__
+#define __CMATH_SIMD_NEON_MAT4_H__
 
 #if defined(__ARM_NEON_FP)
 
@@ -296,4 +296,4 @@ void glm_mat4_inv_neon(mat4 mat, mat4 dest)
 }
 
 #endif
-#endif /* __CMATH_MAT4_H__ */
+#endif /* __CMATH_SIMD_NEON_MAT4_H__ */

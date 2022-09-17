@@ -1,9 +1,5 @@
-#ifndef __CMATH_EASE_H__
-#define __CMATH_EASE_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__EASE_H__
+#define __CMATH_CALL__EASE_H__
 
 #include "cmath/cglm.h"
 
@@ -39,7 +35,5 @@ extern "C"
     float glmc_ease_bounce_in(float t);
     float glmc_ease_bounce_inout(float t);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_ease_h */

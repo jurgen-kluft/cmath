@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT4_H__
-#define __CMATH_MAT4_H__
+#ifndef __CMATH_SIMD_AVX_MAT4_H__
+#define __CMATH_SIMD_AVX_MAT4_H__
 
 #ifdef __AVX__
 
@@ -59,4 +59,4 @@ void glm_mat4_mul_avx(mat4 m1, mat4 m2, mat4 dest)
 }
 
 #endif
-#endif /* __CMATH_MAT4_H__ */
+#endif /* __CMATH_SIMD_AVX_MAT4_H__ */

@@ -1,9 +1,5 @@
-#ifndef __CMATH_IVEC4_H__
-#define __CMATH_IVEC4_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__IVEC4_H__
+#define __CMATH_CALL__IVEC4_H__
 
 #include "cmath/cglm.h"
 
@@ -23,7 +19,5 @@ extern "C"
     void  glmc_ivec4_minv(ivec4 a, ivec4 b, ivec4 dest);
     void  glmc_ivec4_clamp(ivec4 v, int minVal, int maxVal);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_ivec4_h */

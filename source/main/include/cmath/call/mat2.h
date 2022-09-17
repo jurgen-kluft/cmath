@@ -1,9 +1,5 @@
-#ifndef __CMATH_MAT2_H__
-#define __CMATH_MAT2_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__MAT2_H__
+#define __CMATH_CALL__MAT2_H__
 
 #include "cmath/cglm.h"
 
@@ -23,7 +19,5 @@ extern "C"
     void  glmc_mat2_swap_row(mat2 mat, int row1, int row2);
     float glmc_mat2_rmc(vec2 r, mat2 m, vec2 c);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_mat2_h */

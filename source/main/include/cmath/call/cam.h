@@ -1,9 +1,5 @@
-#ifndef __CMATH_CAM_H__
-#define __CMATH_CAM_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__CAM_H__
+#define __CMATH_CALL__CAM_H__
 
 #include "cmath/cglm.h"
 
@@ -32,7 +28,5 @@ extern "C"
     float glmc_persp_aspect(mat4 proj);
     void  glmc_persp_sizes(mat4 proj, float fovy, vec4 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_cam_h */

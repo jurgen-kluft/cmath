@@ -1,9 +1,5 @@
-#ifndef __CMATH_AFFINE_H__
-#define __CMATH_AFFINE_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__AFFINE_H__
+#define __CMATH_CALL__AFFINE_H__
 
 #include "cmath/cglm.h"
 
@@ -35,7 +31,5 @@ extern "C"
     void glmc_mul_rot(mat4 m1, mat4 m2, mat4 dest);
     void glmc_inv_tr(mat4 mat);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_affine_h */

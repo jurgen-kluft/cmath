@@ -25,7 +25,6 @@
 #        endif
 #        define CGLM_INLINE __forceinline
 #    else
-#        define __attribute__((visibility("default")))
 #        define CGLM_INLINE static inline __attribute((always_inline))
 #    endif
 

@@ -1,5 +1,5 @@
-#ifndef __CMATH_AFFINE_H__
-#define __CMATH_AFFINE_H__
+#ifndef __CMATH_SIMD_SSE2_AFFINE_H__
+#define __CMATH_SIMD_SSE2_AFFINE_H__
 
 #if defined(__SSE__) || defined(__SSE2__)
 
@@ -106,4 +106,4 @@ void glm_inv_tr_sse2(mat4 mat)
 }
 
 #endif
-#endif /* __CMATH_AFFINE_H__ */
+#endif /* __CMATH_SIMD_SSE2_AFFINE_H__ */

@@ -1,5 +1,5 @@
-#ifndef __CMATH_MAT4_H__
-#define __CMATH_MAT4_H__
+#ifndef __CMATH_SIMD_SSE2_MAT4_H__
+#define __CMATH_SIMD_SSE2_MAT4_H__
 
 #if defined(__SSE__) || defined(__SSE2__)
 
@@ -411,4 +411,4 @@ void glm_mat4_inv_sse2(mat4 mat, mat4 dest)
 }
 
 #endif
-#endif // __CMATH_MAT4_H__
+#endif // __CMATH_SIMD_SSE2_MAT4_H__

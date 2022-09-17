@@ -1,10 +1,6 @@
-#ifndef __CMATH_IO_H__
-#define __CMATH_IO_H__
+#ifndef __CMATH_CALL__IO_H__
+#define __CMATH_CALL__IO_H__
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 #include "cmath/cglm.h"
 
@@ -14,7 +10,5 @@ extern "C"
     void glmc_vec3_print(vec3 vec, FILE* __restrict ostream);
     void glmc_versor_print(versor vec, FILE* __restrict ostream);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_io_h */

@@ -604,7 +604,7 @@ float glm_vec3_angle(vec3 a, vec3 b)
     if (dot > 1.0f)
         return 0.0f;
     else if (dot < -1.0f)
-        return CGLM_PI;
+        return GLM_PIf;
 
     return acosf(dot);
 }

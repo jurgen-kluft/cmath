@@ -1,9 +1,5 @@
 #ifndef __CMATH_CALL_H__
 #define __CMATH_CALL_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 #include "cmath/cglm.h"
 #include "cmath/call/vec2.h"
@@ -31,7 +27,4 @@ extern "C"
 #include "cmath/call/ray.h"
 #include "cmath/call/affine2d.h"
 
-#ifdef __cplusplus
-}
-#endif
 #endif /* cglm_call_h */

@@ -1,9 +1,5 @@
-#ifndef __CMATH_SPHERE_H__
-#define __CMATH_SPHERE_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__SPHERE_H__
+#define __CMATH_CALL__SPHERE_H__
 
 #include "cmath/cglm.h"
 
@@ -13,7 +9,5 @@ extern "C"
     bool glmc_sphere_sphere(vec4 s1, vec4 s2);
     bool glmc_sphere_point(vec4 s, vec3 point);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_sphere_h */

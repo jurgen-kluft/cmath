@@ -1,9 +1,5 @@
-#ifndef __CMATH_EULER_H__
-#define __CMATH_EULER_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__EULER_H__
+#define __CMATH_CALL__EULER_H__
 
 #include "cmath/cglm.h"
 
@@ -17,7 +13,5 @@ extern "C"
     void glmc_euler_yxz(vec3 angles, mat4 dest);
     void glmc_euler_by_order(vec3 angles, glm_euler_seq axis, mat4 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_euler_h */

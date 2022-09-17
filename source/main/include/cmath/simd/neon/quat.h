@@ -1,5 +1,5 @@
-#ifndef __CMATH_QUAT_H__
-#define __CMATH_QUAT_H__
+#ifndef __CMATH_SIMD_NEON_QUAT_H__
+#define __CMATH_SIMD_NEON_QUAT_H__
 
 #if defined(__ARM_NEON_FP)
 
@@ -46,4 +46,4 @@ void glm_quat_mul_neon(versor p, versor q, versor dest)
 }
 
 #endif
-#endif /* __CMATH_QUAT_H__ */
+#endif /* __CMATH_SIMD_NEON_QUAT_H__ */

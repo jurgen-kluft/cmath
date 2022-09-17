@@ -1,9 +1,5 @@
-#ifndef cglmc_ivec3_h
-#define cglmc_ivec3_h
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__IVEC3_H__
+#define __CMATH_CALL__IVEC3_H__
 
 #include "cmath/cglm.h"
 
@@ -23,7 +19,5 @@ extern "C"
     void  glmc_ivec3_minv(ivec3 a, ivec3 b, ivec3 dest);
     void  glmc_ivec3_clamp(ivec3 v, int minVal, int maxVal);
 
-#ifdef __cplusplus
-}
-#endif
-#endif /* cglmc_ivec3_h */
+
+#endif /* __CMATH_CALL__IVEC3_H__ */

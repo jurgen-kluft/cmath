@@ -1,9 +1,5 @@
-#ifndef __CMATH_ORTHO_RH_ZO_H__
-#define __CMATH_ORTHO_RH_ZO_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL_CLIPSPACE__ORTHO_RH_ZO_H__
+#define __CMATH_CALL_CLIPSPACE__ORTHO_RH_ZO_H__
 
 #include "cmath/cglm.h"
 
@@ -14,7 +10,5 @@ extern "C"
     void glmc_ortho_default_rh_zo(float aspect, mat4 dest);
     void glmc_ortho_default_s_rh_zo(float aspect, float size, mat4 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_ortho_rh_zo_h */

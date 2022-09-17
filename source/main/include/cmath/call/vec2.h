@@ -1,9 +1,5 @@
-#ifndef __CMATH_VEC2_H__
-#define __CMATH_VEC2_H__
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef __CMATH_CALL__VEC2_H__
+#define __CMATH_CALL__VEC2_H__
 
 #include "cmath/cglm.h"
 
@@ -45,7 +41,5 @@ extern "C"
     void  glmc_vec2_complex_div(vec2 a, vec2 b, vec2 dest);
     void  glmc_vec2_complex_conjugate(vec2 a, vec2 dest);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif /* cglmc_vec2_h */
