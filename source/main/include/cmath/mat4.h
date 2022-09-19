@@ -72,8 +72,8 @@
     }
 
 /* for C only */
-#define GLM_MAT4_IDENTITY ((mat4)GLM_MAT4_IDENTITY_INIT)
-#define GLM_MAT4_ZERO     ((mat4)GLM_MAT4_ZERO_INIT)
+#define GLM_MAT4_IDENTITY (mat4 GLM_MAT4_IDENTITY_INIT)
+#define GLM_MAT4_ZERO     (mat4 GLM_MAT4_ZERO_INIT)
 
 /* DEPRECATED! use _copy, _ucopy versions */
 #define glm_mat4_udup(mat, dest) glm_mat4_ucopy(mat, dest)
@@ -474,7 +474,7 @@ void glm_mat4_quat(mat4 m, versor dest)
  * @param[in]  m    mat4(affine transform)
  * @param[in]  v    vec3
  * @param[in]  last 4th item to make it vec4
- * @param[out] dest result vector (vec3)
+ * @param[out] dest result vector vec3 
  */
 CGLM_INLINE
 void glm_mat4_mulv3(mat4 m, vec3 v, float last, vec3 dest)

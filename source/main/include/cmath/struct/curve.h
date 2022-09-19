@@ -16,7 +16,7 @@
  * if you want to specify S as vector then use more generic glm_mat4_rmc() func.
  *
  * Example usage:
- *  B(s) = glm_smc(s, GLM_BEZIER_MAT, (vec4){p0, c0, c1, p1})
+ *  B(s) = glm_smc(s, GLM_BEZIER_MAT, vec4 {p0, c0, c1, p1})
  *
  * @param[in]  s  parameter between 0 and 1 (this will be [s3, s2, s, 1])
  * @param[in]  m  basis matrix

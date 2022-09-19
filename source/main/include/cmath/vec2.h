@@ -59,8 +59,8 @@
         0.0f, 0.0f         \
     }
 
-#define GLM_VEC2_ONE  ((vec2)GLM_VEC2_ONE_INIT)
-#define GLM_VEC2_ZERO ((vec2)GLM_VEC2_ZERO_INIT)
+#define GLM_VEC2_ONE  (vec2 GLM_VEC2_ONE_INIT)
+#define GLM_VEC2_ZERO (vec2 GLM_VEC2_ZERO_INIT)
 
 /*!
  * @brief init vec2 using another vector

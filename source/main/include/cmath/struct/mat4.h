@@ -299,7 +299,7 @@ versors glms_mat4_quat(mat4s m)
  * @param[in]  m    mat4(affine transform)
  * @param[in]  v    vec3
  * @param[in]  last 4th item to make it vec4
- * @returns         result vector (vec3)
+ * @returns         result vector vec3 
  */
 CGLM_INLINE
 vec3s glms_mat4_mulv3(mat4s m, vec3s v, float last)

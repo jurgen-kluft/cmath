@@ -11,10 +11,10 @@ void test_rand_mat4(mat4 dest)
     dest[3][2] = glm_rand48();
 
     /* random rotatation around random axis with random angle */
-    glm_rotate(dest, glm_rand48(), (vec3){glm_rand48(), glm_rand48(), glm_rand48()});
+    glm_rotate(dest, glm_rand48(), vec3 {glm_rand48(), glm_rand48(), glm_rand48()});
 
     /* random scale */
-    /* glm_scale(dest, (vec3){glm_rand48(), glm_rand48(), glm_rand48()}); */
+    /* glm_scale(dest, vec3 {glm_rand48(), glm_rand48(), glm_rand48()}); */
 }
 
 void test_rand_mat3(mat3 dest)
@@ -22,7 +22,7 @@ void test_rand_mat3(mat3 dest)
     mat4 m4;
 
     /* random rotatation around random axis with random angle */
-    glm_rotate_make(m4, glm_rand48(), (vec3){glm_rand48(), glm_rand48(), glm_rand48()});
+    glm_rotate_make(m4, glm_rand48(), vec3 {glm_rand48(), glm_rand48(), glm_rand48()});
     glm_mat4_pick3(m4, dest);
 }
 

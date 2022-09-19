@@ -47,8 +47,8 @@
     }
 
 /* for C only */
-#define GLM_MAT2_IDENTITY ((mat2)GLM_MAT2_IDENTITY_INIT)
-#define GLM_MAT2_ZERO     ((mat2)GLM_MAT2_ZERO_INIT)
+#define GLM_MAT2_IDENTITY (mat2 GLM_MAT2_IDENTITY_INIT)
+#define GLM_MAT2_ZERO     (mat2 GLM_MAT2_ZERO_INIT)
 
 /*!
  * @brief copy all members of [mat] to [dest]

@@ -90,9 +90,9 @@
         0.0f, 0.0f, 0.0f, 0.0f \
     }
 
-#define GLM_VEC4_ONE   ((vec4)GLM_VEC4_ONE_INIT)
-#define GLM_VEC4_BLACK ((vec4)GLM_VEC4_BLACK_INIT)
-#define GLM_VEC4_ZERO  ((vec4)GLM_VEC4_ZERO_INIT)
+#define GLM_VEC4_ONE   (vec4 GLM_VEC4_ONE_INIT)
+#define GLM_VEC4_BLACK (vec4 GLM_VEC4_BLACK_INIT)
+#define GLM_VEC4_ZERO  (vec4 GLM_VEC4_ZERO_INIT)
 
 #define GLM_XXXX GLM_SHUFFLE4(0, 0, 0, 0)
 #define GLM_YYYY GLM_SHUFFLE4(1, 1, 1, 1)

@@ -37,7 +37,7 @@
  *
  */
 CGLM_INLINE
-float glm_rand48(void) { return drand48(); }
+float glm_rand48(void) { return (float)drand48(); }
 
 /*!
  * @brief get sign of 32 bit integer as +1, -1, 0

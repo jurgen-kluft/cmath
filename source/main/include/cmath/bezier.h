@@ -15,8 +15,8 @@
 // clang-format on
 
 /* for C only */
-#define GLM_BEZIER_MAT  ((mat4)GLM_BEZIER_MAT_INIT)
-#define GLM_HERMITE_MAT ((mat4)GLM_HERMITE_MAT_INIT)
+#define GLM_BEZIER_MAT  (mat4 GLM_BEZIER_MAT_INIT)
+#define GLM_HERMITE_MAT (mat4 GLM_HERMITE_MAT_INIT)
 
 #define CGLM_DECASTEL_EPS   1e-9f
 #define CGLM_DECASTEL_MAX   1000.0f
@@ -29,7 +29,7 @@
  *  B(s) = P0*(1-s)^3 + 3*C0*s*(1-s)^2 + 3*C1*s^2*(1-s) + P1*s^3
  *
  * similar result using matrix:
- *  B(s) = glm_smc(t, GLM_BEZIER_MAT, (vec4){p0, c0, c1, p1})
+ *  B(s) = glm_smc(t, GLM_BEZIER_MAT, vec4 {p0, c0, c1, p1})
  *
  * glm_eq(glm_smc(...), glm_bezier(...)) should return TRUE
  *
@@ -63,7 +63,7 @@ float glm_bezier(float s, float p0, float c0, float c1, float p1)
  *            + P1*(-2*s^3 + 3*s^2) + T1*(s^3 - s^2)
  *
  * similar result using matrix:
- *  H(s) = glm_smc(t, GLM_HERMITE_MAT, (vec4){p0, p1, c0, c1})
+ *  H(s) = glm_smc(t, GLM_HERMITE_MAT, vec4 {p0, p1, c0, c1})
  *
  * glm_eq(glm_smc(...), glm_hermite(...)) should return TRUE
  *

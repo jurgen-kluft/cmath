@@ -25,10 +25,13 @@
 #include "cmath/struct.h"
 #include "cmath/call.h"
 
-typedef struct test_status_t {
-  const char *msg;
-  int         status;
-} test_status_t;
+struct test_status_t
+{
+    inline test_status_t() : msg(nullptr), status(-1) {}
+    inline test_status_t(const char* _msg, int _status) : msg(_msg), status(_status) {}
+    const char* msg;
+    int         status;
+};
 
 typedef test_status_t (*fntest)(void);
 
@@ -89,7 +92,7 @@ typedef struct test_entry_t {
 #define EXPAND(x) x
 
 #define TEST_OK 1
-#define TEST_SUCCESS  return (test_status_t){NULL, TEST_OK};
+#define TEST_SUCCESS  return test_status_t(NULL, TEST_OK);
 
 #define TEST_IMPL_ARG1(FUN) \
   test_status_t test_ ## FUN (void);                                          \
@@ -113,7 +116,7 @@ typedef struct test_entry_t {
             __FILE__,                                                         \
             __LINE__,                                                         \
             #expr);                                                           \
-    return (test_status_t){msg, 0};                                           \
+    return test_status_t(msg, 0);                                             \
   }
 
 #define ASSERT_ARG1(expr)                  ASSERT_EXT(expr, NULL)
@@ -134,12 +137,11 @@ typedef struct test_entry_t {
               __FILE__,                                                       \
               __LINE__,                                                       \
               #expr);                                                         \
-      return (test_status_t){ts.msg, 0};                                      \
+      return test_status_t(ts.msg, 0);                                        \
     } \
   } while(0);
 
 #if defined(_WIN32)
-# define drand48()  ((float)(rand() / (RAND_MAX + 1.0)))
 # define OK_TEXT    "ok:"
 # define FAIL_TEXT  "fail:"
 # define FINAL_TEXT "^_^"

@@ -596,10 +596,10 @@ TEST_IMPL(GLM_PREFIX, vec2_complex_mul) {
        v3 = { cosf(GLM_PIf/4.0f), sinf(GLM_PIf/4.0f) };
 
   GLM(vec2_complex_mul)(v1, v2, v2);
-  ASSERTIFY(test_assert_vec2_eq(v2, (vec2){ -34, 68 }))
+  ASSERTIFY(test_assert_vec2_eq(v2, vec2 { -34, 68 }))
 
   GLM(vec2_complex_mul)(v3, v3, v3);
-  ASSERTIFY(test_assert_vec2_eq(v3, (vec2){ 0.0f, 1.0f }))
+  ASSERTIFY(test_assert_vec2_eq(v3, vec2 { 0.0f, 1.0f }))
 
   TEST_SUCCESS
 }
@@ -611,10 +611,10 @@ TEST_IMPL(GLM_PREFIX, vec2_complex_div) {
        v4 = { cosf(GLM_PIf/4.0f), -sinf(GLM_PIf/4.0f) };
   
   GLM(vec2_complex_div)(v1, v2, v2);
-  ASSERTIFY(test_assert_vec2_eq(v2, (vec2){ 7.0f, 11.0f }))
+  ASSERTIFY(test_assert_vec2_eq(v2, vec2 { 7.0f, 11.0f }))
 
   GLM(vec2_complex_div)(v3, v4, v4);
-  ASSERTIFY(test_assert_vec2_eq(v4, (vec2){ 0.0f, 1.0f }))
+  ASSERTIFY(test_assert_vec2_eq(v4, vec2 { 0.0f, 1.0f }))
 
   TEST_SUCCESS
 }

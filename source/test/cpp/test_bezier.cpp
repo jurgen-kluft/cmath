@@ -36,7 +36,7 @@ TEST_IMPL(bezier)
     c1 = test_rand();
 
     /* test cubic bezier */
-    smc      = glm_smc(s, GLM_BEZIER_MAT, (vec4){p0, c0, c1, p1});
+    smc      = glm_smc(s, GLM_BEZIER_MAT, vec4 {p0, c0, c1, p1});
     Bs       = glm_bezier(s, p0, c0, c1, p1);
     Bs_plain = test_bezier_plain(s, p0, c0, c1, p1);
 
@@ -45,7 +45,7 @@ TEST_IMPL(bezier)
     ASSERTIFY(test_assert_eqf(Bs, smc))
 
     /* test cubic hermite */
-    smc      = glm_smc(s, GLM_HERMITE_MAT, (vec4){p0, p1, c0, c1});
+    smc      = glm_smc(s, GLM_HERMITE_MAT, vec4 {p0, p1, c0, c1});
     Bs       = glm_hermite(s, p0, c0, c1, p1);
     Bs_plain = test_hermite_plain(s, p0, c0, c1, p1);
 

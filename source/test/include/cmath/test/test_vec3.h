@@ -1430,24 +1430,24 @@ TEST_IMPL(GLM_PREFIX, vec3_swizzle) {
   v[2] = 3;
 
   glm_vec3_swizzle(v, GLM_ZYX, v);
-  ASSERTIFY(test_assert_vec3_eq(v, (vec3){3, 2, 1}))
+  ASSERTIFY(test_assert_vec3_eq(v, vec3 {3, 2, 1}))
 
   glm_vec3_swizzle(v, GLM_XXX, v);
-  ASSERTIFY(test_assert_vec3_eq(v, (vec3){3, 3, 3}))
+  ASSERTIFY(test_assert_vec3_eq(v, vec3 {3, 3, 3}))
 
   v[0] = 1;
   v[1] = 2;
   v[2] = 3;
 
   glm_vec3_swizzle(v, GLM_YYY, v);
-  ASSERTIFY(test_assert_vec3_eq(v, (vec3){2, 2, 2}))
+  ASSERTIFY(test_assert_vec3_eq(v, vec3 {2, 2, 2}))
 
   v[0] = 1;
   v[1] = 2;
   v[2] = 3;
 
   glm_vec3_swizzle(v, GLM_ZZZ, v);
-  ASSERTIFY(test_assert_vec3_eq(v, (vec3){3, 3, 3}))
+  ASSERTIFY(test_assert_vec3_eq(v, vec3 {3, 3, 3}))
 
   TEST_SUCCESS
 }

@@ -6,7 +6,7 @@ TEST_IMPL(GLM_PREFIX, translate)
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
     glm_mat4_identity(m1);
-    GLM(translate)(m1, (vec3){13.0f, 11.0f, 7.0f});
+    GLM(translate)(m1, vec3 {13.0f, 11.0f, 7.0f});
     glm_mat4_mulv(m1, v1, v2);
 
     ASSERT(test_eq(v2[0], 14.0f))
@@ -15,7 +15,7 @@ TEST_IMPL(GLM_PREFIX, translate)
     ASSERT(test_eq(v2[3], 1.0f))
 
     glm_mat4_identity(m1);
-    GLM(translate)(m1, (vec3){1.0f, -1.0f, -5.0f});
+    GLM(translate)(m1, vec3 {1.0f, -1.0f, -5.0f});
     glm_mat4_mulv(m1, v2, v2);
 
     ASSERT(test_eq(v2[0], 15.0f))
@@ -32,7 +32,7 @@ TEST_IMPL(GLM_PREFIX, translate_to)
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
     glm_mat4_identity(m1);
-    GLM(translate_to)(m1, (vec3){13.0f, 11.0f, 7.0f}, m2);
+    GLM(translate_to)(m1, vec3 {13.0f, 11.0f, 7.0f}, m2);
     glm_mat4_mulv(m2, v1, v2);
 
     ASSERT(test_eq(v2[0], 14.0f))
@@ -41,7 +41,7 @@ TEST_IMPL(GLM_PREFIX, translate_to)
     ASSERT(test_eq(v2[3], 1.0f))
 
     glm_mat4_identity(m1);
-    GLM(translate_to)(m1, (vec3){1.0f, -1.0f, -5.0f}, m2);
+    GLM(translate_to)(m1, vec3 {1.0f, -1.0f, -5.0f}, m2);
     glm_mat4_mulv(m2, v2, v2);
 
     ASSERT(test_eq(v2[0], 15.0f))
@@ -136,7 +136,7 @@ TEST_IMPL(GLM_PREFIX, translate_make)
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
     glm_mat4_identity(m1);
-    GLM(translate_make)(m1, (vec3){13.0f, 11.0f, 7.0f});
+    GLM(translate_make)(m1, vec3 {13.0f, 11.0f, 7.0f});
     glm_mat4_mulv(m1, v1, v2);
 
     ASSERT(test_eq(v2[0], 14.0f))
@@ -145,7 +145,7 @@ TEST_IMPL(GLM_PREFIX, translate_make)
     ASSERT(test_eq(v2[3], 1.0f))
 
     glm_mat4_identity(m1);
-    GLM(translate_make)(m1, (vec3){1.0f, -1.0f, -5.0f});
+    GLM(translate_make)(m1, vec3 {1.0f, -1.0f, -5.0f});
     glm_mat4_mulv(m1, v2, v2);
 
     ASSERT(test_eq(v2[0], 15.0f))
@@ -162,7 +162,7 @@ TEST_IMPL(GLM_PREFIX, scale_to)
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
     glm_mat4_identity(m1);
-    GLM(scale_to)(m1, (vec3){13.0f, 11.0f, 7.0f}, m2);
+    GLM(scale_to)(m1, vec3 {13.0f, 11.0f, 7.0f}, m2);
     glm_mat4_mulv(m2, v1, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -171,7 +171,7 @@ TEST_IMPL(GLM_PREFIX, scale_to)
     ASSERT(test_eq(v2[3], 1.0f))
 
     glm_mat4_identity(m1);
-    GLM(scale_to)(m1, (vec3){1.0f, -1.0f, -5.0f}, m2);
+    GLM(scale_to)(m1, vec3 {1.0f, -1.0f, -5.0f}, m2);
     glm_mat4_mulv(m2, v2, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -187,7 +187,7 @@ TEST_IMPL(GLM_PREFIX, scale_make)
     mat4 m1;
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
-    GLM(scale_make)(m1, (vec3){13.0f, 11.0f, 7.0f});
+    GLM(scale_make)(m1, vec3 {13.0f, 11.0f, 7.0f});
     glm_mat4_mulv(m1, v1, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -195,7 +195,7 @@ TEST_IMPL(GLM_PREFIX, scale_make)
     ASSERT(test_eq(v2[2], 21.0f))
     ASSERT(test_eq(v2[3], 1.0f))
 
-    GLM(scale_make)(m1, (vec3){1.0f, -1.0f, -5.0f});
+    GLM(scale_make)(m1, vec3 {1.0f, -1.0f, -5.0f});
     glm_mat4_mulv(m1, v2, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -212,7 +212,7 @@ TEST_IMPL(GLM_PREFIX, scale)
     vec4 v1 = {1.0f, 2.0f, 3.0f, 1.0f}, v2;
 
     glm_mat4_identity(m1);
-    GLM(scale)(m1, (vec3){13.0f, 11.0f, 7.0f});
+    GLM(scale)(m1, vec3 {13.0f, 11.0f, 7.0f});
     glm_mat4_mulv(m1, v1, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -221,7 +221,7 @@ TEST_IMPL(GLM_PREFIX, scale)
     ASSERT(test_eq(v2[3], 1.0f))
 
     glm_mat4_identity(m1);
-    GLM(scale)(m1, (vec3){1.0f, -1.0f, -5.0f});
+    GLM(scale)(m1, vec3 {1.0f, -1.0f, -5.0f});
     glm_mat4_mulv(m1, v2, v2);
 
     ASSERT(test_eq(v2[0], 13.0f))
@@ -437,7 +437,7 @@ TEST_IMPL(GLM_PREFIX, rotate_at)
     mat4 m1 = GLM_MAT4_IDENTITY_INIT;
     vec4 v1 = {1.0f, 0.0f, 0.0f, 1.0f};
 
-    GLM(rotate_at)(m1, (vec3){0.5f, 0.0f, 0.0f}, GLM_PI_2f, GLM_YUP);
+    GLM(rotate_at)(m1, vec3 {0.5f, 0.0f, 0.0f}, GLM_PI_2f, GLM_YUP);
     glm_mat4_mulv(m1, v1, v1);
 
     ASSERT(test_eq(v1[0], 0.5f))
@@ -474,7 +474,7 @@ TEST_IMPL(GLM_PREFIX, rotate_atm)
     mat4 m1 = GLM_MAT4_IDENTITY_INIT;
     vec4 v1 = {1.0f, 0.0f, 0.0f, 1.0f};
 
-    GLM(rotate_atm)(m1, (vec3){0.5f, 0.0f, 0.0f}, GLM_PI_2f, GLM_YUP);
+    GLM(rotate_atm)(m1, vec3 {0.5f, 0.0f, 0.0f}, GLM_PI_2f, GLM_YUP);
     glm_mat4_mulv(m1, v1, v1);
 
     ASSERT(test_eq(v1[0], 0.5f))
@@ -507,26 +507,26 @@ TEST_IMPL(GLM_PREFIX, decompose_scalev)
     mat4 m1;
     vec3 s1;
 
-    GLM(scale_make)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale_make)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose_scalev)(m1, s1);
 
     ASSERT(test_eq(s1[0], 7.0f))
     ASSERT(test_eq(s1[1], 8.0f))
     ASSERT(test_eq(s1[2], 9.0f))
 
-    GLM(scale)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose_scalev)(m1, s1);
 
     ASSERT(test_eq(s1[0], 49.0f))
     ASSERT(test_eq(s1[1], 64.0f))
     ASSERT(test_eq(s1[2], 81.0f))
 
-    glm_rotate(m1, GLM_PI_4f, (vec3){23.0f, 45.0f, 66.0f});
+    glm_rotate(m1, GLM_PI_4f, vec3 {23.0f, 45.0f, 66.0f});
     ASSERT(test_eq(s1[0], 49.0f))
     ASSERT(test_eq(s1[1], 64.0f))
     ASSERT(test_eq(s1[2], 81.0f))
 
-    glm_translate(m1, (vec3){4.0f, 5.0f, 6.0f});
+    glm_translate(m1, vec3 {4.0f, 5.0f, 6.0f});
     ASSERT(test_eq(s1[0], 49.0f))
     ASSERT(test_eq(s1[1], 64.0f))
     ASSERT(test_eq(s1[2], 81.0f))
@@ -538,16 +538,16 @@ TEST_IMPL(GLM_PREFIX, uniscaled)
 {
     mat4 m1;
 
-    GLM(scale_make)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale_make)(m1, vec3 {7.0f, 8.0f, 9.0f});
     ASSERT(!GLM(uniscaled)(m1))
 
-    GLM(scale_make)(m1, (vec3){7.0f, 7.0f, 7.0f});
+    GLM(scale_make)(m1, vec3 {7.0f, 7.0f, 7.0f});
     ASSERT(GLM(uniscaled)(m1))
 
-    glm_rotate(m1, GLM_PI_4f, (vec3){23.0f, 45.0f, 66.0f});
+    glm_rotate(m1, GLM_PI_4f, vec3 {23.0f, 45.0f, 66.0f});
     ASSERT(GLM(uniscaled)(m1))
 
-    glm_translate(m1, (vec3){4.0f, 5.0f, 6.0f});
+    glm_translate(m1, vec3 {4.0f, 5.0f, 6.0f});
     ASSERT(GLM(uniscaled)(m1))
 
     TEST_SUCCESS
@@ -558,7 +558,7 @@ TEST_IMPL(GLM_PREFIX, decompose_rs)
     mat4 m1, m2, r;
     vec3 s1;
 
-    GLM(scale_make)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale_make)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose_rs)(m1, r, s1);
 
     ASSERT(test_eq(s1[0], 7.0f))
@@ -566,7 +566,7 @@ TEST_IMPL(GLM_PREFIX, decompose_rs)
     ASSERT(test_eq(s1[2], 9.0f))
     ASSERTIFY(test_assert_mat4_eq_identity(r));
 
-    GLM(scale)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose_rs)(m1, r, s1);
 
     ASSERT(test_eq(s1[0], 49.0f))
@@ -574,7 +574,7 @@ TEST_IMPL(GLM_PREFIX, decompose_rs)
     ASSERT(test_eq(s1[2], 81.0f))
     ASSERTIFY(test_assert_mat4_eq_identity(r));
 
-    glm_rotate(m1, GLM_PI_4f, (vec3){23.0f, 45.0f, 66.0f});
+    glm_rotate(m1, GLM_PI_4f, vec3 {23.0f, 45.0f, 66.0f});
     ASSERT(test_eq(s1[0], 49.0f))
     ASSERT(test_eq(s1[1], 64.0f))
     ASSERT(test_eq(s1[2], 81.0f))
@@ -595,7 +595,7 @@ TEST_IMPL(GLM_PREFIX, decompose)
     vec4 t;
     vec3 s;
 
-    GLM(scale_make)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale_make)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose)(m1, t, r, s);
 
     ASSERT(test_eq(s[0], 7.0f))
@@ -603,7 +603,7 @@ TEST_IMPL(GLM_PREFIX, decompose)
     ASSERT(test_eq(s[2], 9.0f))
     ASSERTIFY(test_assert_mat4_eq_identity(r));
 
-    GLM(scale)(m1, (vec3){7.0f, 8.0f, 9.0f});
+    GLM(scale)(m1, vec3 {7.0f, 8.0f, 9.0f});
     GLM(decompose)(m1, t, r, s);
 
     ASSERT(test_eq(s[0], 49.0f))
@@ -611,7 +611,7 @@ TEST_IMPL(GLM_PREFIX, decompose)
     ASSERT(test_eq(s[2], 81.0f))
     ASSERTIFY(test_assert_mat4_eq_identity(r));
 
-    glm_rotate(m1, GLM_PI_4f, (vec3){23.0f, 45.0f, 66.0f});
+    glm_rotate(m1, GLM_PI_4f, vec3 {23.0f, 45.0f, 66.0f});
     ASSERT(test_eq(s[0], 49.0f))
     ASSERT(test_eq(s[1], 64.0f))
     ASSERT(test_eq(s[2], 81.0f))
@@ -624,9 +624,9 @@ TEST_IMPL(GLM_PREFIX, decompose)
     ASSERTIFY(test_assert_mat4_eq2(m1, m2, 0.00001f));
 
     glm_mat4_identity(m1);
-    glm_translate(m1, (vec3){56.0f, 13.0f, 90.0f});
-    glm_rotate(m1, GLM_PI_4f, (vec3){23.0f, 45.0f, 66.0f});
-    glm_scale(m1, (vec3){12.0f, 34.0f, 23.0f});
+    glm_translate(m1, vec3 {56.0f, 13.0f, 90.0f});
+    glm_rotate(m1, GLM_PI_4f, vec3 {23.0f, 45.0f, 66.0f});
+    glm_scale(m1, vec3 {12.0f, 34.0f, 23.0f});
 
     GLM(decompose)(m1, t, r, s);
 
