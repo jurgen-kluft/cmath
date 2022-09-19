@@ -3,6 +3,8 @@
 
 namespace __drand48
 {
+    // TODO drand48 implementation is multi-thread unsafe
+
 #if defined(_WIN32)
 
 #define RAND48_SEED_0 (0x330e)
