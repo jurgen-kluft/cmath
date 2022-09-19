@@ -29,8 +29,8 @@ tags
 
 !*.md
 !*.jpg
+!*.png
 !*.txt
-!*.html
 
 !*.ini
 !*.bat
