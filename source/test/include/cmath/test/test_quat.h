@@ -1,3 +1,10 @@
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
 #include "cmath/test/test_common.h"
 
 #ifndef CGLM_TEST_QUAT_ONCE
@@ -49,7 +56,7 @@ TEST_IMPL(GLM_PREFIX, quat_identity) {
 }
 
 TEST_IMPL(GLM_PREFIX, quat_identity_array) {
-  int i, count;
+  size_t i, count;
   versor quats[4] = {
     {1.0f, 2.0f, 3.0f, 4.0f},
     {1.0f, 2.0f, 3.0f, 4.0f},
@@ -826,13 +833,13 @@ TEST_IMPL(GLM_PREFIX, quat_look) {
   glm_quat(q1, glm_rad(90.0f), 0.0f, 1.0f, 0.0f);
   GLM(quat_look)(v1, q1, m1);
 
-  glm_look(v1, vec3 {-1.0f, 0.0f, 0.0f}, GLM_YUP, m2);
+  glm_look(v1, (vec3){-1.0f, 0.0f, 0.0f}, GLM_YUP, m2);
   ASSERTIFY(test_assert_mat4_eq(m1, m2));
   
   glm_quat(q1, glm_rad(180.0f), 1.0f, 0.0f, 0.0f);
   GLM(quat_look)(v1, q1, m1);
   
-  glm_look(v1, vec3 {0.0f, 0.0f, 1.0f}, vec3 {0.0f, -1.0f, 0.0f}, m2);
+  glm_look(v1, (vec3){0.0f, 0.0f, 1.0f}, (vec3){0.0f, -1.0f, 0.0f}, m2);
 
   ASSERTIFY(test_assert_mat4_eq(m1, m2));
 
@@ -843,15 +850,15 @@ TEST_IMPL(GLM_PREFIX, quat_for) {
   versor q1, q2;
 
   glm_quat(q1, glm_rad(90.0f), 0.0f, 1.0f, 0.0f);
-  GLM(quat_for)(vec3 {-1.0f, 0.0f, 0.0f}, vec3 {0.0f, 1.0f, 0.0f}, q2);
+  GLM(quat_for)((vec3){-1.0f, 0.0f, 0.0f}, (vec3){0.0f, 1.0f, 0.0f}, q2);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
   glm_quat(q2, glm_rad(90.0f), 1.0f, 0.0f, 0.0f);
-  GLM(quat_for)(vec3 {0.0f, 1.0f, 0.0f}, vec3 {0.0f, 0.0f, 1.0f}, q1);
+  GLM(quat_for)((vec3){0.0f, 1.0f, 0.0f}, (vec3){0.0f, 0.0f, 1.0f}, q1);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
   glm_quat(q2, glm_rad(180.0f), 1.0f, 0.0f, 0.0f);
-  GLM(quat_for)(vec3 {0.0f, 0.0f, 1.0f}, vec3 {0.0f, -1.0f, 0.0f}, q1);
+  GLM(quat_for)((vec3){0.0f, 0.0f, 1.0f}, (vec3){0.0f, -1.0f, 0.0f}, q1);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
   TEST_SUCCESS
@@ -861,23 +868,23 @@ TEST_IMPL(GLM_PREFIX, quat_forp) {
   versor q1, q2;
 
   glm_quat(q1, glm_rad(90.0f), 0.0f, 1.0f, 0.0f);
-  GLM(quat_forp)(vec3 {2.0f, 0.0f, 0.0f},
-                 vec3 {1.0f, 0.0f, 0.0f}, 
-                 vec3 {0.0f, 1.0f, 0.0f}, 
+  GLM(quat_forp)((vec3){2.0f, 0.0f, 0.0f},
+                 (vec3){1.0f, 0.0f, 0.0f}, 
+                 (vec3){0.0f, 1.0f, 0.0f}, 
                  q2);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
   glm_quat(q2, glm_rad(90.0f), 1.0f, 0.0f, 0.0f);
-  GLM(quat_forp)(vec3 {0.0f, 1.0f, 0.0f}, 
-                 vec3 {0.0f, 2.0f, 0.0f},
-                 vec3 {0.0f, 0.0f, 1.0f},
+  GLM(quat_forp)((vec3){0.0f, 1.0f, 0.0f}, 
+                 (vec3){0.0f, 2.0f, 0.0f},
+                 (vec3){0.0f, 0.0f, 1.0f},
                  q1);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
   glm_quat(q2, glm_rad(180.0f), 1.0f, 0.0f, 0.0f);
-  GLM(quat_forp)(vec3 {0.0f, 1.0f, 1.0f}, 
-                 vec3 {0.0f, 1.0f, 2.0f},
-                 vec3 {0.0f, -1.0f, 0.0f},
+  GLM(quat_forp)((vec3){0.0f, 1.0f, 1.0f}, 
+                 (vec3){0.0f, 1.0f, 2.0f},
+                 (vec3){0.0f, -1.0f, 0.0f},
                  q1);
   ASSERTIFY(test_assert_quat_eq(q1, q2));
 
@@ -1008,7 +1015,7 @@ TEST_IMPL(GLM_PREFIX, quat_rotate_at) {
   vec4   v1 = {1.0f, 0.0f, 0.0f, 1.0f};
 
   glm_quatv(q1, GLM_PI_2f, GLM_YUP);
-  GLM(quat_rotate_at)(m1, q1, vec3 {0.5f, 0.0f, 0.0f});
+  GLM(quat_rotate_at)(m1, q1, (vec3){0.5f, 0.0f, 0.0f});
   glm_mat4_mulv(m1, v1, v1);
 
   ASSERT(test_eq(v1[0],  0.5f))
@@ -1018,7 +1025,7 @@ TEST_IMPL(GLM_PREFIX, quat_rotate_at) {
   glm_mat4_identity(m1);
 
   glm_quatv(q1, GLM_PI_2f, GLM_ZUP);
-  GLM(quat_rotate_at)(m1, q1, vec3 {0.0f, 0.0f, 0.0f});
+  GLM(quat_rotate_at)(m1, q1, (vec3){0.0f, 0.0f, 0.0f});
   glm_mat4_mulv(m1, v1, v1);
 
   ASSERT(test_eq(v1[0],  0.0f))
@@ -1048,7 +1055,7 @@ TEST_IMPL(GLM_PREFIX, quat_rotate_atm) {
   vec4   v1 = {1.0f, 0.0f, 0.0f, 1.0f};
 
   glm_quatv(q1, GLM_PI_2f, GLM_YUP);
-  GLM(quat_rotate_atm)(m1, q1, vec3 {0.5f, 0.0f, 0.0f});
+  GLM(quat_rotate_atm)(m1, q1, (vec3){0.5f, 0.0f, 0.0f});
   glm_mat4_mulv(m1, v1, v1);
 
   ASSERT(test_eq(v1[0],  0.5f))
@@ -1056,7 +1063,7 @@ TEST_IMPL(GLM_PREFIX, quat_rotate_atm) {
   ASSERT(test_eq(v1[2], -0.5f))
 
   glm_quatv(q1, GLM_PI_2f, GLM_ZUP);
-  GLM(quat_rotate_atm)(m1, q1, vec3 {0.0f, 0.0f, 0.0f});
+  GLM(quat_rotate_atm)(m1, q1, (vec3){0.0f, 0.0f, 0.0f});
   glm_mat4_mulv(m1, v1, v1);
 
   ASSERT(test_eq(v1[0],  0.0f))
@@ -1074,6 +1081,28 @@ TEST_IMPL(GLM_PREFIX, quat_rotate_atm) {
   ASSERT(test_eq(v1[0],  1.0f))
   ASSERT(test_eq(v1[1], -1.0f))
   ASSERT(test_eq(v1[2],  1.0f))
+
+  TEST_SUCCESS
+}
+
+TEST_IMPL(GLM_PREFIX, quat_make) {
+  versor dest[3];
+  float src[12] = {
+    7.2f, 1.0f, 2.5f, 6.1f,
+    0.2f, 2.8f, 17.3f, 5.1f,
+    4.2f, 7.3f, 6.6f, 8.8f
+  };
+
+  float *srcp = src;
+  unsigned int i, j;
+
+  for (i = 0, j = 0; i < sizeof(src) / sizeof(float); i+=4,j++) {
+    GLM(quat_make)(srcp + i, dest[j]);
+    ASSERT(test_eq(src[ i ], dest[j][0]));
+    ASSERT(test_eq(src[i+1], dest[j][1]));
+    ASSERT(test_eq(src[i+2], dest[j][2]));
+    ASSERT(test_eq(src[i+3], dest[j][3]));
+  }
 
   TEST_SUCCESS
 }

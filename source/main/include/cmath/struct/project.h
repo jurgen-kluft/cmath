@@ -1,5 +1,12 @@
-#ifndef __CMATH_PROJECT_H__
-#define __CMATH_PROJECT_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglms_projects_h
+#define cglms_projects_h
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"
@@ -7,6 +14,17 @@
 #include "cmath/struct/vec3.h"
 #include "cmath/struct/vec4.h"
 #include "cmath/struct/mat4.h"
+
+#ifndef CGLM_CLIPSPACE_INCLUDE_ALL
+#  if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
+#    include "cmath/struct/clipspace/project_zo.h"
+#  elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
+#    include "cmath/struct/clipspace/project_no.h"
+#  endif
+#else
+#  include "cmath/struct/clipspace/project_zo.h"
+#  include "cmath/struct/clipspace/project_no.h"
+#endif
 
 /*!
  * @brief maps the specified viewport coordinates into specified space [1]
@@ -35,11 +53,11 @@
  * @returns             unprojected coordinates
  */
 CGLM_INLINE
-vec3s glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp)
-{
-    vec3s r;
-    glm_unprojecti(pos.raw, invMat.raw, vp.raw, r.raw);
-    return r;
+vec3s
+glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp) {
+  vec3s r;
+  glm_unprojecti(pos.raw, invMat.raw, vp.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -61,17 +79,20 @@ vec3s glms_unprojecti(vec3s pos, mat4s invMat, vec4s vp)
  *   glm_mat4_mul(proj, view, viewProj);
  *   glm_mat4_mul(viewProj, model, MVP);
  *
+ * or in struct api:
+ *   MVP = mat4_mul(mat4_mul(proj, view), model)
+ *
  * @param[in]  pos      point/position in viewport coordinates
  * @param[in]  m        matrix (see brief)
  * @param[in]  vp       viewport as [x, y, width, height]
  * @returns             unprojected coordinates
  */
 CGLM_INLINE
-vec3s glms_unproject(vec3s pos, mat4s m, vec4s vp)
-{
-    vec3s r;
-    glm_unproject(pos.raw, m.raw, vp.raw, r.raw);
-    return r;
+vec3s
+glms_unproject(vec3s pos, mat4s m, vec4s vp) {
+  vec3s r;
+  glm_unproject(pos.raw, m.raw, vp.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -81,17 +102,45 @@ vec3s glms_unproject(vec3s pos, mat4s m, vec4s vp)
  *   glm_mat4_mul(proj, view, viewProj);
  *   glm_mat4_mul(viewProj, model, MVP);
  *
+ * or in struct api:
+ *   MVP = mat4_mul(mat4_mul(proj, view), model)
+ *
  * @param[in]  pos      object coordinates
  * @param[in]  m        MVP matrix
  * @param[in]  vp       viewport as [x, y, width, height]
  * @returns projected coordinates
  */
 CGLM_INLINE
-vec3s glms_project(vec3s pos, mat4s m, vec4s vp)
-{
-    vec3s r;
-    glm_project(pos.raw, m.raw, vp.raw, r.raw);
-    return r;
+vec3s
+glms_project(vec3s pos, mat4s m, vec4s vp) {
+  vec3s r;
+  glm_project(pos.raw, m.raw, vp.raw, r.raw);
+  return r;
+}
+
+/*!
+ * @brief map object's z coordinate to window coordinates
+ *
+ * Computing MVP:
+ *   glm_mat4_mul(proj, view, viewProj);
+ *   glm_mat4_mul(viewProj, model, MVP);
+ *
+ * or in struct api:
+ *   MVP = mat4_mul(mat4_mul(proj, view), model)
+ *
+ * @param[in]  v  object coordinates
+ * @param[in]  m  MVP matrix
+ *
+ * @returns projected z coordinate
+ */
+CGLM_INLINE
+float
+glms_project_z(vec3s v, mat4s m) {
+#if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
+  return glms_project_z_zo(v, m);
+#elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
+  return glms_project_z_no(v, m);
+#endif
 }
 
 /*!
@@ -103,11 +152,11 @@ vec3s glms_project(vec3s pos, mat4s m, vec4s vp)
  * @returns projected coordinates
  */
 CGLM_INLINE
-mat4s glms_pickmatrix(vec2s center, vec2s size, vec4s vp)
-{
-    mat4s res;
-    glm_pickmatrix(center.raw, size.raw, vp.raw, res.raw);
-    return res;
+mat4s
+glms_pickmatrix(vec2s center, vec2s size, vec4s vp) {
+  mat4s res;
+  glm_pickmatrix(center.raw, size.raw, vp.raw, res.raw);
+  return res;
 }
 
 #endif /* cglms_projects_h */

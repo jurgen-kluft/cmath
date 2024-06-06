@@ -1,11 +1,8 @@
 #include "cmath/cglm.h"
-#include "cmath/call.h"
 
 namespace __drand48
 {
     // TODO drand48 implementation is multi-thread unsafe
-
-#if defined(_WIN32)
 
 #define RAND48_SEED_0 (0x330e)
 #define RAND48_SEED_1 (0xabcd)
@@ -41,10 +38,7 @@ namespace __drand48
         return ldexp((double)xseed[0], -48) + ldexp((double)xseed[1], -32) + ldexp((double)xseed[2], -16);
     }
 
-#endif
 } // namespace __drand48
 
-
-#if defined(_WIN32)
-double drand48() { return __drand48::erand48(__drand48::_rand48_seed); }
-#endif
+float glm_frand48(){ return (float)__drand48::erand48(__drand48::_rand48_seed); }
+double glm_drand48() { return __drand48::erand48(__drand48::_rand48_seed); }

@@ -1,5 +1,9 @@
-#ifndef cglm_ortho_rh_no_h
-#define cglm_ortho_rh_no_h
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
 
 /*
  Functions:
@@ -21,6 +25,9 @@
                                               mat4 dest)
  */
 
+#ifndef cglm_ortho_rh_no_h
+#define cglm_ortho_rh_no_h
+
 #include "cmath/common.h"
 #include "cmath/plane.h"
 #include "cmath/mat4.h"
@@ -39,23 +46,26 @@
  * @param[out] dest    result matrix
  */
 CGLM_INLINE
-void glm_ortho_rh_no(float left, float right, float bottom, float top, float nearZ, float farZ, mat4 dest)
-{
-    float rl, tb, fn;
+void
+glm_ortho_rh_no(float left,    float right,
+                float bottom,  float top,
+                float nearZ, float farZ,
+                mat4  dest) {
+  float rl, tb, fn;
 
-    glm_mat4_zero(dest);
+  glm_mat4_zero(dest);
 
-    rl = 1.0f / (right - left);
-    tb = 1.0f / (top - bottom);
-    fn = -1.0f / (farZ - nearZ);
+  rl = 1.0f / (right  - left);
+  tb = 1.0f / (top    - bottom);
+  fn =-1.0f / (farZ - nearZ);
 
-    dest[0][0] = 2.0f * rl;
-    dest[1][1] = 2.0f * tb;
-    dest[2][2] = 2.0f * fn;
-    dest[3][0] = -(right + left) * rl;
-    dest[3][1] = -(top + bottom) * tb;
-    dest[3][2] = (farZ + nearZ) * fn;
-    dest[3][3] = 1.0f;
+  dest[0][0] = 2.0f * rl;
+  dest[1][1] = 2.0f * tb;
+  dest[2][2] = 2.0f * fn;
+  dest[3][0] =-(right  + left)    * rl;
+  dest[3][1] =-(top    + bottom)  * tb;
+  dest[3][2] = (farZ + nearZ) * fn;
+  dest[3][3] = 1.0f;
 }
 
 /*!
@@ -69,7 +79,13 @@ void glm_ortho_rh_no(float left, float right, float bottom, float top, float nea
  * @param[out] dest  result matrix
  */
 CGLM_INLINE
-void glm_ortho_aabb_rh_no(vec3 box[2], mat4 dest) { glm_ortho_rh_no(box[0][0], box[1][0], box[0][1], box[1][1], -box[1][2], -box[0][2], dest); }
+void
+glm_ortho_aabb_rh_no(vec3 box[2], mat4 dest) {
+  glm_ortho_rh_no(box[0][0],  box[1][0],
+                  box[0][1],  box[1][1],
+                 -box[1][2], -box[0][2],
+                  dest);
+}
 
 /*!
  * @brief set up orthographic projection matrix using bounding box
@@ -83,7 +99,13 @@ void glm_ortho_aabb_rh_no(vec3 box[2], mat4 dest) { glm_ortho_rh_no(box[0][0], b
  * @param[out] dest    result matrix
  */
 CGLM_INLINE
-void glm_ortho_aabb_p_rh_no(vec3 box[2], float padding, mat4 dest) { glm_ortho_rh_no(box[0][0] - padding, box[1][0] + padding, box[0][1] - padding, box[1][1] + padding, -(box[1][2] + padding), -(box[0][2] - padding), dest); }
+void
+glm_ortho_aabb_p_rh_no(vec3 box[2], float padding, mat4 dest) {
+  glm_ortho_rh_no(box[0][0] - padding,    box[1][0] + padding,
+                  box[0][1] - padding,    box[1][1] + padding,
+                -(box[1][2] + padding), -(box[0][2] - padding),
+                  dest);
+}
 
 /*!
  * @brief set up orthographic projection matrix using bounding box
@@ -97,7 +119,13 @@ void glm_ortho_aabb_p_rh_no(vec3 box[2], float padding, mat4 dest) { glm_ortho_r
  * @param[out] dest    result matrix
  */
 CGLM_INLINE
-void glm_ortho_aabb_pz_rh_no(vec3 box[2], float padding, mat4 dest) { glm_ortho_rh_no(box[0][0], box[1][0], box[0][1], box[1][1], -(box[1][2] + padding), -(box[0][2] - padding), dest); }
+void
+glm_ortho_aabb_pz_rh_no(vec3 box[2], float padding, mat4 dest) {
+  glm_ortho_rh_no(box[0][0],              box[1][0],
+                  box[0][1],              box[1][1],
+                -(box[1][2] + padding), -(box[0][2] - padding),
+                  dest);
+}
 
 /*!
  * @brief set up unit orthographic projection matrix
@@ -108,17 +136,16 @@ void glm_ortho_aabb_pz_rh_no(vec3 box[2], float padding, mat4 dest) { glm_ortho_
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void glm_ortho_default_rh_no(float aspect, mat4 dest)
-{
-    if (aspect >= 1.0f)
-    {
-        glm_ortho_rh_no(-aspect, aspect, -1.0f, 1.0f, -100.0f, 100.0f, dest);
-        return;
-    }
+void
+glm_ortho_default_rh_no(float aspect, mat4 dest) {
+  if (aspect >= 1.0f) {
+    glm_ortho_rh_no(-aspect, aspect, -1.0f, 1.0f, -100.0f, 100.0f, dest);
+    return;
+  }
 
-    aspect = 1.0f / aspect;
+  aspect = 1.0f / aspect;
 
-    glm_ortho_rh_no(-1.0f, 1.0f, -aspect, aspect, -100.0f, 100.0f, dest);
+  glm_ortho_rh_no(-1.0f, 1.0f, -aspect, aspect, -100.0f, 100.0f, dest);
 }
 
 /*!
@@ -131,15 +158,26 @@ void glm_ortho_default_rh_no(float aspect, mat4 dest)
  * @param[out] dest   result matrix
  */
 CGLM_INLINE
-void glm_ortho_default_s_rh_no(float aspect, float size, mat4 dest)
-{
-    if (aspect >= 1.0f)
-    {
-        glm_ortho_rh_no(-size * aspect, size * aspect, -size, size, -size - 100.0f, size + 100.0f, dest);
-        return;
-    }
+void
+glm_ortho_default_s_rh_no(float aspect, float size, mat4 dest) {
+  if (aspect >= 1.0f) {
+    glm_ortho_rh_no(-size * aspect,
+                     size * aspect,
+                    -size,
+                     size,
+                    -size - 100.0f,
+                     size + 100.0f,
+                     dest);
+    return;
+  }
 
-    glm_ortho_rh_no(-size, size, -size / aspect, size / aspect, -size - 100.0f, size + 100.0f, dest);
+  glm_ortho_rh_no(-size,
+                   size,
+                  -size / aspect,
+                   size / aspect,
+                  -size - 100.0f,
+                   size + 100.0f,
+                   dest);
 }
 
 #endif /*cglm_ortho_rh_no_h*/

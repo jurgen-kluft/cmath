@@ -1,5 +1,9 @@
-#ifndef cglm_persp_h
-#define cglm_persp_h
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
 
 /*
  Functions:
@@ -8,6 +12,9 @@
    CGLM_INLINE float glm_persp_aspect(mat4 proj)
    CGLM_INLINE void  glm_persp_sizes(mat4 proj, float fovy, vec4 dest)
  */
+
+#ifndef cglm_persp_h
+#define cglm_persp_h
 
 #include "cmath/common.h"
 #include "cmath/plane.h"
@@ -22,7 +29,10 @@
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float glm_persp_fovy(mat4 proj) { return 2.0f * atanf(1.0f / proj[1][1]); }
+float
+glm_persp_fovy(mat4 proj) {
+  return 2.0f * atanf(1.0f / proj[1][1]);
+}
 
 /*!
  * @brief returns aspect ratio of perspective projection
@@ -30,6 +40,9 @@ float glm_persp_fovy(mat4 proj) { return 2.0f * atanf(1.0f / proj[1][1]); }
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float glm_persp_aspect(mat4 proj) { return proj[1][1] / proj[0][0]; }
+float
+glm_persp_aspect(mat4 proj) {
+  return proj[1][1] / proj[0][0];
+}
 
 #endif /* cglm_persp_h */

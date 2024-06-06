@@ -1,5 +1,12 @@
-#ifndef __CMATH_FRUSTUM_H__
-#define __CMATH_FRUSTUM_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglms_frustums_h
+#define cglms_frustums_h
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"
@@ -15,40 +22,16 @@
 #ifndef GLM_CUSTOM_CLIPSPACE
 
 /* near */
-#    define GLMS_CSCOORD_LBN          \
-        {                             \
-            -1.0f, -1.0f, -1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_LTN         \
-        {                            \
-            -1.0f, 1.0f, -1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_RTN        \
-        {                           \
-            1.0f, 1.0f, -1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_RBN         \
-        {                            \
-            1.0f, -1.0f, -1.0f, 1.0f \
-        }
+#define GLMS_CSCOORD_LBN {-1.0f, -1.0f, -1.0f, 1.0f}
+#define GLMS_CSCOORD_LTN {-1.0f,  1.0f, -1.0f, 1.0f}
+#define GLMS_CSCOORD_RTN { 1.0f,  1.0f, -1.0f, 1.0f}
+#define GLMS_CSCOORD_RBN { 1.0f, -1.0f, -1.0f, 1.0f}
 
 /* far */
-#    define GLMS_CSCOORD_LBF         \
-        {                            \
-            -1.0f, -1.0f, 1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_LTF        \
-        {                           \
-            -1.0f, 1.0f, 1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_RTF       \
-        {                          \
-            1.0f, 1.0f, 1.0f, 1.0f \
-        }
-#    define GLMS_CSCOORD_RBF        \
-        {                           \
-            1.0f, -1.0f, 1.0f, 1.0f \
-        }
+#define GLMS_CSCOORD_LBF {-1.0f, -1.0f,  1.0f, 1.0f}
+#define GLMS_CSCOORD_LTF {-1.0f,  1.0f,  1.0f, 1.0f}
+#define GLMS_CSCOORD_RTF { 1.0f,  1.0f,  1.0f, 1.0f}
+#define GLMS_CSCOORD_RBF { 1.0f, -1.0f,  1.0f, 1.0f}
 
 #endif
 
@@ -70,11 +53,11 @@
  * @param[out] dest extracted view frustum planes (see brief)
  */
 CGLM_INLINE
-void glms_frustum_planes(mat4s m, vec4s dest[6])
-{
-    vec4 rawDest[6];
-    glm_frustum_planes(m.raw, rawDest);
-    glms_vec4_pack(dest, rawDest, 6);
+void
+glms_frustum_planes(mat4s m, vec4s dest[6]) {
+  vec4 rawDest[6];
+  glm_frustum_planes(m.raw, rawDest);
+  glms_vec4_(pack)(dest, rawDest, 6);
 }
 
 /*!
@@ -101,11 +84,11 @@ void glms_frustum_planes(mat4s m, vec4s dest[6])
  * @param[out] dest   exracted view frustum corners (see brief)
  */
 CGLM_INLINE
-void glms_frustum_corners(mat4s invMat, vec4s dest[8])
-{
-    vec4 rawDest[8];
-    glm_frustum_corners(invMat.raw, rawDest);
-    glms_vec4_pack(dest, rawDest, 8);
+void
+glms_frustum_corners(mat4s invMat, vec4s dest[8]) {
+  vec4 rawDest[8];
+  glm_frustum_corners(invMat.raw, rawDest);
+  glms_vec4_(pack)(dest, rawDest, 8);
 }
 
 /*!
@@ -115,14 +98,14 @@ void glms_frustum_corners(mat4s invMat, vec4s dest[8])
  * @returns            view frustum center
  */
 CGLM_INLINE
-vec4s glms_frustum_center(vec4s corners[8])
-{
-    vec4  rawCorners[8];
-    vec4s r;
+vec4s
+glms_frustum_center(vec4s corners[8]) {
+  vec4 rawCorners[8];
+  vec4s r;
 
-    glms_vec4_unpack(rawCorners, corners, 8);
-    glm_frustum_center(rawCorners, r.raw);
-    return r;
+  glms_vec4_(unpack)(rawCorners, corners, 8);
+  glm_frustum_center(rawCorners, r.raw);
+  return r;
 }
 
 /*!
@@ -133,14 +116,14 @@ vec4s glms_frustum_center(vec4s corners[8])
  * @param[out] box     bounding box as array [min, max]
  */
 CGLM_INLINE
-void glms_frustum_box(vec4s corners[8], mat4s m, vec3s box[2])
-{
-    vec4 rawCorners[8];
-    vec3 rawBox[2];
+void
+glms_frustum_box(vec4s corners[8], mat4s m, vec3s box[2]) {
+  vec4 rawCorners[8];
+  vec3 rawBox[2];
 
-    glms_vec4_unpack(rawCorners, corners, 8);
-    glm_frustum_box(rawCorners, m.raw, rawBox);
-    glms_vec3_pack(box, rawBox, 2);
+  glms_vec4_(unpack)(rawCorners, corners, 8);
+  glm_frustum_box(rawCorners, m.raw, rawBox);
+  glms_vec3_(pack)(box, rawBox, 2);
 }
 
 /*!
@@ -156,14 +139,17 @@ void glms_frustum_box(vec4s corners[8], mat4s m, vec3s box[2])
  * @param[out] planeCorners  plane corners [LB, LT, RT, RB]
  */
 CGLM_INLINE
-void glms_frustum_corners_at(vec4s corners[8], float splitDist, float farDist, vec4s planeCorners[4])
-{
-    vec4 rawCorners[8];
-    vec4 rawPlaneCorners[4];
+void
+glms_frustum_corners_at(vec4s corners[8],
+                        float splitDist,
+                        float farDist,
+                        vec4s planeCorners[4]) {
+  vec4 rawCorners[8];
+  vec4 rawPlaneCorners[4];
 
-    glms_vec4_unpack(rawCorners, corners, 8);
-    glm_frustum_corners_at(rawCorners, splitDist, farDist, rawPlaneCorners);
-    glms_vec4_pack(planeCorners, rawPlaneCorners, 8);
+  glms_vec4_(unpack)(rawCorners, corners, 8);
+  glm_frustum_corners_at(rawCorners, splitDist, farDist, rawPlaneCorners);
+  glms_vec4_(pack)(planeCorners, rawPlaneCorners, 8);
 }
 
 #endif /* cglms_frustums_h */

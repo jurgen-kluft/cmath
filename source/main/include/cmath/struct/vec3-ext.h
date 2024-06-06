@@ -1,3 +1,35 @@
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+/*!
+ * @brief SIMD like functions
+ */
+
+/*
+ Functions:
+   CGLM_INLINE vec3s glms_vec3_broadcast(float val);
+   CGLM_INLINE vec3s glms_vec3_fill(float val);
+   CGLM_INLINE bool  glms_vec3_eq(vec3s v, float val);
+   CGLM_INLINE bool  glms_vec3_eq_eps(vec3s v, float val);
+   CGLM_INLINE bool  glms_vec3_eq_all(vec3s v);
+   CGLM_INLINE bool  glms_vec3_eqv(vec3s a, vec3s b);
+   CGLM_INLINE bool  glms_vec3_eqv_eps(vec3s a, vec3s b);
+   CGLM_INLINE float glms_vec3_max(vec3s v);
+   CGLM_INLINE float glms_vec3_min(vec3s v);
+   CGLM_INLINE bool  glms_vec3_isnan(vec3s v);
+   CGLM_INLINE bool  glms_vec3_isinf(vec3s v);
+   CGLM_INLINE bool  glms_vec3_isvalid(vec3s v);
+   CGLM_INLINE vec3s glms_vec3_sign(vec3s v);
+   CGLM_INLINE vec3s glms_vec3_abs(vec3s v);
+   CGLM_INLINE vec3s glms_vec3_fract(vec3s v);
+   CGLM_INLINE float glms_vec3_hadd(vec3s v);
+   CGLM_INLINE vec3s glms_vec3_sqrt(vec3s v);
+ */
+
 #ifndef cglms_vec3s_ext_h
 #define cglms_vec3s_ext_h
 
@@ -6,6 +38,9 @@
 #include "cmath/util.h"
 #include "cmath/vec3-ext.h"
 
+/* api definition */
+#define glms_vec3_(NAME) CGLM_STRUCTAPI(vec3, NAME)
+
 /*!
  * @brief fill a vector with specified value
  *
@@ -13,11 +48,11 @@
  * @returns         dest
  */
 CGLM_INLINE
-vec3s glms_vec3_broadcast(float val)
-{
-    vec3s r;
-    glm_vec3_broadcast(val, r.raw);
-    return r;
+vec3s
+glms_vec3_(broadcast)(float val) {
+  vec3s r;
+  glm_vec3_broadcast(val, r.raw);
+  return r;
 }
 
 /*!
@@ -27,11 +62,11 @@ vec3s glms_vec3_broadcast(float val)
  * @returns         dest
  */
 CGLM_INLINE
-vec3s glms_vec3_fill(float val)
-{
-    vec3s r;
-    glm_vec3_fill(r.raw, val);
-    return r;
+vec3s
+glms_vec3_(fill)(float val) {
+  vec3s r;
+  glm_vec3_fill(r.raw, val);
+  return r;
 }
 
 /*!
@@ -41,7 +76,10 @@ vec3s glms_vec3_fill(float val)
  * @param[in] val value
  */
 CGLM_INLINE
-bool glms_vec3_eq(vec3s v, float val) { return glm_vec3_eq(v.raw, val); }
+bool
+glms_vec3_(eq)(vec3s v, float val) {
+  return glm_vec3_eq(v.raw, val);
+}
 
 /*!
  * @brief check if vector is equal to value (with epsilon)
@@ -50,15 +88,21 @@ bool glms_vec3_eq(vec3s v, float val) { return glm_vec3_eq(v.raw, val); }
  * @param[in] val value
  */
 CGLM_INLINE
-bool glms_vec3_eq_eps(vec3s v, float val) { return glm_vec3_eq_eps(v.raw, val); }
+bool
+glms_vec3_(eq_eps)(vec3s v, float val) {
+  return glm_vec3_eq_eps(v.raw, val);
+}
 
 /*!
- * @brief check if vectors members are equal (without epsilon)
+ * @brief check if vector members are equal (without epsilon)
  *
  * @param[in] v   vector
  */
 CGLM_INLINE
-bool glms_vec3_eq_all(vec3s v) { return glm_vec3_eq_all(v.raw); }
+bool
+glms_vec3_(eq_all)(vec3s v) {
+  return glm_vec3_eq_all(v.raw);
+}
 
 /*!
  * @brief check if vector is equal to another (without epsilon)
@@ -67,7 +111,10 @@ bool glms_vec3_eq_all(vec3s v) { return glm_vec3_eq_all(v.raw); }
  * @param[in] b vector
  */
 CGLM_INLINE
-bool glms_vec3_eqv(vec3s a, vec3s b) { return glm_vec3_eqv(a.raw, b.raw); }
+bool
+glms_vec3_(eqv)(vec3s a, vec3s b) {
+  return glm_vec3_eqv(a.raw, b.raw);
+}
 
 /*!
  * @brief check if vector is equal to another (with epsilon)
@@ -76,7 +123,10 @@ bool glms_vec3_eqv(vec3s a, vec3s b) { return glm_vec3_eqv(a.raw, b.raw); }
  * @param[in] b vector
  */
 CGLM_INLINE
-bool glms_vec3_eqv_eps(vec3s a, vec3s b) { return glm_vec3_eqv_eps(a.raw, b.raw); }
+bool
+glms_vec3_(eqv_eps)(vec3s a, vec3s b) {
+  return glm_vec3_eqv_eps(a.raw, b.raw);
+}
 
 /*!
  * @brief max value of vector
@@ -84,7 +134,10 @@ bool glms_vec3_eqv_eps(vec3s a, vec3s b) { return glm_vec3_eqv_eps(a.raw, b.raw)
  * @param[in] v vector
  */
 CGLM_INLINE
-float glms_vec3_max(vec3s v) { return glm_vec3_max(v.raw); }
+float
+glms_vec3_(max)(vec3s v) {
+  return glm_vec3_max(v.raw);
+}
 
 /*!
  * @brief min value of vector
@@ -92,7 +145,10 @@ float glms_vec3_max(vec3s v) { return glm_vec3_max(v.raw); }
  * @param[in] v vector
  */
 CGLM_INLINE
-float glms_vec3_min(vec3s v) { return glm_vec3_min(v.raw); }
+float
+glms_vec3_(min)(vec3s v) {
+  return glm_vec3_min(v.raw);
+}
 
 /*!
  * @brief check if all items are NaN (not a number)
@@ -101,7 +157,10 @@ float glms_vec3_min(vec3s v) { return glm_vec3_min(v.raw); }
  * @param[in] v vector
  */
 CGLM_INLINE
-bool glms_vec3_isnan(vec3s v) { return glm_vec3_isnan(v.raw); }
+bool
+glms_vec3_(isnan)(vec3s v) {
+  return glm_vec3_isnan(v.raw);
+}
 
 /*!
  * @brief check if all items are INFINITY
@@ -110,7 +169,10 @@ bool glms_vec3_isnan(vec3s v) { return glm_vec3_isnan(v.raw); }
  * @param[in] v vector
  */
 CGLM_INLINE
-bool glms_vec3_isinf(vec3s v) { return glm_vec3_isinf(v.raw); }
+bool
+glms_vec3_(isinf)(vec3s v) {
+  return glm_vec3_isinf(v.raw);
+}
 
 /*!
  * @brief check if all items are valid number
@@ -119,7 +181,10 @@ bool glms_vec3_isinf(vec3s v) { return glm_vec3_isinf(v.raw); }
  * @param[in] v vector
  */
 CGLM_INLINE
-bool glms_vec3_isvalid(vec3s v) { return glm_vec3_isvalid(v.raw); }
+bool
+glms_vec3_(isvalid)(vec3s v) {
+  return glm_vec3_isvalid(v.raw);
+}
 
 /*!
  * @brief get sign of 32 bit float as +1, -1, 0
@@ -130,11 +195,11 @@ bool glms_vec3_isvalid(vec3s v) { return glm_vec3_isvalid(v.raw); }
  * @returns     sign vector
  */
 CGLM_INLINE
-vec3s glms_vec3_sign(vec3s v)
-{
-    vec3s r;
-    glm_vec3_sign(v.raw, r.raw);
-    return r;
+vec3s
+glms_vec3_(sign)(vec3s v) {
+  vec3s r;
+  glm_vec3_sign(v.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -144,11 +209,11 @@ vec3s glms_vec3_sign(vec3s v)
  * @return          destination vector
  */
 CGLM_INLINE
-vec3s glms_vec3_abs(vec3s v)
-{
-    vec3s r;
-    glm_vec3_abs(v.raw, r.raw);
-    return r;
+vec3s
+glms_vec3_(abs)(vec3s v) {
+  vec3s r;
+  glm_vec3_abs(v.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -158,11 +223,11 @@ vec3s glms_vec3_abs(vec3s v)
  * @return          dest destination vector
  */
 CGLM_INLINE
-vec3s glms_vec3_fract(vec3s v)
-{
-    vec3s r;
-    glm_vec3_fract(v.raw, r.raw);
-    return r;
+vec3s
+glms_vec3_(fract)(vec3s v) {
+  vec3s r;
+  glm_vec3_fract(v.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -173,7 +238,10 @@ vec3s glms_vec3_fract(vec3s v)
  * @return     sum of all vector's elements
  */
 CGLM_INLINE
-float glms_vec3_hadd(vec3s v) { return glm_vec3_hadd(v.raw); }
+float
+glms_vec3_(hadd)(vec3s v) {
+  return glm_vec3_hadd(v.raw);
+}
 
 /*!
  * @brief square root of each vector item
@@ -182,11 +250,11 @@ float glms_vec3_hadd(vec3s v) { return glm_vec3_hadd(v.raw); }
  * @returns         destination vector
  */
 CGLM_INLINE
-vec3s glms_vec3_sqrt(vec3s v)
-{
-    vec3s r;
-    glm_vec3_sqrt(v.raw, r.raw);
-    return r;
+vec3s
+glms_vec3_(sqrt)(vec3s v) {
+  vec3s r;
+  glm_vec3_sqrt(v.raw, r.raw);
+  return r;
 }
 
 #endif /* cglms_vec3s_ext_h */

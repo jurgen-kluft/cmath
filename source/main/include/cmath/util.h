@@ -1,9 +1,12 @@
-#ifndef cglm_util_h
-#define cglm_util_h
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
 
 /*
  Functions:
-   CGLM_INLINE float glm_rand48();
    CGLM_INLINE int   glm_sign(int val);
    CGLM_INLINE float glm_signf(float val);
    CGLM_INLINE float glm_rad(float deg);
@@ -27,17 +30,13 @@
    CGLM_INLINE float glm_percentc(float from, float to, float current);
  */
 
+#ifndef cglm_util_h
+#define cglm_util_h
+
 #include "cmath/common.h"
 
 #define GLM_MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 #define GLM_MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
-
-/*!
- * @brief get random float +1 <-> -1
- *
- */
-CGLM_INLINE
-float glm_rand48(void) { return (float)drand48(); }
 
 /*!
  * @brief get sign of 32 bit integer as +1, -1, 0
@@ -47,7 +46,10 @@ float glm_rand48(void) { return (float)drand48(); }
  * @param val integer value
  */
 CGLM_INLINE
-int glm_sign(int val) { return ((val >> 31) - (-val >> 31)); }
+int
+glm_sign(int val) {
+  return ((val >> 31) - (-val >> 31));
+}
 
 /*!
  * @brief get sign of 32 bit float as +1, -1, 0
@@ -57,7 +59,10 @@ int glm_sign(int val) { return ((val >> 31) - (-val >> 31)); }
  * @param val float value
  */
 CGLM_INLINE
-float glm_signf(float val) { return (float)((val > 0.0f) - (val < 0.0f)); }
+float
+glm_signf(float val) {
+  return (float)((val > 0.0f) - (val < 0.0f));
+}
 
 /*!
  * @brief convert degree to radians
@@ -65,7 +70,10 @@ float glm_signf(float val) { return (float)((val > 0.0f) - (val < 0.0f)); }
  * @param[in] deg angle in degrees
  */
 CGLM_INLINE
-float glm_rad(float deg) { return deg * GLM_PIf / 180.0f; }
+float
+glm_rad(float deg) {
+  return deg * GLM_PIf / 180.0f;
+}
 
 /*!
  * @brief convert radians to degree
@@ -73,23 +81,32 @@ float glm_rad(float deg) { return deg * GLM_PIf / 180.0f; }
  * @param[in] rad angle in radians
  */
 CGLM_INLINE
-float glm_deg(float rad) { return rad * 180.0f / GLM_PIf; }
+float
+glm_deg(float rad) {
+  return rad * 180.0f / GLM_PIf;
+}
 
 /*!
- * @brief convert exsisting degree to radians. this will override degrees value
+ * @brief convert existing degree to radians. this will override degrees value
  *
  * @param[in, out] deg pointer to angle in degrees
  */
 CGLM_INLINE
-void glm_make_rad(float* deg) { *deg = *deg * GLM_PIf / 180.0f; }
+void
+glm_make_rad(float *deg) {
+  *deg = *deg * GLM_PIf / 180.0f;
+}
 
 /*!
- * @brief convert exsisting radians to degree. this will override radians value
+ * @brief convert existing radians to degree. this will override radians value
  *
  * @param[in, out] rad pointer to angle in radians
  */
 CGLM_INLINE
-void glm_make_deg(float* rad) { *rad = *rad * 180.0f / GLM_PIf; }
+void
+glm_make_deg(float *rad) {
+  *rad = *rad * 180.0f / GLM_PIf;
+}
 
 /*!
  * @brief multiplies given parameter with itself = x * x or powf(x, 2)
@@ -97,7 +114,10 @@ void glm_make_deg(float* rad) { *rad = *rad * 180.0f / GLM_PIf; }
  * @param[in] x x
  */
 CGLM_INLINE
-float glm_pow2(float x) { return x * x; }
+float
+glm_pow2(float x) {
+  return x * x;
+}
 
 /*!
  * @brief find minimum of given two values
@@ -106,11 +126,11 @@ float glm_pow2(float x) { return x * x; }
  * @param[in] b number 2
  */
 CGLM_INLINE
-float glm_min(float a, float b)
-{
-    if (a < b)
-        return a;
-    return b;
+float
+glm_min(float a, float b) {
+  if (a < b)
+    return a;
+  return b;
 }
 
 /*!
@@ -120,11 +140,43 @@ float glm_min(float a, float b)
  * @param[in] b number 2
  */
 CGLM_INLINE
-float glm_max(float a, float b)
-{
-    if (a > b)
-        return a;
-    return b;
+float
+glm_max(float a, float b) {
+  if (a > b)
+    return a;
+  return b;
+}
+
+/*!
+ * @brief find minimum of given two values
+ * 
+ * @param[in] a number 1
+ * @param[in] b number 2
+ *
+ * @return smallest of the two values
+ */
+CGLM_INLINE
+int
+glm_imin(int a, int b) {
+  if (a < b)
+    return a;
+  return b;
+}
+
+/*!
+ * @brief find maximum of given two values
+ *
+ * @param[in] a number 1
+ * @param[in] b number 2
+ *
+ * @return largest of the two values
+ */
+CGLM_INLINE
+int
+glm_imax(int a, int b) {
+  if (a > b)
+    return a;
+  return b;
 }
 
 /*!
@@ -135,7 +187,10 @@ float glm_max(float a, float b)
  * @param[in] maxVal maximum value
  */
 CGLM_INLINE
-float glm_clamp(float val, float minVal, float maxVal) { return glm_min(glm_max(val, minVal), maxVal); }
+float
+glm_clamp(float val, float minVal, float maxVal) {
+  return glm_min(glm_max(val, minVal), maxVal);
+}
 
 /*!
  * @brief clamp a number to zero and one
@@ -143,7 +198,10 @@ float glm_clamp(float val, float minVal, float maxVal) { return glm_min(glm_max(
  * @param[in] val value to clamp
  */
 CGLM_INLINE
-float glm_clamp_zo(float val) { return glm_clamp(val, 0.0f, 1.0f); }
+float
+glm_clamp_zo(float val) {
+  return glm_clamp(val, 0.0f, 1.0f);
+}
 
 /*!
  * @brief linear interpolation between two numbers
@@ -155,7 +213,10 @@ float glm_clamp_zo(float val) { return glm_clamp(val, 0.0f, 1.0f); }
  * @param[in]   t    interpolant (amount)
  */
 CGLM_INLINE
-float glm_lerp(float from, float to, float t) { return from + t * (to - from); }
+float
+glm_lerp(float from, float to, float t) {
+  return from + t * (to - from);
+}
 
 /*!
  * @brief clamped linear interpolation between two numbers
@@ -167,7 +228,10 @@ float glm_lerp(float from, float to, float t) { return from + t * (to - from); }
  * @param[in]   t       interpolant (amount) clamped between 0 and 1
  */
 CGLM_INLINE
-float glm_lerpc(float from, float to, float t) { return glm_lerp(from, to, glm_clamp_zo(t)); }
+float
+glm_lerpc(float from, float to, float t) {
+  return glm_lerp(from, to, glm_clamp_zo(t));
+}
 
 /*!
  * @brief threshold function
@@ -177,15 +241,15 @@ float glm_lerpc(float from, float to, float t) { return glm_lerp(from, to, glm_c
  * @return      returns 0.0 if x < edge, else 1.0
  */
 CGLM_INLINE
-float glm_step(float edge, float x)
-{
-    /* branching - no type conversion */
-    return (x < edge) ? 0.0f : 1.0f;
-    /*
-     * An alternative implementation without branching
-     * but with type conversion could be:
-     * return !(x < edge);
-     */
+float
+glm_step(float edge, float x) {
+  /* branching - no type conversion */
+  return (x < edge) ? 0.0f : 1.0f;
+  /*
+   * An alternative implementation without branching
+   * but with type conversion could be:
+   * return !(x < edge);
+   */
 }
 
 /*!
@@ -196,7 +260,10 @@ float glm_step(float edge, float x)
  * @param[in]   t    interpolant (amount)
  */
 CGLM_INLINE
-float glm_smooth(float t) { return t * t * (3.0f - 2.0f * t); }
+float
+glm_smooth(float t) {
+  return t * t * (3.0f - 2.0f * t);
+}
 
 /*!
  * @brief threshold function with a smooth transition (according to OpenCL specs)
@@ -208,11 +275,11 @@ float glm_smooth(float t) { return t * t * (3.0f - 2.0f * t); }
  * @param[in]   x     interpolant (amount)
  */
 CGLM_INLINE
-float glm_smoothstep(float edge0, float edge1, float x)
-{
-    float t;
-    t = glm_clamp_zo((x - edge0) / (edge1 - edge0));
-    return glm_smooth(t);
+float
+glm_smoothstep(float edge0, float edge1, float x) {
+  float t;
+  t = glm_clamp_zo((x - edge0) / (edge1 - edge0));
+  return glm_smooth(t);
 }
 
 /*!
@@ -225,7 +292,10 @@ float glm_smoothstep(float edge0, float edge1, float x)
  * @param[in]   t    interpolant (amount)
  */
 CGLM_INLINE
-float glm_smoothinterp(float from, float to, float t) { return from + glm_smooth(t) * (to - from); }
+float
+glm_smoothinterp(float from, float to, float t) {
+  return from + glm_smooth(t) * (to - from);
+}
 
 /*!
  * @brief clamped smoothstep interpolation between two numbers
@@ -237,7 +307,10 @@ float glm_smoothinterp(float from, float to, float t) { return from + glm_smooth
  * @param[in]   t    interpolant (amount) clamped between 0 and 1
  */
 CGLM_INLINE
-float glm_smoothinterpc(float from, float to, float t) { return glm_smoothinterp(from, to, glm_clamp_zo(t)); }
+float
+glm_smoothinterpc(float from, float to, float t) {
+  return glm_smoothinterp(from, to, glm_clamp_zo(t));
+}
 
 /*!
  * @brief check if two float equal with using EPSILON
@@ -246,7 +319,10 @@ float glm_smoothinterpc(float from, float to, float t) { return glm_smoothinterp
  * @param[in]   b   b
  */
 CGLM_INLINE
-bool glm_eq(float a, float b) { return fabsf(a - b) <= GLM_FLT_EPSILON; }
+bool
+glm_eq(float a, float b) {
+  return fabsf(a - b) <= GLM_FLT_EPSILON;
+}
 
 /*!
  * @brief percentage of current value between start and end value
@@ -258,14 +334,14 @@ bool glm_eq(float a, float b) { return fabsf(a - b) <= GLM_FLT_EPSILON; }
  * @param[in]   current current value
  */
 CGLM_INLINE
-float glm_percent(float from, float to, float current)
-{
-    float t;
+float
+glm_percent(float from, float to, float current) {
+  float t;
 
-    if ((t = to - from) == 0.0f)
-        return 1.0f;
+  if ((t = to - from) == 0.0f)
+    return 1.0f;
 
-    return (current - from) / t;
+  return (current - from) / t;
 }
 
 /*!
@@ -276,21 +352,24 @@ float glm_percent(float from, float to, float current)
  * @param[in]   current current value
  */
 CGLM_INLINE
-float glm_percentc(float from, float to, float current) { return glm_clamp_zo(glm_percent(from, to, current)); }
+float
+glm_percentc(float from, float to, float current) {
+  return glm_clamp_zo(glm_percent(from, to, current));
+}
 
 /*!
- * @brief swap two float values
- *
- * @param[in]   a float value 1 (pointer)
- * @param[in]   b float value 2 (pointer)
- */
+* @brief swap two float values
+*
+* @param[in]   a float value 1 (pointer)
+* @param[in]   b float value 2 (pointer)
+*/
 CGLM_INLINE
-void glm_swapf(float* __restrict a, float* __restrict b)
-{
-    float t;
-    t  = *a;
-    *a = *b;
-    *b = t;
+void
+glm_swapf(float * __restrict a, float * __restrict b) {
+  float t;
+  t  = *a;
+  *a = *b;
+  *b = t;
 }
 
 #endif /* cglm_util_h */

@@ -1,5 +1,12 @@
-#ifndef __CMATH_PROJECT_H__
-#define __CMATH_PROJECT_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglm_project_h
+#define cglm_project_h
 
 #include "cmath/common.h"
 #include "cmath/vec3.h"
@@ -7,14 +14,14 @@
 #include "cmath/mat4.h"
 
 #ifndef CGLM_CLIPSPACE_INCLUDE_ALL
-#    if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-#        include "cmath/clipspace/project_zo.h"
-#    elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-#        include "cmath/clipspace/project_no.h"
-#    endif
-#else
+#  if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
 #    include "cmath/clipspace/project_zo.h"
+#  elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
 #    include "cmath/clipspace/project_no.h"
+#  endif
+#else
+#  include "cmath/clipspace/project_zo.h"
+#  include "cmath/clipspace/project_no.h"
 #endif
 
 /*!
@@ -44,12 +51,12 @@
  * @param[out] dest     unprojected coordinates
  */
 CGLM_INLINE
-void glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest)
-{
+void
+glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-    glm_unprojecti_zo(pos, invMat, vp, dest);
+  glm_unprojecti_zo(pos, invMat, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-    glm_unprojecti_no(pos, invMat, vp, dest);
+  glm_unprojecti_no(pos, invMat, vp, dest);
 #endif
 }
 
@@ -78,11 +85,11 @@ void glm_unprojecti(vec3 pos, mat4 invMat, vec4 vp, vec3 dest)
  * @param[out] dest     unprojected coordinates
  */
 CGLM_INLINE
-void glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest)
-{
-    mat4 inv;
-    glm_mat4_inv(m, inv);
-    glm_unprojecti(pos, inv, vp, dest);
+void
+glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
+  mat4 inv;
+  glm_mat4_inv(m, inv);
+  glm_unprojecti(pos, inv, vp, dest);
 }
 
 /*!
@@ -98,12 +105,34 @@ void glm_unproject(vec3 pos, mat4 m, vec4 vp, vec3 dest)
  * @param[out] dest     projected coordinates
  */
 CGLM_INLINE
-void glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest)
-{
+void
+glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest) {
 #if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
-    glm_project_zo(pos, m, vp, dest);
+  glm_project_zo(pos, m, vp, dest);
 #elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
-    glm_project_no(pos, m, vp, dest);
+  glm_project_no(pos, m, vp, dest);
+#endif
+}
+
+/*!
+ * @brief map object's z coordinate to window coordinates
+ *
+ * Computing MVP:
+ *   glm_mat4_mul(proj, view, viewProj);
+ *   glm_mat4_mul(viewProj, model, MVP);
+ *
+ * @param[in]  v  object coordinates
+ * @param[in]  m  MVP matrix
+ *
+ * @returns projected z coordinate
+ */
+CGLM_INLINE
+float
+glm_project_z(vec3 v, mat4 m) {
+#if CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_ZO_BIT
+  return glm_project_z_zo(v, m);
+#elif CGLM_CONFIG_CLIP_CONTROL & CGLM_CLIP_CONTROL_NO_BIT
+  return glm_project_z_no(v, m);
 #endif
 }
 
@@ -116,28 +145,28 @@ void glm_project(vec3 pos, mat4 m, vec4 vp, vec3 dest)
  * @param[out] dest     projected coordinates
  */
 CGLM_INLINE
-void glm_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest)
-{
-    mat4 res;
-    vec3 v;
+void
+glm_pickmatrix(vec2 center, vec2 size, vec4 vp, mat4 dest) {
+  mat4 res;
+  vec3 v;
 
-    if (size[0] <= 0.0f || size[1] <= 0.0f)
-        return;
+  if (size[0] <= 0.0f || size[1] <= 0.0f)
+    return;
+  
+  /* Translate and scale the picked region to the entire window */
+  v[0] = (vp[2] - 2.0f * (center[0] - vp[0])) / size[0];
+  v[1] = (vp[3] - 2.0f * (center[1] - vp[1])) / size[1];
+  v[2] = 0.0f;
 
-    /* Translate and scale the picked region to the entire window */
-    v[0] = (vp[2] - 2.0f * (center[0] - vp[0])) / size[0];
-    v[1] = (vp[3] - 2.0f * (center[1] - vp[1])) / size[1];
-    v[2] = 0.0f;
+  glm_translate_make(res, v);
+  
+  v[0] = vp[2] / size[0];
+  v[1] = vp[3] / size[1];
+  v[2] = 1.0f;
 
-    glm_translate_make(res, v);
+  glm_scale(res, v);
 
-    v[0] = vp[2] / size[0];
-    v[1] = vp[3] / size[1];
-    v[2] = 1.0f;
-
-    glm_scale(res, v);
-
-    glm_mat4_copy(res, dest);
+  glm_mat4_copy(res, dest);
 }
 
 #endif /* cglm_project_h */

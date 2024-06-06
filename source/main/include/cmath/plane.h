@@ -1,5 +1,12 @@
-#ifndef __CMATH_PLANE_H__
-#define __CMATH_PLANE_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglm_plane_h
+#define cglm_plane_h
 
 #include "cmath/common.h"
 #include "cmath/vec3.h"
@@ -22,17 +29,16 @@
  * @param[in, out] plane plane to normalize
  */
 CGLM_INLINE
-void glm_plane_normalize(vec4 plane)
-{
-    float norm;
-
-    if ((norm = glm_vec3_norm(plane)) == 0.0f)
-    {
-        glm_vec4_zero(plane);
-        return;
-    }
-
-    glm_vec4_scale(plane, 1.0f / norm, plane);
+void
+glm_plane_normalize(vec4 plane) {
+  float norm;
+  
+  if (CGLM_UNLIKELY((norm = glm_vec3_norm(plane)) < FLT_EPSILON)) {
+    glm_vec4_zero(plane);
+    return;
+  }
+  
+  glm_vec4_scale(plane, 1.0f / norm, plane);
 }
 
 #endif /* cglm_plane_h */

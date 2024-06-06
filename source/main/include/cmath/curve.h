@@ -1,5 +1,12 @@
-#ifndef __CMATH_CURVE_H__
-#define __CMATH_CURVE_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglm_curve_h
+#define cglm_curve_h
 
 #include "cmath/common.h"
 #include "cmath/vec4.h"
@@ -14,7 +21,7 @@
  * if you want to specify S as vector then use more generic glm_mat4_rmc() func.
  *
  * Example usage:
- *  B(s) = glm_smc(s, GLM_BEZIER_MAT, vec4 {p0, c0, c1, p1})
+ *  B(s) = glm_smc(s, GLM_BEZIER_MAT, (vec4){p0, c0, c1, p1})
  *
  * @param[in]  s  parameter between 0 and 1 (this will be [s3, s2, s, 1])
  * @param[in]  m  basis matrix
@@ -23,11 +30,11 @@
  * @return B(s)
  */
 CGLM_INLINE
-float glm_smc(float s, mat4 m, vec4 c)
-{
-    vec4 vs;
-    glm_vec4_cubic(s, vs);
-    return glm_mat4_rmc(vs, m, c);
+float
+glm_smc(float s, mat4 m, vec4 c) {
+  vec4 vs;
+  glm_vec4_cubic(s, vs);
+  return glm_mat4_rmc(vs, m, c);
 }
 
 #endif /* cglm_curve_h */

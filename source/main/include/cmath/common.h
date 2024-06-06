@@ -1,28 +1,54 @@
-#ifndef __CMATH_COMMON_H__
-#define __CMATH_COMMON_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglm_common_h
+#define cglm_common_h
 
 #ifndef _USE_MATH_DEFINES
-#    define _USE_MATH_DEFINES /* for windows */
+#  define _USE_MATH_DEFINES       /* for windows */
 #endif
 
 #ifndef _CRT_SECURE_NO_WARNINGS
-#    define _CRT_SECURE_NO_WARNINGS /* for windows */
+#  define _CRT_SECURE_NO_WARNINGS /* for windows */
 #endif
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdlib.h>
 #include <math.h>
 #include <float.h>
 #include <stdbool.h>
 
-#if defined(_WIN32)
-double drand48();
-#endif
+#include "cmath/drand.h"
 
 #if defined(_MSC_VER)
-#    define CGLM_INLINE __forceinline
+#  ifdef CGLM_STATIC
+#    define CGLM_EXPORT
+#  elif defined(CGLM_EXPORTS)
+#    define CGLM_EXPORT __declspec(dllexport)
+#  else
+#    define CGLM_EXPORT __declspec(dllimport)
+#  endif
+#  define CGLM_INLINE __forceinline
 #else
-#    define CGLM_INLINE static inline __attribute((always_inline))
+#  define CGLM_EXPORT __attribute__((visibility("default")))
+#  define CGLM_INLINE static inline __attribute((always_inline))
+#endif
+
+#if defined(__GNUC__) || defined(__clang__)
+#  define CGLM_UNLIKELY(expr) __builtin_expect(!!(expr), 0)
+#  define CGLM_LIKELY(expr)   __builtin_expect(!!(expr), 1)
+#else
+#  define CGLM_UNLIKELY(expr) (expr)
+#  define CGLM_LIKELY(expr)   (expr)
+#endif
+
+#if defined(_M_FP_FAST) || defined(__FAST_MATH__)
+#  define CGLM_FAST_MATH
 #endif
 
 #define GLM_SHUFFLE4(z, y, x, w) (((z) << 6) | ((y) << 4) | ((x) << 2) | (w))
@@ -32,11 +58,11 @@ double drand48();
 #include "cmath/simd/intrin.h"
 
 #ifndef CGLM_USE_DEFAULT_EPSILON
-#    ifndef GLM_FLT_EPSILON
-#        define GLM_FLT_EPSILON 1e-5
-#    endif
+#  ifndef GLM_FLT_EPSILON
+#    define GLM_FLT_EPSILON 1e-5f
+#  endif
 #else
-#    define GLM_FLT_EPSILON FLT_EPSILON
+#  define GLM_FLT_EPSILON FLT_EPSILON
 #endif
 
 /*
@@ -57,17 +83,47 @@ double drand48();
 #define CGLM_CLIP_CONTROL_RH_NO (CGLM_CLIP_CONTROL_RH_BIT | CGLM_CLIP_CONTROL_NO_BIT)
 
 #ifdef CGLM_FORCE_DEPTH_ZERO_TO_ONE
-#    ifdef CGLM_FORCE_LEFT_HANDED
-#        define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_LH_ZO
-#    else
-#        define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_RH_ZO
-#    endif
+#  ifdef CGLM_FORCE_LEFT_HANDED
+#    define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_LH_ZO
+#  else
+#    define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_RH_ZO
+#  endif
 #else
-#    ifdef CGLM_FORCE_LEFT_HANDED
-#        define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_LH_NO
-#    else
-#        define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_RH_NO
-#    endif
+#  ifdef CGLM_FORCE_LEFT_HANDED
+#    define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_LH_NO
+#  else
+#    define CGLM_CONFIG_CLIP_CONTROL CGLM_CLIP_CONTROL_RH_NO
+#  endif
 #endif
+
+/* struct API configurator */
+/* TODO: move struct/common.h? */
+/* WARN: dont use concant helpers outside cglm headers, because they may be changed */
+
+#define CGLM_MACRO_CONCAT_HELPER(A, B, C, D, E, ...) A ## B ## C ## D ## E ## __VA_ARGS__
+#define CGLM_MACRO_CONCAT(A, B, C, D, E, ...) CGLM_MACRO_CONCAT_HELPER(A, B, C, D, E,__VA_ARGS__)
+
+#ifndef CGLM_OMIT_NS_FROM_STRUCT_API
+#  ifndef CGLM_STRUCT_API_NS
+#    define CGLM_STRUCT_API_NS glms
+#  endif
+#  ifndef CGLM_STRUCT_API_NS_SEPERATOR
+#    define CGLM_STRUCT_API_NS_SEPERATOR _
+#  endif
+#else
+#  define CGLM_STRUCT_API_NS
+#  define CGLM_STRUCT_API_NS_SEPERATOR
+#endif
+
+#ifndef CGLM_STRUCT_API_NAME_SUFFIX
+#  define CGLM_STRUCT_API_NAME_SUFFIX
+#endif
+
+#define CGLM_STRUCTAPI(A, ...) CGLM_MACRO_CONCAT(CGLM_STRUCT_API_NS,             \
+                                                 CGLM_STRUCT_API_NS_SEPERATOR,   \
+                                                 A,                              \
+                                                 CGLM_STRUCT_API_NAME_SUFFIX,    \
+                                                 _,                              \
+                                                 __VA_ARGS__)
 
 #endif /* cglm_common_h */

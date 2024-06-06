@@ -1,5 +1,12 @@
-#ifndef __CMATH_SPHERE_H__
-#define __CMATH_SPHERE_H__
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+#ifndef cglms_spheres_h
+#define cglms_spheres_h
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"
@@ -21,7 +28,10 @@
  * @return returns radii
  */
 CGLM_INLINE
-float glms_sphere_radii(vec4s s) { return glm_sphere_radii(s.raw); }
+float
+glms_sphere_radii(vec4s s) {
+  return glm_sphere_radii(s.raw);
+}
 
 /*!
  * @brief apply transform to sphere, it is just wrapper for glm_mat4_mulv3
@@ -31,11 +41,11 @@ float glms_sphere_radii(vec4s s) { return glm_sphere_radii(s.raw); }
  * @returns         transformed sphere
  */
 CGLM_INLINE
-vec4s glms_sphere_transform(vec4s s, mat4s m)
-{
-    vec4s r;
-    glm_sphere_transform(s.raw, m.raw, r.raw);
-    return r;
+vec4s
+glms_sphere_transform(vec4s s, mat4s m) {
+  vec4s r;
+  glm_sphere_transform(s.raw, m.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -49,11 +59,11 @@ vec4s glms_sphere_transform(vec4s s, mat4s m)
  * returns          merged/extended sphere
  */
 CGLM_INLINE
-vec4s glms_sphere_merge(vec4s s1, vec4s s2)
-{
-    vec4s r;
-    glm_sphere_merge(s1.raw, s2.raw, r.raw);
-    return r;
+vec4s
+glms_sphere_merge(vec4s s1, vec4s s2) {
+  vec4s r;
+  glm_sphere_merge(s1.raw, s2.raw, r.raw);
+  return r;
 }
 
 /*!
@@ -63,7 +73,10 @@ vec4s glms_sphere_merge(vec4s s1, vec4s s2)
  * @param[in]   s2  other sphere
  */
 CGLM_INLINE
-bool glms_sphere_sphere(vec4s s1, vec4s s2) { return glm_sphere_sphere(s1.raw, s2.raw); }
+bool
+glms_sphere_sphere(vec4s s1, vec4s s2) {
+  return glm_sphere_sphere(s1.raw, s2.raw);
+}
 
 /*!
  * @brief check if sphere intersects with point
@@ -72,6 +85,9 @@ bool glms_sphere_sphere(vec4s s1, vec4s s2) { return glm_sphere_sphere(s1.raw, s
  * @param[in]   point  point
  */
 CGLM_INLINE
-bool glms_sphere_point(vec4s s, vec3s point) { return glm_sphere_point(s.raw, point.raw); }
+bool
+glms_sphere_point(vec4s s, vec3s point) {
+  return glm_sphere_point(s.raw, point.raw);
+}
 
 #endif /* cglms_spheres_h */

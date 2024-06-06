@@ -1,5 +1,5 @@
-#ifndef tests_common_h
-#define tests_common_h
+#ifndef CMATH_CMATH_CMATH_tests_common_h
+#define CMATH_CMATH_CMATH_tests_common_h
 
 #ifndef _USE_MATH_DEFINES
 #  define _USE_MATH_DEFINES       /* for windows */
@@ -23,7 +23,6 @@
 
 #include "cmath/cglm.h"
 #include "cmath/struct.h"
-#include "cmath/call.h"
 
 struct test_status_t
 {
@@ -86,7 +85,7 @@ typedef struct test_entry_t {
 
 #define TEST_DECLARE(FUN) test_status_t test_ ## FUN(void);
 #define TEST_ENTRY(FUN)   { #FUN, test_ ## FUN, 0, 0 },
-#define TEST_LIST         static test_entry_t tests[] = 
+#define TEST_LIST         static test_entry_t tests[] =
 
 /* __VA_ARGS__ workaround for MSVC: https://stackoverflow.com/a/5134656 */
 #define EXPAND(x) x

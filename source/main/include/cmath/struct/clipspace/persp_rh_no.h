@@ -1,3 +1,37 @@
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+/*
+ Functions:
+   CGLM_INLINE mat4s glms_frustum_rh_no(float left,    float right,
+                                        float bottom,  float top,
+                                        float nearZ,   float farZ)
+   CGLM_INLINE mat4s glms_perspective_rh_no(float fovy,
+                                            float aspect,
+                                            float nearZ,
+                                            float farZ)
+   CGLM_INLINE void  glms_persp_move_far_rh_no(mat4s proj, float deltaFar)
+   CGLM_INLINE mat4s glms_perspective_default_rh_no(float aspect)
+   CGLM_INLINE void  glms_perspective_resize_rh_no(mat4s proj, float aspect)
+   CGLM_INLINE void  glms_persp_decomp_rh_no(mat4s  proj,
+                                             float *nearv, float *farv,
+                                             float *top,   float *bottom,
+                                             float *left,  float *right)
+   CGLM_INLINE void  glms_persp_decompv_rh_no(mat4s proj, float dest[6])
+   CGLM_INLINE void  glms_persp_decomp_x_rh_no(mat4s proj, float *left, float *right)
+   CGLM_INLINE void  glms_persp_decomp_y_rh_no(mat4s proj, float *top, float *bottom)
+   CGLM_INLINE void  glms_persp_decomp_z_rh_no(mat4s proj, float *nearv, float *farv)
+   CGLM_INLINE void  glms_persp_decomp_far_rh_no(mat4s proj, float *farZ)
+   CGLM_INLINE void  glms_persp_decomp_near_rh_no(mat4s proj, float *nearZ)
+   CGLM_INLINE float glms_persp_fovy_rh_no(mat4s proj)
+   CGLM_INLINE float glms_persp_aspect_rh_no(mat4s proj)
+   CGLM_INLINE vec4s glms_persp_sizes_rh_no(mat4s proj, float fovy)
+ */
+
 #ifndef cglms_persp_rh_no_h
 #define cglms_persp_rh_no_h
 
@@ -5,6 +39,7 @@
 #include "cmath/types-struct.h"
 #include "cmath/plane.h"
 #include "cmath/cam.h"
+#include "cmath/clipspace/persp_rh_no.h"
 
 /*!
  * @brief set up perspective peprojection matrix
@@ -20,11 +55,13 @@
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_frustum_rh_no(float left, float right, float bottom, float top, float nearZ, float farZ)
-{
-    mat4s dest;
-    glm_frustum_rh_no(left, right, bottom, top, nearZ, farZ, dest.raw);
-    return dest;
+mat4s
+glms_frustum_rh_no(float left,   float right,
+                   float bottom, float top,
+                   float nearZ,  float farZ) {
+  mat4s dest;
+  glm_frustum_rh_no(left, right, bottom, top, nearZ, farZ, dest.raw);
+  return dest;
 }
 
 /*!
@@ -39,11 +76,11 @@ mat4s glms_frustum_rh_no(float left, float right, float bottom, float top, float
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_perspective_rh_no(float fovy, float aspect, float nearZ, float farZ)
-{
-    mat4s dest;
-    glm_perspective_rh_no(fovy, aspect, nearZ, farZ, dest.raw);
-    return dest;
+mat4s
+glms_perspective_rh_no(float fovy, float aspect, float nearZ, float farZ) {
+  mat4s dest;
+  glm_perspective_rh_no(fovy, aspect, nearZ, farZ, dest.raw);
+  return dest;
 }
 
 /*!
@@ -61,12 +98,12 @@ mat4s glms_perspective_rh_no(float fovy, float aspect, float nearZ, float farZ)
  * @param[in]      deltaFar  distance from existing far (negative to shink)
  */
 CGLM_INLINE
-mat4s glms_persp_move_far_rh_no(mat4s proj, float deltaFar)
-{
-    mat4s dest;
-    dest = proj;
-    glm_persp_move_far_rh_no(dest.raw, deltaFar);
-    return dest;
+mat4s
+glms_persp_move_far_rh_no(mat4s proj, float deltaFar) {
+  mat4s dest;
+  dest = proj;
+  glm_persp_move_far_rh_no(dest.raw, deltaFar);
+  return dest;
 }
 
 /*!
@@ -78,11 +115,11 @@ mat4s glms_persp_move_far_rh_no(mat4s proj, float deltaFar)
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_perspective_default_rh_no(float aspect)
-{
-    mat4s dest;
-    glm_perspective_default_rh_no(aspect, dest.raw);
-    return dest;
+mat4s
+glms_perspective_default_rh_no(float aspect) {
+  mat4s dest;
+  glm_perspective_default_rh_no(aspect, dest.raw);
+  return dest;
 }
 
 /*!
@@ -94,17 +131,17 @@ mat4s glms_perspective_default_rh_no(float aspect)
  * NOTE: if you dodn't want to create new matrix then use array api on struct.raw
  *       like glm_perspective_resize_rh_no(proj.raw, aspect) to avoid create new mat4
  *       each time
- *
+ *       
  * @param[in, out] proj   perspective projection matrix
  * @param[in]      aspect aspect ratio ( width / height )
  */
 CGLM_INLINE
-mat4s glms_perspective_resize_rh_no(mat4s proj, float aspect)
-{
-    mat4s dest;
-    dest = proj;
-    glm_perspective_resize_rh_no(aspect, dest.raw);
-    return dest;
+mat4s
+glms_perspective_resize_rh_no(mat4s proj, float aspect) {
+  mat4s dest;
+  dest = proj;
+  glm_perspective_resize_rh_no(aspect, dest.raw);
+  return dest;
 }
 
 /*!
@@ -121,9 +158,12 @@ mat4s glms_perspective_resize_rh_no(mat4s proj, float aspect)
  * @param[out] right   right
  */
 CGLM_INLINE
-void glms_persp_decomp_rh_no(mat4s proj, float* __restrict nearZ, float* __restrict farZ, float* __restrict top, float* __restrict bottom, float* __restrict left, float* __restrict right)
-{
-    glm_persp_decomp_rh_no(proj.raw, nearZ, farZ, top, bottom, left, right);
+void
+glms_persp_decomp_rh_no(mat4s proj,
+                        float * __restrict nearZ, float * __restrict farZ,
+                        float * __restrict top,   float * __restrict bottom,
+                        float * __restrict left,  float * __restrict right) {
+  glm_persp_decomp_rh_no(proj.raw, nearZ, farZ, top, bottom, left, right);
 }
 
 /*!
@@ -136,7 +176,10 @@ void glms_persp_decomp_rh_no(mat4s proj, float* __restrict nearZ, float* __restr
  * @param[out] dest   array
  */
 CGLM_INLINE
-void glms_persp_decompv_rh_no(mat4s proj, float dest[6]) { glm_persp_decompv_rh_no(proj.raw, dest); }
+void
+glms_persp_decompv_rh_no(mat4s proj, float dest[6]) {
+  glm_persp_decompv_rh_no(proj.raw, dest);
+}
 
 /*!
  * @brief decomposes left and right values of perspective projection
@@ -149,20 +192,30 @@ void glms_persp_decompv_rh_no(mat4s proj, float dest[6]) { glm_persp_decompv_rh_
  * @param[out] right right
  */
 CGLM_INLINE
-void glms_persp_decomp_x_rh_no(mat4s proj, float* __restrict left, float* __restrict right) { glm_persp_decomp_x_rh_no(proj.raw, left, right); }
+void
+glms_persp_decomp_x_rh_no(mat4s proj,
+                          float * __restrict left,
+                          float * __restrict right) {
+  glm_persp_decomp_x_rh_no(proj.raw, left, right);
+}
 
 /*!
  * @brief decomposes top and bottom values of perspective projection
  *        with a right-hand coordinate system and a
  *        clip-space of [-1, 1].
- *        y stands for y axis (top / botom axis)
+ *        y stands for y axis (top / bottom axis)
  *
  * @param[in]  proj   perspective projection matrix
  * @param[out] top    top
  * @param[out] bottom bottom
  */
 CGLM_INLINE
-void glms_persp_decomp_y_rh_no(mat4s proj, float* __restrict top, float* __restrict bottom) { glm_persp_decomp_y_rh_no(proj.raw, top, bottom); }
+void
+glms_persp_decomp_y_rh_no(mat4s proj,
+                          float * __restrict top,
+                          float * __restrict bottom) {
+  glm_persp_decomp_y_rh_no(proj.raw, top, bottom);
+}
 
 /*!
  * @brief decomposes near and far values of perspective projection
@@ -175,7 +228,12 @@ void glms_persp_decomp_y_rh_no(mat4s proj, float* __restrict top, float* __restr
  * @param[out] farZ    far
  */
 CGLM_INLINE
-void glms_persp_decomp_z_rh_no(mat4s proj, float* __restrict nearZ, float* __restrict farZ) { glm_persp_decomp_z_rh_no(proj.raw, nearZ, farZ); }
+void
+glms_persp_decomp_z_rh_no(mat4s proj,
+                          float * __restrict nearZ,
+                          float * __restrict farZ) {
+  glm_persp_decomp_z_rh_no(proj.raw, nearZ, farZ);
+}
 
 /*!
  * @brief decomposes far value of perspective projection
@@ -186,7 +244,10 @@ void glms_persp_decomp_z_rh_no(mat4s proj, float* __restrict nearZ, float* __res
  * @param[out] farZ   far
  */
 CGLM_INLINE
-void glms_persp_decomp_far_rh_no(mat4s proj, float* __restrict farZ) { glm_persp_decomp_far_rh_no(proj.raw, farZ); }
+void
+glms_persp_decomp_far_rh_no(mat4s proj, float * __restrict farZ) {
+  glm_persp_decomp_far_rh_no(proj.raw, farZ);
+}
 
 /*!
  * @brief decomposes near value of perspective projection
@@ -197,7 +258,10 @@ void glms_persp_decomp_far_rh_no(mat4s proj, float* __restrict farZ) { glm_persp
  * @param[out] nearZ near
  */
 CGLM_INLINE
-void glms_persp_decomp_near_rh_no(mat4s proj, float* __restrict nearZ) { glm_persp_decomp_near_rh_no(proj.raw, nearZ); }
+void
+glms_persp_decomp_near_rh_no(mat4s proj, float * __restrict nearZ) {
+  glm_persp_decomp_near_rh_no(proj.raw, nearZ);
+}
 
 /*!
  * @brief returns field of view angle along the Y-axis (in radians)
@@ -210,7 +274,10 @@ void glms_persp_decomp_near_rh_no(mat4s proj, float* __restrict nearZ) { glm_per
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float glms_persp_fovy_rh_no(mat4s proj) { return glm_persp_fovy_rh_no(proj.raw); }
+float
+glms_persp_fovy_rh_no(mat4s proj) {
+  return glm_persp_fovy_rh_no(proj.raw);
+}
 
 /*!
  * @brief returns aspect ratio of perspective projection
@@ -220,7 +287,10 @@ float glms_persp_fovy_rh_no(mat4s proj) { return glm_persp_fovy_rh_no(proj.raw);
  * @param[in] proj perspective projection matrix
  */
 CGLM_INLINE
-float glms_persp_aspect_rh_no(mat4s proj) { return glm_persp_aspect_rh_no(proj.raw); }
+float
+glms_persp_aspect_rh_no(mat4s proj) {
+  return glm_persp_aspect_rh_no(proj.raw);
+}
 
 /*!
  * @brief returns sizes of near and far planes of perspective projection
@@ -232,11 +302,11 @@ float glms_persp_aspect_rh_no(mat4s proj) { return glm_persp_aspect_rh_no(proj.r
  * @returns    sizes as vector, sizes order: [Wnear, Hnear, Wfar, Hfar]
  */
 CGLM_INLINE
-vec4s glms_persp_sizes_rh_no(mat4s proj, float fovy)
-{
-    vec4s dest;
-    glm_persp_sizes_rh_no(proj.raw, fovy, dest.raw);
-    return dest;
+vec4s
+glms_persp_sizes_rh_no(mat4s proj, float fovy) {
+  vec4s dest;
+  glm_persp_sizes_rh_no(proj.raw, fovy, dest.raw);
+  return dest;
 }
 
 #endif /* cglms_persp_rh_no_h */

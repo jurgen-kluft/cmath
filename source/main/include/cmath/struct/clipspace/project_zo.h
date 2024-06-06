@@ -1,3 +1,17 @@
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+/*
+ Functions:
+   CGLM_INLINE vec3s glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp)
+   CGLM_INLINE vec3s glms_project_no(vec3s pos, mat4s m, vec4s vp)
+   CGLM_INLINE float glms_project_z_zo(vec3s v, mat4s m)
+ */
+
 #ifndef cglms_project_zo_h
 #define cglms_project_zo_h
 
@@ -5,6 +19,7 @@
 #include "cmath/types-struct.h"
 #include "cmath/plane.h"
 #include "cmath/cam.h"
+#include "cmath/clipspace/project_zo.h"
 
 /*!
  * @brief maps the specified viewport coordinates into specified space [1]
@@ -30,14 +45,15 @@
  * @param[in]  pos          point/position in viewport coordinates
  * @param[in]  invMat   matrix (see brief)
  * @param[in]  vp            viewport as [x, y, width, height]
+ *
  * @returns unprojected coordinates
  */
 CGLM_INLINE
-vec3s glms_unprojecti_zo(vec3s pos, mat4s invMat, vec4s vp, vec3 dest)
-{
-    vec3s dest;
-    glm_unprojecti_zo(pos.raw, invMat.raw, vp.raw, dest.raw);
-    return dest;
+vec3s
+glms_unprojecti_zo(vec3s pos, mat4s invMat, vec4s vp) {
+  vec3s dest;
+  glm_unprojecti_zo(pos.raw, invMat.raw, vp.raw, dest.raw);
+  return dest;
 }
 
 /*!
@@ -50,14 +66,33 @@ vec3s glms_unprojecti_zo(vec3s pos, mat4s invMat, vec4s vp, vec3 dest)
  * @param[in]  pos      object coordinates
  * @param[in]  m          MVP matrix
  * @param[in]  vp        viewport as [x, y, width, height]
+ *
  * @returns projected coordinates
  */
 CGLM_INLINE
-vec3s glms_project_zo(vec3s pos, mat4s m, vec4s vp, vec3 dest)
-{
-    vec3s dest;
-    glm_project_zo(pos.raw, m.raw, vp.raw, dest.raw);
-    return dest;
+vec3s
+glms_project_zo(vec3s pos, mat4s m, vec4s vp) {
+  vec3s dest;
+  glm_project_zo(pos.raw, m.raw, vp.raw, dest.raw);
+  return dest;
+}
+
+/*!
+ * @brief map object's z coordinate to window coordinates
+ *
+ * Computing MVP:
+ *   glm_mat4_mul(proj, view, viewProj);
+ *   glm_mat4_mul(viewProj, model, MVP);
+ *
+ * @param[in]  v object coordinates
+ * @param[in]  m MVP matrix
+ *
+ * @returns projected z coordinate
+ */
+CGLM_INLINE
+float
+glms_project_z_zo(vec3s v, mat4s m) {
+  return glm_project_z_zo(v.raw, m.raw);
 }
 
 #endif /* cglm_project_zo_h */

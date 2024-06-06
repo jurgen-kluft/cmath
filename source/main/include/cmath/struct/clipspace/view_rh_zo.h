@@ -1,3 +1,17 @@
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
+
+/*
+ Functions:
+   CGLM_INLINE mat4s glms_lookat_rh_zo(vec3s eye, vec3s center, vec3s up)
+   CGLM_INLINE mat4s glms_look_rh_zo(vec3s eye, vec3s dir, vec3s up)
+   CGLM_INLINE mat4s glms_look_anyup_rh_zo(vec3s eye, vec3s dir)
+ */
+
 #ifndef cglms_view_rh_zo_h
 #define cglms_view_rh_zo_h
 
@@ -5,6 +19,7 @@
 #include "cmath/types-struct.h"
 #include "cmath/plane.h"
 #include "cmath/cam.h"
+#include "cmath/clipspace/view_rh_zo.h"
 
 /*!
  * @brief set up view matrix
@@ -20,11 +35,11 @@
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_lookat_rh_zo(vec3s eye, vec3s center, vec3s up)
-{
-    mat4s dest;
-    glm_lookat_rh_zo(eye.raw, center.raw, up.raw, dest.raw);
-    return dest;
+mat4s
+glms_lookat_rh_zo(vec3s eye, vec3s center, vec3s up) {
+  mat4s dest;
+  glm_lookat_rh_zo(eye.raw, center.raw, up.raw, dest.raw);
+  return dest;
 }
 
 /*!
@@ -44,11 +59,11 @@ mat4s glms_lookat_rh_zo(vec3s eye, vec3s center, vec3s up)
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_look_rh_zo(vec3s eye, vec3s dir, vec3s up)
-{
-    mat4s dest;
-    glm_look_rh_zo(eye.raw, dir.raw, up.raw, dest.raw);
-    return dest;
+mat4s
+glms_look_rh_zo(vec3s eye, vec3s dir, vec3s up) {
+  mat4s dest;
+  glm_look_rh_zo(eye.raw, dir.raw, up.raw, dest.raw);
+  return dest;
 }
 
 /*!
@@ -64,11 +79,11 @@ mat4s glms_look_rh_zo(vec3s eye, vec3s dir, vec3s up)
  * @returns    result matrix
  */
 CGLM_INLINE
-mat4s glms_look_anyup_rh_zo(vec3s eye, vec3s dir)
-{
-    mat4s dest;
-    glm_look_anyup_rh_zo(eye.raw, dir.raw, dest.raw);
-    return dest;
+mat4s
+glms_look_anyup_rh_zo(vec3s eye, vec3s dir) {
+  mat4s dest;
+  glm_look_anyup_rh_zo(eye.raw, dir.raw, dest.raw);
+  return dest;
 }
 
 #endif /* cglms_view_rh_zo_h */

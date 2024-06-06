@@ -1,5 +1,9 @@
-#ifndef cglm_view_lh_h
-#define cglm_view_lh_h
+/*
+ * Copyright (c), Recep Aslantas.
+ *
+ * MIT License (MIT), http://opensource.org/licenses/MIT
+ * Full license can be found in the LICENSE file
+ */
 
 /*
  Functions:
@@ -7,6 +11,9 @@
    CGLM_INLINE void glm_look_lh(vec3 eye, vec3 dir, vec3 up, mat4 dest)
    CGLM_INLINE void glm_look_anyup_lh(vec3 eye, vec3 dir, mat4 dest)
  */
+
+#ifndef cglm_view_lh_h
+#define cglm_view_lh_h
 
 #include "cmath/common.h"
 #include "cmath/plane.h"

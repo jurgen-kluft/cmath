@@ -1,7 +1,7 @@
-#ifndef tests_h
-#define tests_h
+#ifndef CMATH_CMATH_CMATH_tests_h
+#define CMATH_CMATH_CMATH_tests_h
 
-#include "cmath/test/common.h"
+#include "cmath/common.h"
 
 /*
  * To register a test:
