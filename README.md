@@ -1,6 +1,6 @@
 # cmath
 
-Cross platform library for vector and matrix math
+Cross platform library for vector and matrix math, original repository is [here](https://github.com/recp/cglm)
 
 ![image](cmath_logo.png)
 
