@@ -1,45 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- NOTE:
-  angles must be passed as [X-Angle, Y-Angle, Z-angle] order
-  For instance you don't pass angles as [Z-Angle, X-Angle, Y-angle] to
-  glm_euler_zxy function, All RELATED functions accept angles same order
-  which is [X, Y, Z].
- */
-
-/*
- Types:
-   enum glm_euler_seq
-
- Functions:
-   CGLM_INLINE glm_euler_seq glm_euler_order(int newOrder[3]);
-   CGLM_INLINE void glm_euler_angles(mat4 m, vec3 dest);
-   CGLM_INLINE void glm_euler(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_xyz(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_zyx(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_zxy(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_xzy(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_yzx(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_yxz(vec3 angles, mat4 dest);
-   CGLM_INLINE void glm_euler_by_order(vec3         angles,
-                                       glm_euler_seq ord,
-                                       mat4         dest);
-   CGLM_INLINE void glm_euler_xyz_quat(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_xzy_quat(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_yxz_quat(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_yzx_quat(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_zxy_quat(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_zyx_quat(vec3 angles, versor dest);
- */
-
-#ifndef cglm_euler_h
-#define cglm_euler_h
+#ifndef __CMATH_EULER_H__
+#define __CMATH_EULER_H__
 
 #include "cmath/common.h"
 

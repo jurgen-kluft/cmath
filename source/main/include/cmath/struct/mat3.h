@@ -1,38 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-   GLMS_MAT3_IDENTITY_INIT
-   GLMS_MAT3_ZERO_INIT
-   GLMS_MAT3_IDENTITY
-   GLMS_MAT3_ZERO
-
- Functions:
-   CGLM_INLINE mat3s  glms_mat3_copy(mat3s mat);
-   CGLM_INLINE mat3s  glms_mat3_identity(void);
-   CGLM_INLINE void   glms_mat3_identity_array(mat3s * __restrict mat, size_t count);
-   CGLM_INLINE mat3s  glms_mat3_zero(void);
-   CGLM_INLINE mat3s  glms_mat3_mul(mat3s m1, mat3s m2);
-   CGLM_INLINE ma3s   glms_mat3_transpose(mat3s m);
-   CGLM_INLINE vec3s  glms_mat3_mulv(mat3s m, vec3s v);
-   CGLM_INLINE float  glms_mat3_trace(mat3s m);
-   CGLM_INLINE versor glms_mat3_quat(mat3s m);
-   CGLM_INLINE mat3s  glms_mat3_scale(mat3s m, float s);
-   CGLM_INLINE float  glms_mat3_det(mat3s mat);
-   CGLM_INLINE mat3s  glms_mat3_inv(mat3s mat);
-   CGLM_INLINE mat3s  glms_mat3_swap_col(mat3s mat, int col1, int col2);
-   CGLM_INLINE mat3s  glms_mat3_swap_row(mat3s mat, int row1, int row2);
-   CGLM_INLINE float  glms_mat3_rmc(vec3s r, mat3s m, vec3s c);
-   CGLM_INLINE mat3s  glms_mat3_make(const float * __restrict src);
- */
-
-#ifndef cglms_mat3s_h
-#define cglms_mat3s_h
+#ifndef __CMATH_STRUCT_MAT3_H__
+#define __CMATH_STRUCT_MAT3_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

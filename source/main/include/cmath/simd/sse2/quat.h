@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_quat_simd_h
-#define cglm_quat_simd_h
+#ifndef __CMATH_SIMD_SSE2_QUAT_H__
+#define __CMATH_SIMD_SSE2_QUAT_H__
 #if defined( __SSE__ ) || defined( __SSE2__ )
 
 #include "cmath/common.h"

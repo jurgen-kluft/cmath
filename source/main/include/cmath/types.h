@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_types_h
-#define cglm_types_h
+#ifndef __CMATH_TYPES_H__
+#define __CMATH_TYPES_H__
 
 #if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L)
 # include <stdalign.h>

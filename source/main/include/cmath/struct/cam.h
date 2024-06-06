@@ -1,50 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_frustum(float left,    float right,
-                                  float bottom,  float top,
-                                  float nearZ,   float farZ)
-   CGLM_INLINE mat4s glms_ortho(float left,    float right,
-                                float bottom,  float top,
-                                float nearZ,   float farZ)
-   CGLM_INLINE mat4s glms_ortho_aabb(vec3s box[2]);
-   CGLM_INLINE mat4s glms_ortho_aabb_p(vec3s box[2],  float padding);
-   CGLM_INLINE mat4s glms_ortho_aabb_pz(vec3s box[2], float padding);
-   CGLM_INLINE mat4s glms_ortho_default(float aspect)
-   CGLM_INLINE mat4s glms_ortho_default_s(float aspect, float size)
-   CGLM_INLINE mat4s glms_perspective(float fovy,
-                                      float aspect,
-                                      float nearZ,
-                                      float farZ)
-   CGLM_INLINE void  glms_persp_move_far(mat4s proj, float deltaFar)
-   CGLM_INLINE mat4s glms_perspective_default(float aspect)
-   CGLM_INLINE void  glms_perspective_resize(mat4s proj, float aspect)
-   CGLM_INLINE mat4s glms_lookat(vec3s eye, vec3s center, vec3s up)
-   CGLM_INLINE mat4s glms_look(vec3s eye, vec3s dir, vec3s up)
-   CGLM_INLINE mat4s glms_look_anyup(vec3s eye, vec3s dir)
-   CGLM_INLINE void  glms_persp_decomp(mat4s  proj,
-                                       float *nearv, float *farv,
-                                       float *top,   float *bottom,
-                                       float *left,  float *right)
-   CGLM_INLINE void  glms_persp_decompv(mat4s proj, float dest[6])
-   CGLM_INLINE void  glms_persp_decomp_x(mat4s proj, float *left, float *right)
-   CGLM_INLINE void  glms_persp_decomp_y(mat4s proj, float *top, float *bottom)
-   CGLM_INLINE void  glms_persp_decomp_z(mat4s proj, float *nearv, float *farv)
-   CGLM_INLINE void  glms_persp_decomp_far(mat4s proj, float *farZ)
-   CGLM_INLINE void  glms_persp_decomp_near(mat4s proj, float *nearZ)
-   CGLM_INLINE float glms_persp_fovy(mat4s proj)
-   CGLM_INLINE float glms_persp_aspect(mat4s proj)
-   CGLM_INLINE vec4s glms_persp_sizes(mat4s proj, float fovy)
- */
-
-#ifndef cglms_cam_h
-#define cglms_cam_h
+#ifndef __CMATH_STRUCT_CAM_H__
+#define __CMATH_STRUCT_CAM_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

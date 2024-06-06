@@ -1,27 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-   GLM_MAT4X2_ZERO_INIT
-   GLM_MAT4X2_ZERO
-
- Functions:
-   CGLM_INLINE void glm_mat4x2_copy(mat4x2 mat, mat4x2 dest);
-   CGLM_INLINE void glm_mat4x2_zero(mat4x2 mat);
-   CGLM_INLINE void glm_mat4x2_make(const float * __restrict src, mat4x2 dest);
-   CGLM_INLINE void glm_mat4x2_mul(mat4x2 m1, mat2x4 m2, mat2 dest);
-   CGLM_INLINE void glm_mat4x2_mulv(mat4x2 m, vec4 v, vec2 dest);
-   CGLM_INLINE void glm_mat4x2_transpose(mat4x2 m, mat2x4 dest);
-   CGLM_INLINE void glm_mat4x2_scale(mat4x2 m, float s);
- */
-
-#ifndef cglm_mat4x2_h
-#define cglm_mat4x2_h
+#ifndef __CMATH_MAT4X2_H__
+#define __CMATH_MAT4X2_H__
 
 #include "cmath/common.h"
 

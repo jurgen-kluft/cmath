@@ -1,19 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glm_mul(mat4 m1, mat4 m2, mat4 dest);
-   CGLM_INLINE void glm_mul_rot(mat4 m1, mat4 m2, mat4 dest);
-   CGLM_INLINE void glm_inv_tr(mat4 mat);
- */
-
-#ifndef cglm_affine_mat_h
-#define cglm_affine_mat_h
+#ifndef __CMATH_AFFINE_MAT_H__
+#define __CMATH_AFFINE_MAT_H__
 
 #include "cmath/common.h"
 #include "cmath/mat4.h"

@@ -1,5 +1,5 @@
-#ifndef CMATH_CMATH_CMATH_tests_h
-#define CMATH_CMATH_CMATH_tests_h
+#ifndef __CMATH_TEST_TESTS_H__
+#define __CMATH_TEST_TESTS_H__
 
 #include "cmath/test/common.h"
 

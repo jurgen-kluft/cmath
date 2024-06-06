@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_quat_wasm_h
-#define cglm_quat_wasm_h
+#ifndef __CMATH_SIMD_WASM_QUAT_H__
+#define __CMATH_SIMD_WASM_QUAT_H__
 #if defined(__wasm__) && defined(__wasm_simd128__)
 
 #include "cmath/common.h"

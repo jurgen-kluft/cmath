@@ -1,55 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-   GLMS_QUAT_IDENTITY_INIT
-   GLMS_QUAT_IDENTITY
-
- Functions:
-   CGLM_INLINE versors glms_quat_identity(void)
-   CGLM_INLINE void    glms_quat_identity_array(versor *q, size_t count)
-   CGLM_INLINE versors glms_quat_init(float x, float y, float z, float w)
-   CGLM_INLINE versors glms_quatv(float angle, vec3s axis)
-   CGLM_INLINE versors glms_quat(float angle, float x, float y, float z)
-   CGLM_INLINE versors glms_quat_from_vecs(vec3s a, vec3s b)
-   CGLM_INLINE float   glms_quat_norm(versors q)
-   CGLM_INLINE versors glms_quat_normalize(versors q)
-   CGLM_INLINE float   glms_quat_dot(versors p, versors q)
-   CGLM_INLINE versors glms_quat_conjugate(versors q)
-   CGLM_INLINE versors glms_quat_inv(versors q)
-   CGLM_INLINE versors glms_quat_add(versors p, versors q)
-   CGLM_INLINE versors glms_quat_sub(versors p, versors q)
-   CGLM_INLINE vec3s   glms_quat_imagn(versors q)
-   CGLM_INLINE float   glms_quat_imaglen(versors q)
-   CGLM_INLINE float   glms_quat_angle(versors q)
-   CGLM_INLINE vec3s   glms_quat_axis(versors q)
-   CGLM_INLINE versors glms_quat_mul(versors p, versors q)
-   CGLM_INLINE mat4s   glms_quat_mat4(versors q)
-   CGLM_INLINE mat4s   glms_quat_mat4t(versors q)
-   CGLM_INLINE mat3s   glms_quat_mat3(versors q)
-   CGLM_INLINE mat3s   glms_quat_mat3t(versors q)
-   CGLM_INLINE versors glms_quat_lerp(versors from, versors to, float t)
-   CGLM_INLINE versors glms_quat_lerpc(versors from, versors to, float t)
-   CGLM_INLINE versors glms_quat_nlerp(versors from, versors to, float t)
-   CGLM_INLINE versors glms_quat_slerp(versors from, versors to, float t)
-   CGLM_INLINE versors glms_quat_slerp_longest(versors from, versors to, float t)
-   CGLM_INLINE mat4s.  glms_quat_look(vec3s eye, versors ori)
-   CGLM_INLINE versors glms_quat_for(vec3s dir, vec3s fwd, vec3s up)
-   CGLM_INLINE versors glms_quat_forp(vec3s from, vec3s to, vec3s fwd, vec3s up)
-   CGLM_INLINE vec3s   glms_quat_rotatev(versors q, vec3s v)
-   CGLM_INLINE mat4s   glms_quat_rotate(mat4s m, versors q)
-   CGLM_INLINE mat4s   glms_quat_rotate_at(mat4s m, versors q, vec3s pivot)
-   CGLM_INLINE mat4s   glms_quat_rotate_atm(versors q, vec3s pivot)
-   CGLM_INLINE versors glms_quat_make(float * restrict src)
- */
-
-#ifndef cglms_quat_h
-#define cglms_quat_h
+#ifndef __CMATH_STRUCT_QUAT_H__
+#define __CMATH_STRUCT_QUAT_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

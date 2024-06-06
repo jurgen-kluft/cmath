@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_ease_h
-#define cglm_ease_h
+#ifndef __CMATH_EASE_H__
+#define __CMATH_EASE_H__
 
 #include "cmath/common.h"
 

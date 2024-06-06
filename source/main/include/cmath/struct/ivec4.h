@@ -1,55 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-  GLMS_IVEC4_ONE_INIT
-  GLMS_IVEC4_ZERO_INIT
-  GLMS_IVEC4_ONE
-  GLMS_IVEC4_ZERO
-
- Functions:
-  CGLM_INLINE ivec4s glms_ivec4(ivec3s v3, int last)
-  CGLM_INLINE void glms_ivec4_pack(ivec4s dst[], ivec4 src[], size_t len)
-  CGLM_INLINE void glms_ivec4_unpack(ivec4 dst[], ivec4s src[], size_t len)
-  CGLM_INLINE ivec4s  glms_ivec4_zero(void)
-  CGLM_INLINE ivec4s glms_ivec4_one(void)
-  CGLM_INLINE ivec4s glms_ivec4_add(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_adds(ivec4s v, int s)
-  CGLM_INLINE ivec4s glms_ivec4_sub(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_subs(ivec4s v, int s)
-  CGLM_INLINE ivec4s glms_ivec4_mul(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_scale(ivec4s v, int s)
-  CGLM_INLINE ivec4s glms_ivec4_addadd(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_addadds(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_subadd(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_subadds(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_muladd(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_muladds(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_maxadd(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_minadd(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_subsub(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_subsubs(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_addsub(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_addsubs(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_mulsub(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_mulsubs(ivec4s a, int s, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_maxsub(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE ivec4s glms_ivec4_minsub(ivec4s a, ivec4s b, ivec4s dest)
-  CGLM_INLINE int glms_ivec4_distance2(ivec4s a, ivec4s b)
-  CGLM_INLINE float glms_ivec4_distance(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_maxv(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_minv(ivec4s a, ivec4s b)
-  CGLM_INLINE ivec4s glms_ivec4_clamp(ivec4s v, int minVal, int maxVal)
-  CGLM_INLINE ivec4s glms_ivec4_abs(ivec4s v)
- */
-
-#ifndef cglms_ivec4_h
-#define cglms_ivec4_h
+#ifndef __CMATH_STRUCT_IVEC4_H__
+#define __CMATH_STRUCT_IVEC4_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

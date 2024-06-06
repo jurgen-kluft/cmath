@@ -1,19 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glm_lookat_lh_no(vec3 eye, vec3 center, vec3 up, mat4 dest)
-   CGLM_INLINE void glm_look_lh_no(vec3 eye, vec3 dir, vec3 up, mat4 dest)
-   CGLM_INLINE void glm_look_anyup_lh_no(vec3 eye, vec3 dir, mat4 dest)
- */
-
-#ifndef cglm_view_lh_no_h
-#define cglm_view_lh_no_h
+#ifndef __CMATH_CLIPSPACE_VIEW_LH_NO_H__
+#define __CMATH_CLIPSPACE_VIEW_LH_NO_H__
 
 #include "cmath/common.h"
 #include "cmath/clipspace/view_lh.h"

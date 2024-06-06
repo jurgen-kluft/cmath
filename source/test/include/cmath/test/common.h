@@ -1,5 +1,5 @@
-#ifndef CMATH_CMATH_CMATH_tests_common_h
-#define CMATH_CMATH_CMATH_tests_common_h
+#ifndef __CMATH_TEST_COMMON_H__
+#define __CMATH_TEST_COMMON_H__
 
 #ifndef _USE_MATH_DEFINES
 #  define _USE_MATH_DEFINES       /* for windows */

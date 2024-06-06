@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*!
- * @brief SIMD like functions
- */
-
-/*
- Functions:
-   CGLM_INLINE void  glm_vec3_broadcast(float val, vec3 d);
-   CGLM_INLINE void  glm_vec3_fill(vec3 v, float val);
-   CGLM_INLINE bool  glm_vec3_eq(vec3 v, float val);
-   CGLM_INLINE bool  glm_vec3_eq_eps(vec3 v, float val);
-   CGLM_INLINE bool  glm_vec3_eq_all(vec3 v);
-   CGLM_INLINE bool  glm_vec3_eqv(vec3 a, vec3 b);
-   CGLM_INLINE bool  glm_vec3_eqv_eps(vec3 a, vec3 b);
-   CGLM_INLINE float glm_vec3_max(vec3 v);
-   CGLM_INLINE float glm_vec3_min(vec3 v);
-   CGLM_INLINE bool  glm_vec3_isnan(vec3 v);
-   CGLM_INLINE bool  glm_vec3_isinf(vec3 v);
-   CGLM_INLINE bool  glm_vec3_isvalid(vec3 v);
-   CGLM_INLINE void  glm_vec3_sign(vec3 v, vec3 dest);
-   CGLM_INLINE void  glm_vec3_abs(vec3 v, vec3 dest);
-   CGLM_INLINE void  glm_vec3_fract(vec3 v, vec3 dest);
-   CGLM_INLINE float glm_vec3_hadd(vec3 v);
-   CGLM_INLINE void  glm_vec3_sqrt(vec3 v, vec3 dest);
- */
-
-#ifndef cglm_vec3_ext_h
-#define cglm_vec3_ext_h
+#ifndef __CMATH_VEC3_EXT_H__
+#define __CMATH_VEC3_EXT_H__
 
 #include "cmath/common.h"
 #include "cmath/util.h"

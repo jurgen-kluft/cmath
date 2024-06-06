@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-   GLM_MAT2_IDENTITY_INIT
-   GLM_MAT2_ZERO_INIT
-   GLM_MAT2_IDENTITY
-   GLM_MAT2_ZERO
-
- Functions:
-   CGLM_INLINE void  glms_mat2_identity(mat2 mat)
-   CGLM_INLINE void  glms_mat2_identity_array(mat2 * restrict mat, size_t count)
-   CGLM_INLINE void  glms_mat2_zero(mat2 mat)
-   CGLM_INLINE void  glms_mat2_mul(mat2 m1, mat2 m2, mat2 dest)
-   CGLM_INLINE void  glms_mat2_transpose_to(mat2 m, mat2 dest)
-   CGLM_INLINE void  glms_mat2_transpose(mat2 m)
-   CGLM_INLINE void  glms_mat2_mulv(mat2 m, vec2 v, vec2 dest)
-   CGLM_INLINE float glms_mat2_trace(mat2 m)
-   CGLM_INLINE void  glms_mat2_scale(mat2 m, float s)
-   CGLM_INLINE float glms_mat2_det(mat2 mat)
-   CGLM_INLINE void  glms_mat2_inv(mat2 mat, mat2 dest)
-   CGLM_INLINE void  glms_mat2_swap_col(mat2 mat, int col1, int col2)
-   CGLM_INLINE void  glms_mat2_swap_row(mat2 mat, int row1, int row2)
-   CGLM_INLINE float glms_mat2_rmc(vec2 r, mat2 m, vec2 c)
-   CGLM_INLINE mat2s glms_mat2_make(const float * __restrict src);
- */
-
-#ifndef cglms_mat2_h
-#define cglms_mat2_h
+#ifndef __CMATH_STRUCT_MAT2_H__
+#define __CMATH_STRUCT_MAT2_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

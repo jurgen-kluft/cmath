@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_simd_wasm_h
-#define cglm_simd_wasm_h
+#ifndef __CMATH_SIMD_WASM_H__
+#define __CMATH_SIMD_WASM_H__
 #include "cmath/simd/intrin.h"
 #ifdef CGLM_SIMD_WASM
 #include <wasm_simd128.h>

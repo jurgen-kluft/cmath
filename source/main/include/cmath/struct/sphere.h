@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglms_spheres_h
-#define cglms_spheres_h
+#ifndef __CMATH_STRUCT_SPHERE_H__
+#define __CMATH_STRUCT_SPHERE_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

@@ -1,26 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Macros:
-   GLMS_MAT2X3_ZERO_INIT
-   GLMS_MAT2X3_ZERO
-
- Functions:
-   CGLM_INLINE mat2x3s glms_mat2x3_zero(void);
-   CGLM_INLINE mat2x3s glms_mat2x3_make(const float * __restrict src);
-   CGLM_INLINE mat2s   glms_mat2x3_mul(mat2x3s m1, mat3x2s m2);
-   CGLM_INLINE vec3s   glms_mat2x3_mulv(mat2x3s m, vec2s v);
-   CGLM_INLINE mat3x2s glms_mat2x3_transpose(mat2x3s m);
-   CGLM_INLINE mat2x3s glms_mat2x3_scale(mat2x3s m, float s);
- */
-
-#ifndef cglms_mat2x3_h
-#define cglms_mat2x3_h
+#ifndef __CMATH_STRUCT_MAT2X3_H__
+#define __CMATH_STRUCT_MAT2X3_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

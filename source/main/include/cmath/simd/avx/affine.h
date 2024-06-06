@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_affine_mat_avx_h
-#define cglm_affine_mat_avx_h
+#ifndef __CMATH_SIMD_AVX_AFFINE_H__
+#define __CMATH_SIMD_AVX_AFFINE_H__
 #ifdef __AVX__
 
 #include "cmath/common.h"

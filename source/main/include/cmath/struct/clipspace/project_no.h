@@ -1,19 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE vec3s glms_unprojecti_no(vec3s pos, mat4s invMat, vec4s vp)
-   CGLM_INLINE vec3s glms_project_no(vec3s pos, mat4s m, vec4s vp)
-   CGLM_INLINE float glms_project_z_no(vec3s v, mat4s m)
- */
-
-#ifndef cglms_project_no_h
-#define cglms_project_no_h
+#ifndef __CMATH_STRUCT_CLIPSPACE_PROJECT_NO_H__
+#define __CMATH_STRUCT_CLIPSPACE_PROJECT_NO_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

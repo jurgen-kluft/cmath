@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_simd_x86_h
-#define cglm_simd_x86_h
+#ifndef __CMATH_SIMD_X86_H__
+#define __CMATH_SIMD_X86_H__
 #include "cmath/simd/intrin.h"
 #ifdef CGLM_SIMD_x86
 

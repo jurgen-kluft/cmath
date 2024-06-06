@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_mat4_neon_h
-#define cglm_mat4_neon_h
+#ifndef __CMATH_SIMD_NEON_MAT4_H__
+#define __CMATH_SIMD_NEON_MAT4_H__
 #if defined(CGLM_NEON_FP)
 
 #include "cmath/common.h"

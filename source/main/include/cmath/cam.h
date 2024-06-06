@@ -1,52 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void  glm_frustum(float left,   float right,
-                                 float bottom, float top,
-                                 float nearZ,  float farZ,
-                                 mat4  dest)
-   CGLM_INLINE void  glm_ortho(float left,   float right,
-                               float bottom, float top,
-                               float nearZ,  float farZ,
-                               mat4  dest)
-   CGLM_INLINE void  glm_ortho_aabb(vec3 box[2], mat4 dest)
-   CGLM_INLINE void  glm_ortho_aabb_p(vec3 box[2],  float padding, mat4 dest)
-   CGLM_INLINE void  glm_ortho_aabb_pz(vec3 box[2], float padding, mat4 dest)
-   CGLM_INLINE void  glm_ortho_default(float aspect, mat4  dest)
-   CGLM_INLINE void  glm_ortho_default_s(float aspect, float size, mat4 dest)
-   CGLM_INLINE void  glm_perspective(float fovy,
-                                     float aspect,
-                                     float nearZ,
-                                     float farZ,
-                                     mat4  dest)
-   CGLM_INLINE void  glm_perspective_default(float aspect, mat4 dest)
-   CGLM_INLINE void  glm_perspective_resize(float aspect, mat4 proj)
-   CGLM_INLINE void  glm_lookat(vec3 eye, vec3 center, vec3 up, mat4 dest)
-   CGLM_INLINE void  glm_look(vec3 eye, vec3 dir, vec3 up, mat4 dest)
-   CGLM_INLINE void  glm_look_anyup(vec3 eye, vec3 dir, mat4 dest)
-   CGLM_INLINE void  glm_persp_decomp(mat4   proj,
-                                      float *nearZ, float *farZ,
-                                      float *top,   float *bottom,
-                                      float *left,  float *right)
-   CGLM_INLINE void  glm_persp_decompv(mat4 proj, float dest[6])
-   CGLM_INLINE void  glm_persp_decomp_x(mat4 proj, float *left, float *right)
-   CGLM_INLINE void  glm_persp_decomp_y(mat4 proj, float *top,  float *bottom)
-   CGLM_INLINE void  glm_persp_decomp_z(mat4 proj, float *nearv, float *farv)
-   CGLM_INLINE void  glm_persp_decomp_far(mat4 proj, float *farZ)
-   CGLM_INLINE void  glm_persp_decomp_near(mat4 proj, float *nearZ)
-   CGLM_INLINE float glm_persp_fovy(mat4 proj)
-   CGLM_INLINE float glm_persp_aspect(mat4 proj)
-   CGLM_INLINE void  glm_persp_sizes(mat4 proj, float fovy, vec4 dest)
- */
-
-#ifndef cglm_cam_h
-#define cglm_cam_h
+#ifndef __CMATH_CAM_H__
+#define __CMATH_CAM_H__
 
 #include "cmath/common.h"
 #include "cmath/plane.h"

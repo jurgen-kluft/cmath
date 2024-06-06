@@ -1,33 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*!
- * @brief SIMD like functions
- */
-
-/*
- Functions:
-   CGLM_INLINE vec2s glms_vec2_fill(float val)
-   CGLM_INLINE bool  glms_vec2_eq(vec2s v, float val)
-   CGLM_INLINE bool  glms_vec2_eq_eps(vec2s v, float val)
-   CGLM_INLINE bool  glms_vec2_eq_all(vec2s v)
-   CGLM_INLINE bool  glms_vec2_eqv(vec2s a, vec2s b)
-   CGLM_INLINE bool  glms_vec2_eqv_eps(vec2s a, vec2s b)
-   CGLM_INLINE float glms_vec2_max(vec2s v)
-   CGLM_INLINE float glms_vec2_min(vec2s v)
-   CGLM_INLINE bool  glms_vec2_isnan(vec2s v)
-   CGLM_INLINE bool  glms_vec2_isinf(vec2s v)
-   CGLM_INLINE bool  glms_vec2_isvalid(vec2s v)
-   CGLM_INLINE vec2s glms_vec2_sign(vec2s v)
-   CGLM_INLINE vec2s glms_vec2_sqrt(vec2s v)
- */
-
-#ifndef cglms_vec2s_ext_h
-#define cglms_vec2s_ext_h
+#ifndef __CMATH_STRUCT_VEC2_EXT_H__
+#define __CMATH_STRUCT_VEC2_EXT_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

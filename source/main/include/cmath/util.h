@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE int   glm_sign(int val);
-   CGLM_INLINE float glm_signf(float val);
-   CGLM_INLINE float glm_rad(float deg);
-   CGLM_INLINE float glm_deg(float rad);
-   CGLM_INLINE void  glm_make_rad(float *deg);
-   CGLM_INLINE void  glm_make_deg(float *rad);
-   CGLM_INLINE float glm_pow2(float x);
-   CGLM_INLINE float glm_min(float a, float b);
-   CGLM_INLINE float glm_max(float a, float b);
-   CGLM_INLINE float glm_clamp(float val, float minVal, float maxVal);
-   CGLM_INLINE float glm_clamp_zo(float val, float minVal, float maxVal);
-   CGLM_INLINE float glm_lerp(float from, float to, float t);
-   CGLM_INLINE float glm_lerpc(float from, float to, float t);
-   CGLM_INLINE float glm_step(float edge, float x);
-   CGLM_INLINE float glm_smooth(float t);
-   CGLM_INLINE float glm_smoothstep(float edge0, float edge1, float x);
-   CGLM_INLINE float glm_smoothinterp(float from, float to, float t);
-   CGLM_INLINE float glm_smoothinterpc(float from, float to, float t);
-   CGLM_INLINE bool  glm_eq(float a, float b);
-   CGLM_INLINE float glm_percent(float from, float to, float current);
-   CGLM_INLINE float glm_percentc(float from, float to, float current);
- */
-
-#ifndef cglm_util_h
-#define cglm_util_h
+#ifndef __CMATH_UTIL_H__
+#define __CMATH_UTIL_H__
 
 #include "cmath/common.h"
 

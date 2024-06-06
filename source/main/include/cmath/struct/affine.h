@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_translate(mat4s m, vec3s v);
-   CGLM_INLINE mat4s glms_translate_x(mat4s m, float x);
-   CGLM_INLINE mat4s glms_translate_y(mat4s m, float y);
-   CGLM_INLINE mat4s glms_translate_z(mat4s m, float z);
-   CGLM_INLINE mat4s glms_translate_make(vec3s v);
-   CGLM_INLINE mat4s glms_scale_to(mat4s m, vec3s v);
-   CGLM_INLINE mat4s glms_scale_make(vec3s v);
-   CGLM_INLINE mat4s glms_scale(mat4s m, vec3s v);
-   CGLM_INLINE mat4s glms_scale_uni(mat4s m, float s);
-   CGLM_INLINE mat4s glms_rotate_x(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotate_y(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotate_z(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotate_make(float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_rotate(mat4s m, float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_rotate_at(mat4s m, vec3s pivot, float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_rotate_atm(vec3s pivot, float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_spin(mat4s m, float angle, vec3s axis);
-   CGLM_INLINE vec3s glms_decompose_scalev(mat4s m);
-   CGLM_INLINE bool  glms_uniscaled(mat4s m);
-   CGLM_INLINE void  glms_decompose_rs(mat4s m, mat4s * r, vec3s * s);
-   CGLM_INLINE void  glms_decompose(mat4s m, vec4s t, mat4s * r, vec3s * s);
- */
-
-#ifndef cglms_affines_h
-#define cglms_affines_h
+#ifndef __CMATH_STRUCT_AFFINE_H__
+#define __CMATH_STRUCT_AFFINE_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

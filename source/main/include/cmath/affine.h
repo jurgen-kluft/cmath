@@ -1,38 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glm_translate_to(mat4 m, vec3 v, mat4 dest);
-   CGLM_INLINE void glm_translate(mat4 m, vec3 v);
-   CGLM_INLINE void glm_translate_x(mat4 m, float to);
-   CGLM_INLINE void glm_translate_y(mat4 m, float to);
-   CGLM_INLINE void glm_translate_z(mat4 m, float to);
-   CGLM_INLINE void glm_translate_make(mat4 m, vec3 v);
-   CGLM_INLINE void glm_scale_to(mat4 m, vec3 v, mat4 dest);
-   CGLM_INLINE void glm_scale_make(mat4 m, vec3 v);
-   CGLM_INLINE void glm_scale(mat4 m, vec3 v);
-   CGLM_INLINE void glm_scale_uni(mat4 m, float s);
-   CGLM_INLINE void glm_rotate_x(mat4 m, float angle, mat4 dest);
-   CGLM_INLINE void glm_rotate_y(mat4 m, float angle, mat4 dest);
-   CGLM_INLINE void glm_rotate_z(mat4 m, float angle, mat4 dest);
-   CGLM_INLINE void glm_rotate_make(mat4 m, float angle, vec3 axis);
-   CGLM_INLINE void glm_rotate(mat4 m, float angle, vec3 axis);
-   CGLM_INLINE void glm_rotate_at(mat4 m, vec3 pivot, float angle, vec3 axis);
-   CGLM_INLINE void glm_rotate_atm(mat4 m, vec3 pivot, float angle, vec3 axis);
-   CGLM_INLINE void glm_spin(mat4 m, float angle, vec3 axis);
-   CGLM_INLINE void glm_decompose_scalev(mat4 m, vec3 s);
-   CGLM_INLINE bool glm_uniscaled(mat4 m);
-   CGLM_INLINE void glm_decompose_rs(mat4 m, mat4 r, vec3 s);
-   CGLM_INLINE void glm_decompose(mat4 m, vec4 t, mat4 r, vec3 s);
- */
-
-#ifndef cglm_affine_h
-#define cglm_affine_h
+#ifndef __CMATH_AFFINE_H__
+#define __CMATH_AFFINE_H__
 
 #include "cmath/common.h"
 #include "cmath/util.h"

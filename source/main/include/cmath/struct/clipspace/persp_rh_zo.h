@@ -1,39 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_frustum_rh_zo(float left,    float right,
-                                        float bottom,  float top,
-                                        float nearZ,   float farZ)
-   CGLM_INLINE mat4s glms_perspective_rh_zo(float fovy,
-                                            float aspect,
-                                            float nearZ,
-                                            float farZ)
-   CGLM_INLINE void  glms_persp_move_far_rh_zo(mat4s proj, float deltaFar)
-   CGLM_INLINE mat4s glms_perspective_default_rh_zo(float aspect)
-   CGLM_INLINE void  glms_perspective_resize_rh_zo(mat4s proj, float aspect)
-   CGLM_INLINE void  glms_persp_decomp_rh_zo(mat4s  proj,
-                                             float *nearv, float *farv,
-                                             float *top,   float *bottom,
-                                             float *left,  float *right)
-   CGLM_INLINE void  glms_persp_decompv_rh_zo(mat4s proj, float dest[6])
-   CGLM_INLINE void  glms_persp_decomp_x_rh_zo(mat4s proj, float *left, float *right)
-   CGLM_INLINE void  glms_persp_decomp_y_rh_zo(mat4s proj, float *top, float *bottom)
-   CGLM_INLINE void  glms_persp_decomp_z_rh_zo(mat4s proj, float *nearv, float *farv)
-   CGLM_INLINE void  glms_persp_decomp_far_rh_zo(mat4s proj, float *farZ)
-   CGLM_INLINE void  glms_persp_decomp_near_rh_zo(mat4s proj, float *nearZ)
-   CGLM_INLINE float glms_persp_fovy_rh_zo(mat4s proj)
-   CGLM_INLINE float glms_persp_aspect_rh_zo(mat4s proj)
-   CGLM_INLINE vec4s glms_persp_sizes_rh_zo(mat4s proj, float fovy)
- */
-
-#ifndef cglms_persp_rh_zo_h
-#define cglms_persp_rh_zo_h
+#ifndef __CMATH_STRUCT_CLIPSPACE_PERSP_RH_ZO_H__
+#define __CMATH_STRUCT_CLIPSPACE_PERSP_RH_ZO_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

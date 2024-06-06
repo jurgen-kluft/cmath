@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_rand_h
-#define cglm_rand_h
+#ifndef __CMATH_DRAND_H__
+#define __CMATH_DRAND_H__
 
 /*!
  * @brief helper function to calculate S*M*C multiplication for curves

@@ -1,27 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glm_euler_xyz_quat_lh(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_xzy_quat_lh(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_yxz_quat_lh(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_yzx_quat_lh(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_zxy_quat_lh(vec3 angles, versor dest);
-   CGLM_INLINE void glm_euler_zyx_quat_lh(vec3 angles, versor dest);
- */
-
-/*
- Things to note:
- The only difference between euler to quat rh vs lh is that the zsin part is negative
- */
-
-#ifndef cglm_euler_to_quat_lh_h
-#define cglm_euler_to_quat_lh_h
+#ifndef __CMATH_HANDED_EULER_TO_QUAT_LH_H__
+#define __CMATH_HANDED_EULER_TO_QUAT_LH_H__
 
 #include "cmath/common.h"
 

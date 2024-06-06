@@ -1,26 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_translated(mat4s m, vec3s v);
-   CGLM_INLINE mat4s glms_translated_x(mat4s m, float x);
-   CGLM_INLINE mat4s glms_translated_y(mat4s m, float y);
-   CGLM_INLINE mat4s glms_translated_z(mat4s m, float z);
-   CGLM_INLINE mat4s glms_rotated_x(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotated_y(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotated_z(mat4s m, float angle);
-   CGLM_INLINE mat4s glms_rotated(mat4s m, float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_rotated_at(mat4s m, vec3s pivot, float angle, vec3s axis);
-   CGLM_INLINE mat4s glms_spinned(mat4s m, float angle, vec3s axis);
- */
-
-#ifndef cglms_affines_post_h
-#define cglms_affines_post_h
+#ifndef __CMATH_STRUCT_AFFINE_POST_H__
+#define __CMATH_STRUCT_AFFINE_POST_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

@@ -1,22 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glms_euler_xyz_quat_rh(vec3 angles, versor dest);
-   CGLM_INLINE void glms_euler_xzy_quat_rh(vec3 angles, versor dest);
-   CGLM_INLINE void glms_euler_yxz_quat_rh(vec3 angles, versor dest);
-   CGLM_INLINE void glms_euler_yzx_quat_rh(vec3 angles, versor dest);
-   CGLM_INLINE void glms_euler_zxy_quat_rh(vec3 angles, versor dest);
-   CGLM_INLINE void glms_euler_zyx_quat_rh(vec3 angles, versor dest);
- */
-
-#ifndef cglms_euler_to_quat_rh_h
-#define cglms_euler_to_quat_rh_h
+#ifndef __CMATH_STRUCT_HANDED_EULER_TO_QUAT_RH_H__
+#define __CMATH_STRUCT_HANDED_EULER_TO_QUAT_RH_H__
 
 #include "cmath/common.h"
 

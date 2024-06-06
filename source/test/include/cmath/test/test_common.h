@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef test_common_h
-#define test_common_h
+#ifndef __CMATH_TEST_TEST_COMMON_H__
+#define __CMATH_TEST_TEST_COMMON_H__
 
 #include "cmath/common.h"
 #include "cmath/test/common.h"

@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_applesimd_h
-#define cglm_applesimd_h
+#ifndef __CMATH_APPLESIMD_H__
+#define __CMATH_APPLESIMD_H__
 #if defined(__APPLE__)                                                        \
     && defined(SIMD_COMPILER_HAS_REQUIRED_FEATURES)                           \
     && defined(SIMD_BASE)                                                     \

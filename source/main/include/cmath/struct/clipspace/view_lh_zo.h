@@ -1,19 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_lookat_lh_zo(vec3s eye, vec3s center, vec3s up)
-   CGLM_INLINE mat4s glms_look_lh_zo(vec3s eye, vec3s dir, vec3s up)
-   CGLM_INLINE mat4s glms_look_anyup_lh_zo(vec3s eye, vec3s dir)
- */
-
-#ifndef cglms_view_lh_zo_h
-#define cglms_view_lh_zo_h
+#ifndef __CMATH_STRUCT_CLIPSPACE_VIEW_LH_ZO_H__
+#define __CMATH_STRUCT_CLIPSPACE_VIEW_LH_ZO_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_types_struct_h
-#define cglm_types_struct_h
+#ifndef __CMATH_TYPES_STRUCT_H__
+#define __CMATH_TYPES_STRUCT_H__
 
 #include "cmath/types.h"
 

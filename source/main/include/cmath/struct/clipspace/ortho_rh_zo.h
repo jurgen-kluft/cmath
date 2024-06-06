@@ -1,24 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_ortho_rh_zo(float left,    float right,
-                                      float bottom,  float top,
-                                      float nearZ,   float farZ)
-   CGLM_INLINE mat4s glms_ortho_aabb_rh_zo(vec3s box[2]);
-   CGLM_INLINE mat4s glms_ortho_aabb_p_rh_zo(vec3s box[2],  float padding);
-   CGLM_INLINE mat4s glms_ortho_aabb_pz_rh_zo(vec3s box[2], float padding);
-   CGLM_INLINE mat4s glms_ortho_default_rh_zo(float aspect)
-   CGLM_INLINE mat4s glms_ortho_default_s_rh_zo(float aspect, float size)
- */
-
-#ifndef cglms_ortho_rh_zo_h
-#define cglms_ortho_rh_zo_h
+#ifndef __CMATH_STRUCT_CLIPSPACE_ORTHO_RH_ZO_H__
+#define __CMATH_STRUCT_CLIPSPACE_ORTHO_RH_ZO_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*!
- * @brief SIMD like functions
- */
-
-/*
- Functions:
-   CGLM_INLINE void  glm_vec4_broadcast(float val, vec4 d);
-   CGLM_INLINE void  glm_vec4_fill(vec4 v, float val);
-   CGLM_INLINE bool  glm_vec4_eq(vec4 v, float val);
-   CGLM_INLINE bool  glm_vec4_eq_eps(vec4 v, float val);
-   CGLM_INLINE bool  glm_vec4_eq_all(vec4 v);
-   CGLM_INLINE bool  glm_vec4_eqv(vec4 a, vec4 b);
-   CGLM_INLINE bool  glm_vec4_eqv_eps(vec4 a, vec4 b);
-   CGLM_INLINE float glm_vec4_max(vec4 v);
-   CGLM_INLINE float glm_vec4_min(vec4 v);
-   CGLM_INLINE bool  glm_vec4_isnan(vec4 v);
-   CGLM_INLINE bool  glm_vec4_isinf(vec4 v);
-   CGLM_INLINE bool  glm_vec4_isvalid(vec4 v);
-   CGLM_INLINE void  glm_vec4_sign(vec4 v, vec4 dest);
-   CGLM_INLINE void  glm_vec4_abs(vec4 v, vec4 dest);
-   CGLM_INLINE void  glm_vec4_fract(vec4 v, vec4 dest);
-   CGLM_INLINE float glm_vec4_hadd(vec4 v);
-   CGLM_INLINE void  glm_vec4_sqrt(vec4 v, vec4 dest);
- */
-
-#ifndef cglm_vec4_ext_h
-#define cglm_vec4_ext_h
+#ifndef __CMATH_VEC4_EXT_H__
+#define __CMATH_VEC4_EXT_H__
 
 #include "cmath/common.h"
 #include "cmath/vec3-ext.h"

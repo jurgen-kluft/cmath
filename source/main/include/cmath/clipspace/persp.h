@@ -1,20 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void  glm_persp_decomp_far(mat4 proj, float *farZ)
-   CGLM_INLINE float glm_persp_fovy(mat4 proj)
-   CGLM_INLINE float glm_persp_aspect(mat4 proj)
-   CGLM_INLINE void  glm_persp_sizes(mat4 proj, float fovy, vec4 dest)
- */
-
-#ifndef cglm_persp_h
-#define cglm_persp_h
+#ifndef __CMATH_CLIPSPACE_PERSP_H__
+#define __CMATH_CLIPSPACE_PERSP_H__
 
 #include "cmath/common.h"
 #include "cmath/plane.h"

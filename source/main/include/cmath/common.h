@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_common_h
-#define cglm_common_h
+#ifndef __CMATH_COMMON_H__
+#define __CMATH_COMMON_H__
 
 #ifndef _USE_MATH_DEFINES
 #  define _USE_MATH_DEFINES       /* for windows */

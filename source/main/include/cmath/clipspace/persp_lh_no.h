@@ -1,50 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE void glm_frustum_lh_no(float left,    float right,
-                                       float bottom,  float top,
-                                       float nearZ, float farZ,
-                                       mat4  dest)
-   CGLM_INLINE void glm_perspective_lh_no(float fovy,
-                                          float aspect,
-                                          float nearZ,
-                                          float farZ,
-                                          mat4  dest)
-   CGLM_INLINE void glm_perspective_default_lh_no(float aspect, mat4 dest)
-   CGLM_INLINE void glm_perspective_resize_lh_no(float aspect, mat4 proj)
-   CGLM_INLINE void glm_persp_move_far_lh_no(mat4 proj,
-                                             float deltaFar)
-   CGLM_INLINE void glm_persp_decomp_lh_no(mat4 proj,
-                                           float * __restrict nearZ,
-                                           float * __restrict farZ,
-                                           float * __restrict top,
-                                           float * __restrict bottom,
-                                           float * __restrict left,
-                                           float * __restrict right)
-  CGLM_INLINE void glm_persp_decompv_lh_no(mat4 proj,
-                                           float dest[6])
-  CGLM_INLINE void glm_persp_decomp_x_lh_no(mat4 proj,
-                                            float * __restrict left,
-                                            float * __restrict right)
-  CGLM_INLINE void glm_persp_decomp_y_lh_no(mat4 proj,
-                                            float * __restrict top,
-                                            float * __restrict bottom)
-  CGLM_INLINE void glm_persp_decomp_z_lh_no(mat4 proj,
-                                            float * __restrict nearZ,
-                                            float * __restrict farZ)
-  CGLM_INLINE void glm_persp_decomp_far_lh_no(mat4 proj, float * __restrict farZ)
-  CGLM_INLINE void glm_persp_decomp_near_lh_no(mat4 proj, float * __restrict nearZ)
-  CGLM_INLINE void glm_persp_sizes_lh_no(mat4 proj, float fovy, vec4 dest)
- */
-
-#ifndef cglm_persp_lh_no_h
-#define cglm_persp_lh_no_h
+#ifndef __CMATH_CLIPSPACE_PERSP_LH_NO_H__
+#define __CMATH_CLIPSPACE_PERSP_LH_NO_H__
 
 #include "cmath/common.h"
 #include "cmath/clipspace/persp.h"

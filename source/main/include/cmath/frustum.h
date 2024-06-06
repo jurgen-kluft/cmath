@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_frustum_h
-#define cglm_frustum_h
+#ifndef __CMATH_FRUSTUM_H__
+#define __CMATH_FRUSTUM_H__
 
 #include "cmath/common.h"
 #include "cmath/plane.h"

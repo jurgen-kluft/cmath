@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglms_ray_h
-#define cglms_ray_h
+#ifndef __CMATH_STRUCT_RAY_H__
+#define __CMATH_STRUCT_RAY_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

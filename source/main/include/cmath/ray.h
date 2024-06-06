@@ -1,28 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE bool glm_ray_triangle(vec3   origin,
-                                     vec3   direction,
-                                     vec3   v0,
-                                     vec3   v1,
-                                     vec3   v2,
-                                     float *d);
- CGLM_INLINE bool glm_ray_sphere(vec3 origin,
-                                 vec3 dir,
-                                 vec4 s,
-                                 float * __restrict t1,
-                                 float * __restrict t2)
- CGLM_INLINE void glm_ray_at(vec3 orig, vec3 dir, float t, vec3 point);
-*/
-
-#ifndef cglm_ray_h
-#define cglm_ray_h
+#ifndef __CMATH_RAY_H__
+#define __CMATH_RAY_H__
 
 #include "cmath/vec3.h"
 

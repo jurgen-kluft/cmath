@@ -1,52 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*!
- * Most of functions in this header are optimized manually with SIMD
- * if available. You dont need to call/incude SIMD headers manually
- */
-
-/*
- Macros:
-   GLMS_MAT4_IDENTITY_INIT
-   GLMS_MAT4_ZERO_INIT
-   GLMS_MAT4_IDENTITY
-   GLMS_MAT4_ZERO
-
- Functions:
-   CGLM_INLINE mat4s   glms_mat4_ucopy(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_copy(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_identity(void);
-   CGLM_INLINE void    glms_mat4_identity_array(mat4s * __restrict mat, size_t count);
-   CGLM_INLINE mat4s   glms_mat4_zero(void);
-   CGLM_INLINE mat3s   glms_mat4_pick3(mat4s mat);
-   CGLM_INLINE mat3s   glms_mat4_pick3t(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_ins3(mat3s mat, mat4s dest);
-   CGLM_INLINE mat4s   glms_mat4_mul(mat4s m1, mat4s m2);
-   CGLM_INLINE mat4s   glms_mat4_mulN(mat4s * __restrict matrices[], uint32_t len);
-   CGLM_INLINE vec4s   glms_mat4_mulv(mat4s m, vec4s v);
-   CGLM_INLINE float   glms_mat4_trace(mat4s m);
-   CGLM_INLINE float   glms_mat4_trace3(mat4s m);
-   CGLM_INLINE versors glms_mat4_quat(mat4s m);
-   CGLM_INLINE vec3s   glms_mat4_mulv3(mat4s m, vec3s v, float last);
-   CGLM_INLINE mat4s   glms_mat4_transpose(mat4s m);
-   CGLM_INLINE mat4s   glms_mat4_scale_p(mat4s m, float s);
-   CGLM_INLINE mat4s   glms_mat4_scale(mat4s m, float s);
-   CGLM_INLINE float   glms_mat4_det(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_inv(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_inv_fast(mat4s mat);
-   CGLM_INLINE mat4s   glms_mat4_swap_col(mat4s mat, int col1, int col2);
-   CGLM_INLINE mat4s   glms_mat4_swap_row(mat4s mat, int row1, int row2);
-   CGLM_INLINE float   glms_mat4_rmc(vec4s r, mat4s m, vec4s c);
-   CGLM_INLINE mat4s   glms_mat4_make(const float * __restrict src);
- */
-
-#ifndef cglms_mat4s_h
-#define cglms_mat4s_h
+#ifndef __CMATH_STRUCT_MAT4_H__
+#define __CMATH_STRUCT_MAT4_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

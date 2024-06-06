@@ -1,41 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- NOTE:
-  angles must be passed as [X-Angle, Y-Angle, Z-angle] order
-  For instance you don't pass angles as [Z-Angle, X-Angle, Y-angle] to
-  glm_euler_zxy function, All RELATED functions accept angles same order
-  which is [X, Y, Z].
- */
-
-/*
- Types:
-   enum glm_euler_seq
-
- Functions:
-   CGLM_INLINE vec3s glms_euler_angles(mat4s m)
-   CGLM_INLINE mat4s glms_euler_xyz(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_xzy(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_yxz(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_yzx(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_zxy(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_zyx(vec3s angles)
-   CGLM_INLINE mat4s glms_euler_by_order(vec3s angles, glm_euler_seq ord)
-   CGLM_INLINE versors glms_euler_xyz_quat(vec3s angles)
-   CGLM_INLINE versors glms_euler_xzy_quat(vec3s angles)
-   CGLM_INLINE versors glms_euler_yxz_quat(vec3s angles)
-   CGLM_INLINE versors glms_euler_yzx_quat(vec3s angles)
-   CGLM_INLINE versors glms_euler_zxy_quat(vec3s angles)
-   CGLM_INLINE versors glms_euler_zyx_quat(vec3s angles)
- */
-
-#ifndef cglms_euler_h
-#define cglms_euler_h
+#ifndef __CMATH_STRUCT_EULER_H__
+#define __CMATH_STRUCT_EULER_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

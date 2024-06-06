@@ -1,37 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*!
- * @brief SIMD like functions
- */
-
-/*
- Functions:
-   CGLM_INLINE vec3s glms_vec3_broadcast(float val);
-   CGLM_INLINE vec3s glms_vec3_fill(float val);
-   CGLM_INLINE bool  glms_vec3_eq(vec3s v, float val);
-   CGLM_INLINE bool  glms_vec3_eq_eps(vec3s v, float val);
-   CGLM_INLINE bool  glms_vec3_eq_all(vec3s v);
-   CGLM_INLINE bool  glms_vec3_eqv(vec3s a, vec3s b);
-   CGLM_INLINE bool  glms_vec3_eqv_eps(vec3s a, vec3s b);
-   CGLM_INLINE float glms_vec3_max(vec3s v);
-   CGLM_INLINE float glms_vec3_min(vec3s v);
-   CGLM_INLINE bool  glms_vec3_isnan(vec3s v);
-   CGLM_INLINE bool  glms_vec3_isinf(vec3s v);
-   CGLM_INLINE bool  glms_vec3_isvalid(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_sign(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_abs(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_fract(vec3s v);
-   CGLM_INLINE float glms_vec3_hadd(vec3s v);
-   CGLM_INLINE vec3s glms_vec3_sqrt(vec3s v);
- */
-
-#ifndef cglms_vec3s_ext_h
-#define cglms_vec3s_ext_h
+#ifndef __CMATH_STRUCT_VEC3_EXT_H__
+#define __CMATH_STRUCT_VEC3_EXT_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

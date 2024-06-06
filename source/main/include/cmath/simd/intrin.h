@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_intrin_h
-#define cglm_intrin_h
+#ifndef __CMATH_SIMD_INTRIN_H__
+#define __CMATH_SIMD_INTRIN_H__
 
 #if defined( _MSC_VER )
 #  if (defined(_M_AMD64) || defined(_M_X64)) || _M_IX86_FP == 2

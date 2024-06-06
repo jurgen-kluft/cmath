@@ -1,12 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-#ifndef cglm_project_no_h
-#define cglm_project_no_h
+#ifndef __CMATH_CLIPSPACE_PROJECT_NO_H__
+#define __CMATH_CLIPSPACE_PROJECT_NO_H__
 
 #include "cmath/common.h"
 #include "cmath/vec3.h"

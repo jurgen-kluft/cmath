@@ -1,26 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat3s glms_translate2d(mat3 m, vec2 v)
-   CGLM_INLINE mat3s glms_translate2d_x(mat3s m, float x)
-   CGLM_INLINE mat3s glms_translate2d_y(mat3s m, float y)
-   CGLM_INLINE mat3s glms_translate2d_make(vec2s v)
-   CGLM_INLINE mat3s glms_scale2d_make(vec2s v)
-   CGLM_INLINE mat3s glms_scale2d(mat3s m, vec2s v)
-   CGLM_INLINE mat3s glms_scale2d_uni(mat3s m, float s)
-   CGLM_INLINE mat3s glms_rotate2d_make(float angle)
-   CGLM_INLINE mat3s glms_rotate2d(mat3s m, float angle)
-   CGLM_INLINE mat3s glms_rotate2d_to(mat3s m, float angle)
- */
-
-#ifndef cglms_affine2ds_h
-#define cglms_affine2ds_h
+#ifndef __CMATH_STRUCT_AFFINE2D_H__
+#define __CMATH_STRUCT_AFFINE2D_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"

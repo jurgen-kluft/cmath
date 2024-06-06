@@ -1,19 +1,5 @@
-/*
- * Copyright (c), Recep Aslantas.
- *
- * MIT License (MIT), http://opensource.org/licenses/MIT
- * Full license can be found in the LICENSE file
- */
-
-/*
- Functions:
-   CGLM_INLINE mat4s glms_mul(mat4 m1, mat4 m2);
-   CGLM_INLINE mat4s glms_mul_rot(mat4 m1, mat4 m2);
-   CGLM_INLINE mat4s glms_inv_tr();
- */
-
-#ifndef cglms_affine_mat_h
-#define cglms_affine_mat_h
+#ifndef __CMATH_STRUCT_AFFINE_MAT_H__
+#define __CMATH_STRUCT_AFFINE_MAT_H__
 
 #include "cmath/common.h"
 #include "cmath/types-struct.h"
