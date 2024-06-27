@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-#include "cmath/cglm.h"
+#include "cmath/c_math.h"
 #include "cmath/types-struct.h"
 #include "cmath/struct/vec2.h"
 #include "cmath/struct/vec3.h"
