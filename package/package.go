@@ -1,7 +1,7 @@
 package cmath
 
 import (
-	cbase "github.com/jurgen-kluft/cbase/package"
+	ccore "github.com/jurgen-kluft/cbase/package"
 	"github.com/jurgen-kluft/ccode/denv"
 	cunittest "github.com/jurgen-kluft/cunittest/package"
 )
@@ -10,15 +10,15 @@ import (
 func GetPackage() *denv.Package {
 	// Dependencies
 	cunittestpkg := cunittest.GetPackage()
-	cbasepkg := cbase.GetPackage()
+	ccorepkg := ccore.GetPackage()
 
 	// The main (cmath) package
 	mainpkg := denv.NewPackage("cmath")
-	mainpkg.AddPackage(cbasepkg)
+	mainpkg.AddPackage(ccorepkg)
 
 	// 'cmath' library
 	mainlib := denv.SetupDefaultCppLibProject("cmath", "github.com\\jurgen-kluft\\cmath")
-	mainlib.Dependencies = append(mainlib.Dependencies, cbasepkg.GetMainLib())
+	mainlib.Dependencies = append(mainlib.Dependencies, ccorepkg.GetMainLib())
 
 	// 'cmath' unittest project
 	maintest := denv.SetupDefaultCppTestProject("cmath_test", "github.com\\jurgen-kluft\\cmath")
