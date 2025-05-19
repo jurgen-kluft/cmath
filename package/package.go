@@ -17,13 +17,13 @@ func GetPackage() *denv.Package {
 	mainpkg.AddPackage(ccorepkg)
 
 	// 'cmath' library
-	mainlib := denv.SetupDefaultCppLibProject("cmath", "github.com\\jurgen-kluft\\cmath")
-	mainlib.Dependencies = append(mainlib.Dependencies, ccorepkg.GetMainLib())
+	mainlib := denv.SetupCppLibProject("cmath", "github.com\\jurgen-kluft\\cmath")
+	mainlib.AddDependencies(ccorepkg.GetMainLib()...)
 
 	// 'cmath' unittest project
 	maintest := denv.SetupDefaultCppTestProject("cmath_test", "github.com\\jurgen-kluft\\cmath")
 	maintest.AddDefine("CGLM_DEFINE_PRINTS")
-	maintest.Dependencies = append(maintest.Dependencies, cunittestpkg.GetMainLib())
+	maintest.AddDependencies(cunittestpkg.GetMainLib()...)
 	maintest.Dependencies = append(maintest.Dependencies, mainlib)
 
 	mainpkg.AddMainLib(mainlib)
