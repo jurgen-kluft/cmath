@@ -14,7 +14,6 @@ TEST_DECLARE(glm_mul)
 TEST_DECLARE(glm_mul)
 TEST_DECLARE(glm_inv_tr)
 
-
 /* affine */
 TEST_DECLARE(glm_translate)
 TEST_DECLARE(glm_translate_to)
@@ -38,7 +37,6 @@ TEST_DECLARE(glm_uniscaled)
 TEST_DECLARE(glm_decompose_rs)
 TEST_DECLARE(glm_decompose)
 
-
 /* affine 2d */
 TEST_DECLARE(glm_translate2d)
 TEST_DECLARE(glm_translate2d_to)
@@ -52,7 +50,6 @@ TEST_DECLARE(glm_scale2d_uni)
 TEST_DECLARE(glm_rotate2d_make)
 TEST_DECLARE(glm_rotate2d)
 TEST_DECLARE(glm_rotate2d_to)
-
 
 /* mat4 */
 TEST_DECLARE(glm_mat4_ucopy)
@@ -82,7 +79,6 @@ TEST_DECLARE(glm_mat4_swap_col)
 TEST_DECLARE(glm_mat4_swap_row)
 TEST_DECLARE(glm_mat4_rmc)
 
-
 /* mat3 */
 TEST_DECLARE(glm_mat3_copy)
 TEST_DECLARE(glm_mat3_identity)
@@ -100,7 +96,6 @@ TEST_DECLARE(glm_mat3_inv)
 TEST_DECLARE(glm_mat3_swap_col)
 TEST_DECLARE(glm_mat3_swap_row)
 TEST_DECLARE(glm_mat3_rmc)
-
 
 TEST_DECLARE(MACRO_GLM_MAT2_IDENTITY_INIT)
 TEST_DECLARE(MACRO_GLM_MAT2_ZERO_INIT)
@@ -122,7 +117,6 @@ TEST_DECLARE(glm_mat2_swap_col)
 TEST_DECLARE(glm_mat2_swap_row)
 TEST_DECLARE(glm_mat2_rmc)
 
-
 /* camera (incl [LR]H cross [NZ]O) */
 TEST_DECLARE(glm_perspective_lh_zo)
 TEST_DECLARE(glm_perspective_rh_zo)
@@ -133,12 +127,10 @@ TEST_DECLARE(glm_camera_decomp)
 
 TEST_DECLARE(glm_frustum)
 
-
 /* project */
 TEST_DECLARE(glm_unprojecti)
 TEST_DECLARE(glm_unproject)
 TEST_DECLARE(glm_project)
-
 
 /* plane */
 TEST_DECLARE(glm_plane_normalize)
@@ -194,7 +186,6 @@ TEST_DECLARE(glm_quat_rotate_at)
 TEST_DECLARE(glm_quat_rotate_atm)
 TEST_DECLARE(glm_quat_from_vecs)
 
-
 /* bezier */
 TEST_DECLARE(bezier)
 
@@ -240,7 +231,6 @@ TEST_DECLARE(glm_vec2_clamp)
 TEST_DECLARE(glm_vec2_lerp)
 TEST_DECLARE(glm_vec2_complex_mul)
 TEST_DECLARE(glm_vec2_complex_div)
-
 
 /* vec3 */
 TEST_DECLARE(MACRO_GLM_VEC3_ONE_INIT)
@@ -337,7 +327,6 @@ TEST_DECLARE(glm_vec3_fract)
 TEST_DECLARE(glm_vec3_hadd)
 TEST_DECLARE(glm_vec3_sqrt)
 
-
 /* vec4 */
 TEST_DECLARE(MACRO_GLM_VEC4_ONE_INIT)
 TEST_DECLARE(MACRO_GLM_VEC4_ZERO_INIT)
@@ -419,7 +408,6 @@ TEST_DECLARE(glm_vec4_fract)
 TEST_DECLARE(glm_vec4_hadd)
 TEST_DECLARE(glm_vec4_sqrt)
 
-
 /* ivec2 */
 TEST_DECLARE(glm_ivec2)
 TEST_DECLARE(glm_ivec2_copy)
@@ -436,7 +424,6 @@ TEST_DECLARE(glm_ivec2_distance)
 TEST_DECLARE(glm_ivec2_maxv)
 TEST_DECLARE(glm_ivec2_minv)
 TEST_DECLARE(glm_ivec2_clamp)
-
 
 /* ivec3 */
 TEST_DECLARE(glm_ivec3)
@@ -455,7 +442,6 @@ TEST_DECLARE(glm_ivec3_maxv)
 TEST_DECLARE(glm_ivec3_minv)
 TEST_DECLARE(glm_ivec3_clamp)
 
-
 /* ivec4 */
 TEST_DECLARE(glm_ivec4)
 TEST_DECLARE(glm_ivec4_copy)
@@ -473,7 +459,6 @@ TEST_DECLARE(glm_ivec4_maxv)
 TEST_DECLARE(glm_ivec4_minv)
 TEST_DECLARE(glm_ivec4_clamp)
 
-
 /* structs */
 TEST_DECLARE(mat3s_identity_init)
 TEST_DECLARE(mat3s_zero_init)
@@ -488,6 +473,7 @@ TEST_DECLARE(vec4s_zero_init)
 
 /*****************************************************************************/
 
+// clang-format off
 TEST_LIST {
   /* affine mat */
   TEST_ENTRY(glm_mul)
@@ -783,7 +769,7 @@ TEST_LIST {
   TEST_ENTRY(glm_vec3_rotate_m3)
   TEST_ENTRY(glm_vec3_proj)
   TEST_ENTRY(glm_vec3_center)
-      TEST_ENTRY(glm_vec3_maxv)
+  TEST_ENTRY(glm_vec3_maxv)
   TEST_ENTRY(glm_vec3_minv)
   TEST_ENTRY(glm_vec3_ortho)
   TEST_ENTRY(glm_vec3_clamp)
@@ -963,5 +949,6 @@ TEST_LIST {
   TEST_ENTRY(vec4s_one_init)
   TEST_ENTRY(vec4s_zero_init)
 };
+// clang-format on
 
 #endif /* tests_h */

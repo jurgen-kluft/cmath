@@ -18,12 +18,11 @@ UNITTEST_SUITE_BEGIN(cmath)
         {
             test_entry_t* entry;
             test_status_t st;
-            int32_t       i, count, passed, failed, maxlen;
-            double        start, end, elapsed, total;
+            int32_t       i, count, maxlen;
+            double        start, end, elapsed;
 
-            passed = failed = maxlen = 0;
-            total                    = 0.0;
-            count                    = sizeof(tests) / sizeof(tests[0]);
+            maxlen = 0;
+            count           = sizeof(tests) / sizeof(tests[0]);
 
             for (i = 0; i < count; i++)
             {
@@ -42,7 +41,6 @@ UNITTEST_SUITE_BEGIN(cmath)
                 st      = entry->entry();
                 end     = clock();
                 elapsed = (end - start) / CLOCKS_PER_SEC;
-                total += elapsed;
 
                 CHECK_TRUE(st.status);
 
@@ -55,8 +53,6 @@ UNITTEST_SUITE_BEGIN(cmath)
                     }
 
                     fprintf(stderr, "\n");
-
-                    failed++;
                 }
                 else
                 {
@@ -68,7 +64,6 @@ UNITTEST_SUITE_BEGIN(cmath)
                         fprintf(stderr, "0");
 
                     fprintf(stderr, "\n" RESET);
-                    passed++;
                 }
             }
         }
